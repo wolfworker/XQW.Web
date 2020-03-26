@@ -1,0 +1,11 @@
+G:\01_sourcecode\XQW.Web\XQW.Utility\bin\Debug\XQW.Utility.dll
+G:\01_sourcecode\XQW.Web\XQW.Utility\bin\Debug\XQW.Utility.pdb
+G:\01_sourcecode\XQW.Web\XQW.Utility\obj\Debug\XQW.Utility.csprojAssemblyReference.cache
+G:\01_sourcecode\XQW.Web\XQW.Utility\obj\Debug\XQW.Utility.csproj.CoreCompileInputs.cache
+G:\01_sourcecode\XQW.Web\XQW.Utility\obj\Debug\XQW.Utility.dll
+G:\01_sourcecode\XQW.Web\XQW.Utility\obj\Debug\XQW.Utility.pdb
+D:\zzscode\XQW.Web\XQW.Utility\bin\Debug\XQW.Utility.dll
+D:\zzscode\XQW.Web\XQW.Utility\bin\Debug\XQW.Utility.pdb
+D:\zzscode\XQW.Web\XQW.Utility\obj\Debug\XQW.Utility.dll
+D:\zzscode\XQW.Web\XQW.Utility\obj\Debug\XQW.Utility.pdb
+D:\zzscode\XQW.Web\XQW.Utility\obj\Debug\XQW.Utility.csprojAssemblyReference.cache

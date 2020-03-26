@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - 小青蛙商学院</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <link rel="stylesheet" href="~/Content/thirdstyle1.css" type="text/css">
+    <link rel="stylesheet" id="PrismCss-css" href="http://www.zixuexia.com/wp-content/themes/BlackMirror/assets/css/prism.css?ver=1.5.0" type="text/css" media="all">
+    <link rel="stylesheet" href="~/Content/jquery.fancybox.min.css" type="text/css">
+
+    <style>
+
+        html,
+        body {
+            /* 一定要设置这个值不然撑不开 */
+            height: 100%;
+        }
+
+        .section {
+            height: 100%;
+            width: 100%;
+            position: relative;
+        }
+
+        .top {
+            width: 100%;
+            height: 30px;
+            position: absolute;
+            top: 0;
+        }
+
+        .center {
+            width: 100%;
+            position: absolute;
+            top: 30px;
+            bottom: 20px;
+            overflow: auto;
+        }
+
+        .buttom {
+            width: 100%;
+            height: 20px;
+            position: absolute;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <section class="section">
+        <div class="top bcategorydiv">
+        </div>
+        <div class="center">
+            @RenderBody()
+        </div>
+        <div class="buttom">
+            <p>&copy; @DateTime.Now.Year 版权所有- 小青蛙商学院</p>
+        </div>
+    </section>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script>
+
+        $(function () {
+            //加载二级分类列表
+            loadCategory()
+        });
+
+        function loadCategory() {
+            $.ajax({
+                url: "../Category/GetBCategoryList",    //请求的url地址
+                dataType: "json",   //返回格式为json
+                async: true, //请求是否异步，默认为异步，这也是ajax重要特性
+                data: { "acategoryid": "" },    //参数值
+                type: "GET",   //请求方式
+                success: function (result) {
+                    //请求成功时处理
+                    var htmlstr = '<a href="/">小青蛙商学院</a>     ';
+                    $.each(result, function (i, item) {
+                        htmlstr += '<a href="/Category/BIndex?bcategoryid=' + item.BCategoryID + '" class="bcategory">' + item.BCategoryName + '</a>';
+                        htmlstr += '  ';
+                    });
+                    $(".bcategorydiv").append(htmlstr);
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

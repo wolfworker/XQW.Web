@@ -1,0 +1,343 @@
+﻿@{
+    ViewBag.Title = "商品详情页";
+}
+
+<style type="text/css">
+    .article-like .favorite, .carousel-info-meta .carousel-info-category, .tagcloud a:hover, .calendar_wrap table td a, .article-meta .article-meta-tags a, .article-support .article-support-button a, .comments #respond .form-submit input {
+        background-color: #38B7EA;
+    }
+</style>
+@{
+    var productDetail = ViewBag.ProductDetail;
+
+    <main class="container pt-xs-6" id="pjax-content">
+        <div class="row">
+            <div class="col-md-9 no-gutter-xs">
+                <div id="main">
+                    @*教程详情*@
+                    <article class="article " id="post-297">
+                        <div class="article-title">
+                            <a href="http://www.zixuexia.com/archives/297">
+                                @productDetail.ProductTitle
+                            </a>
+                        </div>
+                        <div class="article-meta">
+                            <span class="article-meta-time">
+                                @productDetail.CreatedTime
+                            </span>
+                            <i class="czs-bookmark"></i>
+                            <a href="http://www.zixuexia.com/catalogs/2%e5%b9%b3%e9%9d%a2%e5%bd%b1%e8%a7%86%e4%b8%89%e7%bb%b4%e7%bd%91%e7%ab%99" rel="category tag">2平面|影视|三维|网站</a>
+                            <a href="http://www.zixuexia.com/catalogs/2%e5%b9%b3%e9%9d%a2%e5%bd%b1%e8%a7%86%e4%b8%89%e7%bb%b4%e7%bd%91%e7%ab%99/%e5%bd%b1%e8%a7%86" rel="category tag">影视</a>&nbsp;
+                            <i class="czs-heart"></i>
+                            <span class="count">
+                                @productDetail.LikeCount
+                            </span>&nbsp;
+                            <i class="czs-comment"></i>
+                            <a href="http://www.zixuexia.com/archives/297#respond" class="article-meta-comment">@productDetail.CommentCount</a><i class="czs-eye"></i> @productDetail.SeenCount&nbsp;
+                            <!-- user edit -->
+                            <div class="article-meta-tags">
+                                <a href="http://www.zixuexia.com/tags/2%e5%b9%b3%e9%9d%a2%e5%bd%b1%e8%a7%86%e4%b8%89%e7%bb%b4%e7%bd%91%e7%ab%99" rel="tag">2平面|影视|三维|网站</a>
+                                <a href="http://www.zixuexia.com/tags/%e5%bd%b1%e8%a7%86" rel="tag">影视</a>
+                            </div>
+                        </div>
+                        <!--                        <hr class="mb-6" style="border: 0;height: 1px;background: #ddd;">-->
+                        <div class="article-body">
+                            <p>
+                                <a href="http://www.zixuexia.com/wp-content/uploads/2019/01/225.jpg" class="fancybox" rel="fancybox-group" title=""><img class="alignnone size-full wp-image-303 aligncenter" src="http://www.zixuexia.com/wp-content/uploads/2019/01/225.jpg" alt=@productDetail.ProductSubTtile width="750" height="560"></a>
+                                <a href="http://www.zixuexia.com/wp-content/uploads/2019/01/2181.jpg" class="fancybox" rel="fancybox-group" title=""><img class="alignnone size-full wp-image-46 aligncenter" src="http://www.zixuexia.com/wp-content/uploads/2019/01/2181.jpg" alt=@productDetail.ProductSubTtile width="750" height="150"></a>
+                            </p>
+                            <p><a href="http://www.zixuexia.com/wp-content/uploads/2019/01/数码后期高手之路从入门到精通教程-150x150.png" class="fancybox" rel="fancybox-group" title=""><img class="aligncenter wp-image-302 size-thumbnail" src="http://www.zixuexia.com/wp-content/uploads/2019/01/数码后期高手之路从入门到精通教程-150x150.png" alt=@productDetail.ProductSubTtile width="150" height="150" srcset="http://www.zixuexia.com/wp-content/uploads/2019/01/数码后期高手之路从入门到精通教程-150x150.png 150w, http://www.zixuexia.com/wp-content/uploads/2019/01/数码后期高手之路从入门到精通教程.png 600w" sizes="(max-width: 150px) 100vw, 150px"></a></p>
+                        </div>
+                        <!-- copyright -->
+                        <p class="article-copyright">
+                            转载原创文章请注明，转载自:
+                            <a href="http://www.zixuexia.com">
+                                自学侠
+                            </a> -
+                            <a href="http://www.zixuexia.com/archives/297">
+                                数码后期高手之路从入门到精通教程
+                            </a>
+                            (http://www.zixuexia.com/archives/297)
+                        </p>
+                    </article>
+
+                    @*上一篇下一篇*@
+                    <section id="post-link">
+                        <div class="md-6 post-link-previous">
+                            上一篇: <a href="http://www.zixuexia.com/archives/291" rel="prev">DV（达芬奇）从入门到精通教程</a>
+                        </div>
+                        <div class="md-6 post-link-next">
+                            下一篇: <a href="http://www.zixuexia.com/archives/305" rel="next">AutoCAD从入门到精通教程</a>
+                        </div>
+                    </section>
+
+                    @*前后3教程展示*@
+                    <div class="related-post row-sm-up clear">
+                        <div class="col-md-4">
+                            <div class="post post-style-card transition">
+                                <a class="post-img img-response" href=" http://www.zixuexia.com/archives/231" style="background-image: url(http://www.zixuexia.com/wp-content/uploads/2019/01/211.jpg)">
+                                </a>
+                                <div class="post-top">
+                                    <div class="post-title mb-1">
+                                        <a href="http://www.zixuexia.com/archives/231"> PS（Photoshop）从入门到精通教程 </a>
+                                    </div>
+                                    <div class="post-top-meta mb-3">
+                                        <a class="post-category" href="http://www.zixuexia.com/catalogs/2%e5%b9%b3%e9%9d%a2%e5%bd%b1%e8%a7%86%e4%b8%89%e7%bb%b4%e7%bd%91%e7%ab%99">
+                                            2平面|影视|三维|网站
+                                        </a>
+                                        <span class="post-time">
+                                            2019.01.03
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="p-3">
+                                    <ul class="post-meta-bottom">
+                                        <li class="post-meta-author">
+                                            <a class="d-block" href="http://www.zixuexia.com/archives/author/zixuexia" target="_blank">
+                                                <img src="https://secure.gravatar.com/avatar/8ac98cc09bb07c0d37adfa19d44ede49?s=96" class="avatar avatar-96" height="96" width="96">            <span class="d-inline-block">zixuexia</span>
+                                            </a>
+                                        </li>
+                                        <li class="post-meta-view pull-right">
+                                            <i class="czs-eye"></i> 649
+                                        </li>
+                                        <li class="post-meta-comments pull-right">
+                                            <i class="czs-comment"></i> 0
+                                        </li>
+                                        <li class="post-meta-like pull-right">
+                                            <i class="czs-heart"></i>
+                                            <span class="count">
+                                                0
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="post post-style-card transition">
+                                <a class="post-img img-response" href=" http://www.zixuexia.com/archives/266" style="background-image: url(http://www.zixuexia.com/wp-content/uploads/2019/01/221.jpg)">
+                                </a>
+                                <div class="post-top">
+                                    <div class="post-title mb-1">
+                                        <a href="http://www.zixuexia.com/archives/266"> AE（After Effect）从入门到精通教程 </a>
+                                    </div>
+                                    <div class="post-top-meta mb-3">
+                                        <a class="post-category" href="http://www.zixuexia.com/catalogs/2%e5%b9%b3%e9%9d%a2%e5%bd%b1%e8%a7%86%e4%b8%89%e7%bb%b4%e7%bd%91%e7%ab%99">
+                                            2平面|影视|三维|网站
+                                        </a>
+                                        <span class="post-time">
+                                            2019.01.03
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="p-3">
+                                    <ul class="post-meta-bottom">
+                                        <li class="post-meta-author">
+                                            <a class="d-block" href="http://www.zixuexia.com/archives/author/zixuexia" target="_blank">
+                                                <img src="https://secure.gravatar.com/avatar/8ac98cc09bb07c0d37adfa19d44ede49?s=96" class="avatar avatar-96" height="96" width="96">            <span class="d-inline-block">zixuexia</span>
+                                            </a>
+                                        </li>
+                                        <li class="post-meta-view pull-right">
+                                            <i class="czs-eye"></i> 471
+                                        </li>
+                                        <li class="post-meta-comments pull-right">
+                                            <i class="czs-comment"></i> 0
+                                        </li>
+                                        <li class="post-meta-like pull-right">
+                                            <i class="czs-heart"></i>
+                                            <span class="count">
+                                                0
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="post post-style-card transition">
+                                <a class="post-img img-response" href=" http://www.zixuexia.com/archives/275" style="background-image: url(http://www.zixuexia.com/wp-content/uploads/2019/01/222.jpg)">
+                                </a>
+                                <div class="post-top">
+                                    <div class="post-title mb-1">
+                                        <a href="http://www.zixuexia.com/archives/275"> PR（Premiere）从入门到精通教程 </a>
+                                    </div>
+                                    <div class="post-top-meta mb-3">
+                                        <a class="post-category" href="http://www.zixuexia.com/catalogs/2%e5%b9%b3%e9%9d%a2%e5%bd%b1%e8%a7%86%e4%b8%89%e7%bb%b4%e7%bd%91%e7%ab%99">
+                                            2平面|影视|三维|网站
+                                        </a>
+                                        <span class="post-time">
+                                            2019.01.03
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="p-3">
+                                    <ul class="post-meta-bottom">
+                                        <li class="post-meta-author">
+                                            <a class="d-block" href="http://www.zixuexia.com/archives/author/zixuexia" target="_blank">
+                                                <img src="https://secure.gravatar.com/avatar/8ac98cc09bb07c0d37adfa19d44ede49?s=96" class="avatar avatar-96" height="96" width="96">            <span class="d-inline-block">zixuexia</span>
+                                            </a>
+                                        </li>
+                                        <li class="post-meta-view pull-right">
+                                            <i class="czs-eye"></i> 466
+                                        </li>
+                                        <li class="post-meta-comments pull-right">
+                                            <i class="czs-comment"></i> 0
+                                        </li>
+                                        <li class="post-meta-like pull-right">
+                                            <i class="czs-heart"></i>
+                                            <span class="count">
+                                                0
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    @*评论区*@
+                    <div class="comments" name="comments">
+                        <div id="respond" class="comment-respond">
+                            <h3 id="reply-title" class="comment-reply-title">留言 <small><a rel="nofollow" id="cancel-comment-reply-link" href="/archives/297#respond" style="display:none;">取消回复</a></small></h3>			<form action="http://www.zixuexia.com/wp-comments-post.php" method="post" id="commentform" class="no-gutters comment-form">
+                                <p class="comment-form-comment"><label for="comment">评论</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" aria-required="true" required="required"></textarea></p><div class="comment-form-author col-md-4 comment-input"><input id="author" name="author" placeholder="昵称" type="text" value="" size="30"></div>
+                                <div class="comment-form-email col-md-4 comment-input"><input id="email" name="email" placeholder="邮箱" type="text" value="" size="30"></div>
+                                <div class="comment-form-url col-md-4 comment-input"><input id="url" name="url" placeholder="网址" type="text" value="" size="30"></div>
+                                <p class="form-submit">
+                                    <input name="submit" type="submit" id="submit" class="submit" value="确定"> <input type="hidden" name="comment_post_ID" value="297" id="comment_post_ID">
+                                    <input type="hidden" name="comment_parent" id="comment_parent" value="0">
+                                </p>
+                            </form>
+                        </div><!-- #respond -->
+                        <div class="comments-title">
+                            写下你的评论吧
+                        </div>
+                        <ul class="comments-list">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            @*右侧栏*@
+            <div class="col-md-3 ">
+                <aside id="sidebar">
+                    <div class="sidebar-wrap">
+                        <div class="affix" style="width: 265px;">
+                        </div>
+                        <div class="sidebar-article">
+                            @*公众号信息*@
+                            <div class="widget widget-wechat" style="background-repeat: no-repeat;background-size: cover;background-position: center top;">
+                                <div class="widget-title"><span></span></div>
+                                <div class="widget-wechat-body">
+                                    <div class="widget-wechat-img">
+                                        <img src="http://www.zixuexia.com/wp-content/uploads/2019/01/421-公众号.jpg" alt="wechat">
+                                    </div>
+                                    <div class="widget-wechat-content">
+                                        <h4 class="widget-wechat-title">自学侠</h4>
+                                        <p class="widget-wechat-account">微信号：zixuexia123</p>
+                                        <p class="widget-wechat-description">更多自学教程请关注</p>
+                                    </div>
+                                </div>
+                            </div>
+                            @*热门文章*@
+                            <div id="widget-hotpost-5" class="widget widget-hotpost">
+                                <div class="widget-title"><span>热门文章</span></div>
+                                <ul class="widget-hotpost-image">
+                                    <a href="http://www.zixuexia.com/archives/1057" class="mask-animate widget-hotpost-image-item">
+                                        <div class="recent-post-img">
+                                            <img width="750" height="560" src="http://www.zixuexia.com/wp-content/uploads/2019/01/343.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="">
+                                        </div>
+                                        <div class="widget-hotpost-meta">
+                                            <div class="widget-hotpost-image-title mb-1">关于自学侠</div>
+                                            <div style="font-size: 12px;">
+                                                <span class="d-inline-block">
+                                                    <i class="czs-bookmark-l"></i>
+                                                    关于我们
+                                                </span>
+                                                <span class="d-inline-block pull-right">
+                                                    2019.01.05
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                    </a>
+                                    <a href="http://www.zixuexia.com/archives/1126" class="mask-animate widget-hotpost-image-item">
+                                        <div class="recent-post-img">
+                                            <img width="750" height="560" src="http://www.zixuexia.com/wp-content/uploads/2019/01/344.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="">
+                                        </div>
+                                        <div class="widget-hotpost-meta">
+                                            <div class="widget-hotpost-image-title mb-1">24大系列</div>
+                                            <div style="font-size: 12px;">
+                                                <span class="d-inline-block">
+                                                    <i class="czs-bookmark-l"></i>
+                                                    24大系列
+                                                </span>
+                                                <span class="d-inline-block pull-right">
+                                                    2019.01.05
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                    </a>
+                                    <a href="http://www.zixuexia.com/archives/1098" class="mask-animate widget-hotpost-image-item">
+                                        <div class="recent-post-img">
+                                            <img width="750" height="560" src="http://www.zixuexia.com/wp-content/uploads/2019/01/345.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="">
+                                        </div>
+                                        <div class="widget-hotpost-meta">
+                                            <div class="widget-hotpost-image-title mb-1">150门+课程</div>
+                                            <div style="font-size: 12px;">
+                                                <span class="d-inline-block">
+                                                    <i class="czs-bookmark-l"></i>
+                                                    150门+课程
+                                                </span>
+                                                <span class="d-inline-block pull-right">
+                                                    2019.01.05
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                    </a>
+                                    <a href="http://www.zixuexia.com/archives/84" class="mask-animate widget-hotpost-image-item">
+                                        <div class="recent-post-img">
+                                            <img width="750" height="560" src="http://www.zixuexia.com/wp-content/uploads/2019/01/111.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="">
+                                        </div>
+                                        <div class="widget-hotpost-meta">
+                                            <div class="widget-hotpost-image-title mb-1">淘宝开店从入门到精通视频教程</div>
+                                            <div style="font-size: 12px;">
+                                                <span class="d-inline-block">
+                                                    <i class="czs-bookmark-l"></i>
+                                                    1电商|社交|推广
+                                                </span>
+                                                <span class="d-inline-block pull-right">
+                                                    2019.01.02
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                    </a>
+                                    <a href="http://www.zixuexia.com/archives/147" class="mask-animate widget-hotpost-image-item">
+                                        <div class="recent-post-img">
+                                            <img width="750" height="560" src="http://www.zixuexia.com/wp-content/uploads/2019/01/122.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="">
+                                        </div>
+                                        <div class="widget-hotpost-meta">
+                                            <div class="widget-hotpost-image-title mb-1">抖音从入门到精通教程</div>
+                                            <div style="font-size: 12px;">
+                                                <span class="d-inline-block">
+                                                    <i class="czs-bookmark-l"></i>
+                                                    1电商|社交|推广
+                                                </span>
+                                                <span class="d-inline-block pull-right">
+                                                    2019.01.02
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                    </a>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+}

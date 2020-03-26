@@ -1,0 +1,245 @@
+﻿
+.post {
+    margin-bottom: 30px;
+    padding: 25px;
+    background: #fff;
+}
+
+.post-img {
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    height: 0;
+    padding-bottom: 82%;
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+.img-response {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.mb-1 {
+    margin-bottom: 5px;
+}
+
+.mb-3 {
+    margin-bottom: 15px;
+}
+
+.p-3 {
+    padding: 15px;
+}
+
+.post .post-meta-bottom {
+    overflow: hidden;
+}
+
+    .post .post-meta-bottom li {
+        display: inline-block;
+        vertical-align: middle;
+        color: #aaa;
+        margin-right: 8px;
+    }
+
+.post .post-meta-author a {
+    color: #404040;
+}
+
+.d-block {
+    display: block;
+}
+
+.post .post-meta-author img {
+    width: 22px;
+    height: 22px;
+    border-radius: 22px;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.d-inline-block {
+    display: inline-block;
+}
+
+.pull-right {
+    float: right !important;
+}
+
+body {
+    font-family: Helvetica, Arial, "PingFang SC", "Microsoft YaHei", "WenQuanYi Micro Hei", "tohoma,sans-serif";
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #3f3f3f;
+    background-color: #f4f4f4;
+    height: 100%;
+}
+
+.post-style-card {
+    margin-bottom: 30px;
+    border-radius: 3px;
+    padding: 0 !important
+}
+
+@media (max-width: 575px) {
+    .post-style-card {
+        margin-bottom: 15px
+    }
+}
+
+.post-style-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08)
+}
+
+.post-style-card .post-img {
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    height: 0;
+    padding-bottom: 82%;
+    position: relative;
+    display: block;
+    overflow: hidden
+}
+
+.post-style-card .post-top {
+    padding: 25px 15px 0
+}
+
+.post-style-card .post-title a {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 20px;
+    display: block;
+    color: #000
+}
+
+.post-style-card .post-top-meta {
+    overflow: hidden
+}
+
+    .post-style-card .post-top-meta .post-tag a, .post-style-card .post-top-meta .post-tag i {
+        color: #aaa
+    }
+
+    .post-style-card .post-top-meta .post-category {
+        color: #aaa
+    }
+
+    .post-style-card .post-top-meta .post-time {
+        float: right;
+        color: #aaa
+    }
+
+.transition {
+    -webkit-transition: all ease 0.2s;
+    -moz-transition: all ease 0.2s;
+    -ms-transition: all ease 0.2s;
+    -o-transition: all ease 0.2s;
+    transition: all ease 0.2s;
+}
+
+.post-style-feature .post-meta-bottom li {
+    margin-right: 6px
+}
+
+.post .post-meta-bottom {
+    overflow: hidden
+}
+
+    .post .post-meta-bottom li {
+        display: inline-block;
+        vertical-align: middle;
+        color: #aaa;
+        margin-right: 8px
+    }
+
+        .post .post-meta-bottom li i {
+            font-size: 16px
+        }
+
+
+
+.widget-comments .widget-comments-item {
+    padding-bottom: 12px
+}
+
+    .widget-comments .widget-comments-item .avatar {
+        display: inline-block;
+        vertical-align: middle;
+        border-radius: 16px;
+        width: 24px;
+        height: 24px
+    }
+
+.widget-profile-elegant .widget-profile-avatar {
+    width: 88px;
+    height: 88px;
+    margin: 15px auto 8px;
+    border-radius: 100%
+}
+
+    .widget-profile-elegant .widget-profile-avatar img {
+        width: 100%;
+        height: 100%;
+        border-radius: 100%
+    }
+
+
+.comments .comments-title {
+    margin-bottom: 12px;
+    color: #999
+}
+
+.comments .comments-list {
+    list-style: none;
+    padding: 0;
+    margin: 0
+}
+
+    .comments .comments-list .comment {
+        word-wrap: break-word;
+        word-break: break-all;
+        margin-bottom: 23px;
+        padding-bottom: 23px;
+        border-bottom: 1px solid #f9f9f9;
+        position: relative
+    }
+
+        .comments .comments-list .comment .children {
+            list-style: none;
+            padding: 10px;
+            margin: 15px 0 15px 55px;
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            box-shadow: 0 1px 1px rgba(0,0,0,0.05)
+        }
+
+            .comments .comments-list .comment .children .comment-avatar {
+                width: 38px;
+                height: 38px
+            }
+
+            .comments .comments-list .comment .children .comment-body {
+                margin-left: 42px
+            }
+
+        .comments .comments-list .comment .comment-avatar {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 48px;
+            height: 48px
+        }
+
+            .comments .comments-list .comment .comment-avatar img {
+                width: 100%;
+                height: 100%;
+                border-radius: 48px
+            }
