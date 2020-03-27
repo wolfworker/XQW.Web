@@ -3,12 +3,17 @@
 }
 
 <style type="text/css">
-    .article-like .favorite, .carousel-info-meta .carousel-info-category, .tagcloud a:hover, .calendar_wrap table td a, .article-meta .article-meta-tags a, .article-support .article-support-button a, .comments #respond .form-submit input {
-        background-color: #38B7EA;
-    }
+.article-like .favorite, .carousel-info-meta .carousel-info-category, .tagcloud a:hover, .calendar_wrap table td a, .article-meta .article-meta-tags a, .article-support .article-support-button a, .comments #respond .form-submit input {
+    background-color: #38B7EA;
+}
+
 </style>
 @{
     var productDetail = ViewBag.ProductDetail;
+    var hotProductList = ViewBag.HotProductList;
+    var preNextProduct = ViewBag.PreNextProduct;
+    var otherBuyProductList = ViewBag.OtherBuyProductList;
+    var shopInfo = ViewBag.ShopInfo;
 
     <main class="container pt-xs-6" id="pjax-content">
         <div class="row">
@@ -25,9 +30,6 @@
                             <span class="article-meta-time">
                                 @productDetail.CreatedTime
                             </span>
-                            <i class="czs-bookmark"></i>
-                            <a href="http://www.zixuexia.com/catalogs/2%e5%b9%b3%e9%9d%a2%e5%bd%b1%e8%a7%86%e4%b8%89%e7%bb%b4%e7%bd%91%e7%ab%99" rel="category tag">2平面|影视|三维|网站</a>
-                            <a href="http://www.zixuexia.com/catalogs/2%e5%b9%b3%e9%9d%a2%e5%bd%b1%e8%a7%86%e4%b8%89%e7%bb%b4%e7%bd%91%e7%ab%99/%e5%bd%b1%e8%a7%86" rel="category tag">影视</a>&nbsp;
                             <i class="czs-heart"></i>
                             <span class="count">
                                 @productDetail.LikeCount
@@ -36,11 +38,10 @@
                             <a href="http://www.zixuexia.com/archives/297#respond" class="article-meta-comment">@productDetail.CommentCount</a><i class="czs-eye"></i> @productDetail.SeenCount&nbsp;
                             <!-- user edit -->
                             <div class="article-meta-tags">
-                                <a href="http://www.zixuexia.com/tags/2%e5%b9%b3%e9%9d%a2%e5%bd%b1%e8%a7%86%e4%b8%89%e7%bb%b4%e7%bd%91%e7%ab%99" rel="tag">2平面|影视|三维|网站</a>
-                                <a href="http://www.zixuexia.com/tags/%e5%bd%b1%e8%a7%86" rel="tag">影视</a>
+                                <a href="http://www.zixuexia.com/tags/%e5%bd%b1%e8%a7%86" rel="tag">维修类</a>
                             </div>
                         </div>
-                        <!--                        <hr class="mb-6" style="border: 0;height: 1px;background: #ddd;">-->
+                        <!-- <hr class="mb-6" style="border: 0;height: 1px;background: #ddd;">-->
                         <div class="article-body">
                             <p>
                                 <a href="http://www.zixuexia.com/wp-content/uploads/2019/01/225.jpg" class="fancybox" rel="fancybox-group" title=""><img class="alignnone size-full wp-image-303 aligncenter" src="http://www.zixuexia.com/wp-content/uploads/2019/01/225.jpg" alt=@productDetail.ProductSubTtile width="750" height="560"></a>
@@ -52,7 +53,7 @@
                         <p class="article-copyright">
                             转载原创文章请注明，转载自:
                             <a href="http://www.zixuexia.com">
-                                自学侠
+                                小青蛙商学院
                             </a> -
                             <a href="http://www.zixuexia.com/archives/297">
                                 数码后期高手之路从入门到精通教程
@@ -64,10 +65,10 @@
                     @*上一篇下一篇*@
                     <section id="post-link">
                         <div class="md-6 post-link-previous">
-                            上一篇: <a href="http://www.zixuexia.com/archives/291" rel="prev">DV（达芬奇）从入门到精通教程</a>
+                            上一篇: <a href="http://www.zixuexia.com/archives/291" rel="prev">@preNextProduct[0].ProductTitle</a>
                         </div>
                         <div class="md-6 post-link-next">
-                            下一篇: <a href="http://www.zixuexia.com/archives/305" rel="next">AutoCAD从入门到精通教程</a>
+                            下一篇: <a href="http://www.zixuexia.com/archives/305" rel="next">@preNextProduct[1].ProductTitle</a>
                         </div>
                     </section>
 
@@ -79,14 +80,14 @@
                                 </a>
                                 <div class="post-top">
                                     <div class="post-title mb-1">
-                                        <a href="http://www.zixuexia.com/archives/231"> PS（Photoshop）从入门到精通教程 </a>
+                                        <a href="http://www.zixuexia.com/archives/231">@otherBuyProductList[0].ProductTitle </a>
                                     </div>
                                     <div class="post-top-meta mb-3">
                                         <a class="post-category" href="http://www.zixuexia.com/catalogs/2%e5%b9%b3%e9%9d%a2%e5%bd%b1%e8%a7%86%e4%b8%89%e7%bb%b4%e7%bd%91%e7%ab%99">
-                                            2平面|影视|三维|网站
+                                            维修类
                                         </a>
                                         <span class="post-time">
-                                            2019.01.03
+                                            @otherBuyProductList[0].CreatedTime
                                         </span>
                                     </div>
                                 </div>
@@ -94,19 +95,19 @@
                                     <ul class="post-meta-bottom">
                                         <li class="post-meta-author">
                                             <a class="d-block" href="http://www.zixuexia.com/archives/author/zixuexia" target="_blank">
-                                                <img src="https://secure.gravatar.com/avatar/8ac98cc09bb07c0d37adfa19d44ede49?s=96" class="avatar avatar-96" height="96" width="96">            <span class="d-inline-block">zixuexia</span>
+                                                <img src="https://secure.gravatar.com/avatar/8ac98cc09bb07c0d37adfa19d44ede49?s=96" class="avatar avatar-96" height="96" width="96"><span class="d-inline-block">@shopInfo.ShopName</span>
                                             </a>
                                         </li>
                                         <li class="post-meta-view pull-right">
-                                            <i class="czs-eye"></i> 649
+                                            <i class="czs-eye"></i> @otherBuyProductList[0].SeenCount
                                         </li>
                                         <li class="post-meta-comments pull-right">
-                                            <i class="czs-comment"></i> 0
+                                            <i class="czs-comment"></i> @otherBuyProductList[0].CommentCount
                                         </li>
                                         <li class="post-meta-like pull-right">
                                             <i class="czs-heart"></i>
                                             <span class="count">
-                                                0
+                                                @otherBuyProductList[0].LikeCount
                                             </span>
                                         </li>
                                     </ul>
@@ -119,14 +120,14 @@
                                 </a>
                                 <div class="post-top">
                                     <div class="post-title mb-1">
-                                        <a href="http://www.zixuexia.com/archives/266"> AE（After Effect）从入门到精通教程 </a>
+                                        <a href="http://www.zixuexia.com/archives/266"> @otherBuyProductList[1].ProductTitle </a>
                                     </div>
                                     <div class="post-top-meta mb-3">
                                         <a class="post-category" href="http://www.zixuexia.com/catalogs/2%e5%b9%b3%e9%9d%a2%e5%bd%b1%e8%a7%86%e4%b8%89%e7%bb%b4%e7%bd%91%e7%ab%99">
-                                            2平面|影视|三维|网站
+                                            维修类
                                         </a>
                                         <span class="post-time">
-                                            2019.01.03
+                                            @otherBuyProductList[1].CreatedTime
                                         </span>
                                     </div>
                                 </div>
@@ -134,19 +135,19 @@
                                     <ul class="post-meta-bottom">
                                         <li class="post-meta-author">
                                             <a class="d-block" href="http://www.zixuexia.com/archives/author/zixuexia" target="_blank">
-                                                <img src="https://secure.gravatar.com/avatar/8ac98cc09bb07c0d37adfa19d44ede49?s=96" class="avatar avatar-96" height="96" width="96">            <span class="d-inline-block">zixuexia</span>
+                                                <img src="https://secure.gravatar.com/avatar/8ac98cc09bb07c0d37adfa19d44ede49?s=96" class="avatar avatar-96" height="96" width="96">            <span class="d-inline-block">@shopInfo.ShopName</span>
                                             </a>
                                         </li>
                                         <li class="post-meta-view pull-right">
-                                            <i class="czs-eye"></i> 471
+                                            <i class="czs-eye"></i> @otherBuyProductList[0].SeenCount
                                         </li>
                                         <li class="post-meta-comments pull-right">
-                                            <i class="czs-comment"></i> 0
+                                            <i class="czs-comment"></i> @otherBuyProductList[0].CommentCount
                                         </li>
                                         <li class="post-meta-like pull-right">
                                             <i class="czs-heart"></i>
                                             <span class="count">
-                                                0
+                                                @otherBuyProductList[0].LikeCount
                                             </span>
                                         </li>
                                     </ul>
@@ -159,14 +160,14 @@
                                 </a>
                                 <div class="post-top">
                                     <div class="post-title mb-1">
-                                        <a href="http://www.zixuexia.com/archives/275"> PR（Premiere）从入门到精通教程 </a>
+                                        <a href="http://www.zixuexia.com/archives/275"> @otherBuyProductList[2].ProductTitle </a>
                                     </div>
                                     <div class="post-top-meta mb-3">
                                         <a class="post-category" href="http://www.zixuexia.com/catalogs/2%e5%b9%b3%e9%9d%a2%e5%bd%b1%e8%a7%86%e4%b8%89%e7%bb%b4%e7%bd%91%e7%ab%99">
-                                            2平面|影视|三维|网站
+                                            维修类
                                         </a>
                                         <span class="post-time">
-                                            2019.01.03
+                                            @otherBuyProductList[2].CreatedTime
                                         </span>
                                     </div>
                                 </div>
@@ -174,19 +175,19 @@
                                     <ul class="post-meta-bottom">
                                         <li class="post-meta-author">
                                             <a class="d-block" href="http://www.zixuexia.com/archives/author/zixuexia" target="_blank">
-                                                <img src="https://secure.gravatar.com/avatar/8ac98cc09bb07c0d37adfa19d44ede49?s=96" class="avatar avatar-96" height="96" width="96">            <span class="d-inline-block">zixuexia</span>
+                                                <img src="https://secure.gravatar.com/avatar/8ac98cc09bb07c0d37adfa19d44ede49?s=96" class="avatar avatar-96" height="96" width="96">            <span class="d-inline-block">@shopInfo.ShopName</span>
                                             </a>
                                         </li>
                                         <li class="post-meta-view pull-right">
-                                            <i class="czs-eye"></i> 466
+                                            <i class="czs-eye"></i> @otherBuyProductList[0].SeenCount
                                         </li>
                                         <li class="post-meta-comments pull-right">
-                                            <i class="czs-comment"></i> 0
+                                            <i class="czs-comment"></i> @otherBuyProductList[0].CommentCount
                                         </li>
                                         <li class="post-meta-like pull-right">
                                             <i class="czs-heart"></i>
                                             <span class="count">
-                                                0
+                                                @otherBuyProductList[0].LikeCount
                                             </span>
                                         </li>
                                     </ul>
@@ -232,22 +233,23 @@
                                         <img src="http://www.zixuexia.com/wp-content/uploads/2019/01/421-公众号.jpg" alt="wechat">
                                     </div>
                                     <div class="widget-wechat-content">
-                                        <h4 class="widget-wechat-title">自学侠</h4>
-                                        <p class="widget-wechat-account">微信号：zixuexia123</p>
-                                        <p class="widget-wechat-description">更多自学教程请关注</p>
+                                        <h4 class="widget-wechat-title">@shopInfo.ShopName</h4>
+                                        <p class="widget-wechat-account">微信：@shopInfo.WXNumber</p>
+                                        <p class="widget-wechat-description">@shopInfo.Slogan</p>
                                     </div>
                                 </div>
                             </div>
+                            
                             @*热门文章*@
                             <div id="widget-hotpost-5" class="widget widget-hotpost">
-                                <div class="widget-title"><span>热门文章</span></div>
+                                <div class="widget-title"><span>热门教程</span></div>
                                 <ul class="widget-hotpost-image">
                                     <a href="http://www.zixuexia.com/archives/1057" class="mask-animate widget-hotpost-image-item">
                                         <div class="recent-post-img">
                                             <img width="750" height="560" src="http://www.zixuexia.com/wp-content/uploads/2019/01/343.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="">
                                         </div>
                                         <div class="widget-hotpost-meta">
-                                            <div class="widget-hotpost-image-title mb-1">关于自学侠</div>
+                                            <div class="widget-hotpost-image-title mb-1">关于 @shopInfo.ShopName</div>
                                             <div style="font-size: 12px;">
                                                 <span class="d-inline-block">
                                                     <i class="czs-bookmark-l"></i>
@@ -265,14 +267,14 @@
                                             <img width="750" height="560" src="http://www.zixuexia.com/wp-content/uploads/2019/01/344.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="">
                                         </div>
                                         <div class="widget-hotpost-meta">
-                                            <div class="widget-hotpost-image-title mb-1">24大系列</div>
+                                            <div class="widget-hotpost-image-title mb-1">@hotProductList[0].ProductTitle</div>
                                             <div style="font-size: 12px;">
                                                 <span class="d-inline-block">
                                                     <i class="czs-bookmark-l"></i>
-                                                    24大系列
+                                                    @hotProductList[0].ProductTitle
                                                 </span>
                                                 <span class="d-inline-block pull-right">
-                                                    2019.01.05
+                                                    @hotProductList[0].CreatedTime
                                                 </span>
                                             </div>
                                         </div>
@@ -283,14 +285,14 @@
                                             <img width="750" height="560" src="http://www.zixuexia.com/wp-content/uploads/2019/01/345.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="">
                                         </div>
                                         <div class="widget-hotpost-meta">
-                                            <div class="widget-hotpost-image-title mb-1">150门+课程</div>
+                                            <div class="widget-hotpost-image-title mb-1">@hotProductList[1].ProductTitle</div>
                                             <div style="font-size: 12px;">
                                                 <span class="d-inline-block">
                                                     <i class="czs-bookmark-l"></i>
-                                                    150门+课程
+                                                    @hotProductList[1].ProductTitle
                                                 </span>
                                                 <span class="d-inline-block pull-right">
-                                                    2019.01.05
+                                                    @hotProductList[1].CreatedTime
                                                 </span>
                                             </div>
                                         </div>
@@ -301,14 +303,14 @@
                                             <img width="750" height="560" src="http://www.zixuexia.com/wp-content/uploads/2019/01/111.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="">
                                         </div>
                                         <div class="widget-hotpost-meta">
-                                            <div class="widget-hotpost-image-title mb-1">淘宝开店从入门到精通视频教程</div>
+                                            <div class="widget-hotpost-image-title mb-1">@hotProductList[2].ProductTitle</div>
                                             <div style="font-size: 12px;">
                                                 <span class="d-inline-block">
                                                     <i class="czs-bookmark-l"></i>
-                                                    1电商|社交|推广
+                                                    维修类
                                                 </span>
                                                 <span class="d-inline-block pull-right">
-                                                    2019.01.02
+                                                    @hotProductList[2].CreatedTime
                                                 </span>
                                             </div>
                                         </div>
@@ -319,14 +321,14 @@
                                             <img width="750" height="560" src="http://www.zixuexia.com/wp-content/uploads/2019/01/122.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="">
                                         </div>
                                         <div class="widget-hotpost-meta">
-                                            <div class="widget-hotpost-image-title mb-1">抖音从入门到精通教程</div>
+                                            <div class="widget-hotpost-image-title mb-1">@hotProductList[3].ProductTitle</div>
                                             <div style="font-size: 12px;">
                                                 <span class="d-inline-block">
                                                     <i class="czs-bookmark-l"></i>
-                                                    1电商|社交|推广
+                                                    维修类
                                                 </span>
                                                 <span class="d-inline-block pull-right">
-                                                    2019.01.02
+                                                    @hotProductList[2].CreatedTime
                                                 </span>
                                             </div>
                                         </div>

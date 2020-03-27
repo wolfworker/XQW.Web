@@ -8,55 +8,51 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
-    <link rel="stylesheet" href="~/Content/thirdstyle1.css" type="text/css">
+    <link rel="stylesheet" href="~/Content/thirdstyle.css" type="text/css">
     <link rel="stylesheet" id="PrismCss-css" href="http://www.zixuexia.com/wp-content/themes/BlackMirror/assets/css/prism.css?ver=1.5.0" type="text/css" media="all">
     <link rel="stylesheet" href="~/Content/jquery.fancybox.min.css" type="text/css">
-
-    <style>
-
-        html,
-        body {
-            /* 一定要设置这个值不然撑不开 */
-            height: 100%;
-        }
-
-        .section {
-            height: 100%;
-            width: 100%;
-            position: relative;
-        }
-
-        .top {
-            width: 100%;
-            height: 30px;
-            position: absolute;
-            top: 0;
-        }
-
-        .center {
-            width: 100%;
-            position: absolute;
-            top: 30px;
-            bottom: 20px;
-            overflow: auto;
-        }
-
-        .buttom {
-            width: 100%;
-            height: 20px;
-            position: absolute;
-            bottom: 0;
-        }
-    </style>
+    <link rel="stylesheet" href="~/Content/layout.css" type="text/css">
 </head>
 <body>
     <section class="section">
-        <div class="top bcategorydiv">
-        </div>
+        <header class="top header">
+            <nav class="container">
+                <div class="logo hidden-sm">
+                    <a href="http://www.zixuexia.com" class="d-block">
+                        <img src="http://www.zixuexia.com/wp-content/uploads/2019/01/3011.png" alt="">
+                    </a>
+                </div>
+                <div class="mobile-logo show-sm">
+                    <a href="http://www.zixuexia.com" class="d-inline-block">
+                        <img src="http://www.zixuexia.com/wp-content/uploads/2019/01/3012.png" alt="">
+                    </a>
+                </div>
+                <ul class="header-menu">
+                </ul>
+                <div class="search-button cursor-pointer">
+                    <i class="czs-search-l"></i>
+                    <span class="d-inline-block transition opacity-0"><i class="czs-close-l"></i></span>
+                </div>
+                <div class="menu-button">
+                    <div class="nav-bar">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </nav>
+            <div class="menu-wrap show-xs">
+                <div class="mobile-menu">
+                    <ul class="mobile-menu-nav">
+                    </ul>
+                </div>
+            </div>
+        </header>
+
         <div class="center">
             @RenderBody()
         </div>
-        <div class="buttom">
+        <div class="bottom">
             <p>&copy; @DateTime.Now.Year 版权所有- 小青蛙商学院</p>
         </div>
     </section>
@@ -80,12 +76,12 @@
                 type: "GET",   //请求方式
                 success: function (result) {
                     //请求成功时处理
-                    var htmlstr = '<a href="/">小青蛙商学院</a>     ';
+                    var htmlstr = '';
                     $.each(result, function (i, item) {
-                        htmlstr += '<a href="/Category/BIndex?bcategoryid=' + item.BCategoryID + '" class="bcategory">' + item.BCategoryName + '</a>';
-                        htmlstr += '  ';
+                        htmlstr += '<li><a href="/Category/BIndex?bcategoryid=' + item.BCategoryID + '" >' + item.BCategoryName + '</a></li>';
                     });
-                    $(".bcategorydiv").append(htmlstr);
+                    $(".header-menu").append(htmlstr);
+                    $(".mobile-menu-nav").append(htmlstr);
                 }
             });
         }

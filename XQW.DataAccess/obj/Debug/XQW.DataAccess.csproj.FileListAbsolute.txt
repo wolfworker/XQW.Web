@@ -1,17 +1,3 @@
-D:\zzscode\XQW.Web\XQW.DataAccess\obj\Debug\XQW.DataAccess.csprojAssemblyReference.cache
-D:\zzscode\XQW.Web\XQW.DataAccess\bin\Debug\XQW.DataAccess.dll.config
-D:\zzscode\XQW.Web\XQW.DataAccess\bin\Debug\XQW.DataAccess.dll
-D:\zzscode\XQW.Web\XQW.DataAccess\bin\Debug\XQW.DataAccess.pdb
-D:\zzscode\XQW.Web\XQW.DataAccess\bin\Debug\EntityFramework.dll
-D:\zzscode\XQW.Web\XQW.DataAccess\bin\Debug\EntityFramework.SqlServer.dll
-D:\zzscode\XQW.Web\XQW.DataAccess\bin\Debug\XQW.Model.dll
-D:\zzscode\XQW.Web\XQW.DataAccess\bin\Debug\XQW.Model.pdb
-D:\zzscode\XQW.Web\XQW.DataAccess\bin\Debug\XQW.Model.dll.config
-D:\zzscode\XQW.Web\XQW.DataAccess\bin\Debug\EntityFramework.xml
-D:\zzscode\XQW.Web\XQW.DataAccess\bin\Debug\EntityFramework.SqlServer.xml
-D:\zzscode\XQW.Web\XQW.DataAccess\obj\Debug\XQW.DataAccess.csproj.CopyComplete
-D:\zzscode\XQW.Web\XQW.DataAccess\obj\Debug\XQW.DataAccess.dll
-D:\zzscode\XQW.Web\XQW.DataAccess\obj\Debug\XQW.DataAccess.pdb
 G:\01_sourcecode\XQW.Web\XQW.DataAccess\bin\Debug\XQW.DataAccess.dll.config
 G:\01_sourcecode\XQW.Web\XQW.DataAccess\bin\Debug\XQW.DataAccess.dll
 G:\01_sourcecode\XQW.Web\XQW.DataAccess\bin\Debug\XQW.DataAccess.pdb
