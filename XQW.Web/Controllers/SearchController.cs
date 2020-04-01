@@ -3,18 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using XQW.DataAccess;
-using XQW.Model.DBEntity;
-using XQW.Utility;
 
 namespace XQW.Web.Controllers
 {
-    public class HomeController : Controller
+    public class SearchController : Controller
     {
+        // GET: Search
         public ActionResult Index()
         {
-            //TODO 分页
-            ViewBag.HotProductList = new ProductController().GetHotProductList("");
             return View();
         }
     }

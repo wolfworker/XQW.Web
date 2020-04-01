@@ -48,6 +48,11 @@ namespace XQW.DataAccess
             return result;
         }
 
+        /// <summary>
+        /// 查询所有数据
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public List<T> QueryAll<T>() where T : class
         {
             var result = new List<T>();
@@ -62,6 +67,12 @@ namespace XQW.DataAccess
             }
         }
 
+        /// <summary>
+        /// 根据主键查数据
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public T Query<T>(int id) where T : class
         {
             using (var context = new DataBaseContext())
@@ -70,6 +81,13 @@ namespace XQW.DataAccess
             }
         }
 
+        /// <summary>
+        /// 自定义SQL，查询泛型数据
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="sql"></param>
+        /// <param name="param"></param>
+        /// <returns></returns>
         public List<T> QueryCustom<T>(string sql, params object[] param) where T : class
         {
             var result = new List<T>();
@@ -81,6 +99,12 @@ namespace XQW.DataAccess
             return result;
         }
 
+        /// <summary>
+        /// 直接执行SQL的写操作
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <param name="param"></param>
+        /// <returns></returns>
         public int ExcuteSql(string sql, params object[] param)
         {
             using (var context = new DataBaseContext())

@@ -55,9 +55,9 @@ namespace XQW.Web.Controllers
         /// </summary>
         /// <param name="bCategoryid"></param>
         /// <returns></returns>
-        public List<Product> GetHotProductList(string productId)
+        public List<ProductModel> GetHotProductList(string productId)
         {
-            return GetProductListBybCate("B004");
+            return GetProductListBybCate("", "B004");
         }
 
         /// <summary>
@@ -65,9 +65,9 @@ namespace XQW.Web.Controllers
         /// </summary>
         /// <param name="bCategoryid"></param>
         /// <returns></returns>
-        public List<Product> GetPreNextProduct(string productId)
+        public List<ProductModel> GetPreNextProduct(string productId)
         {
-            return GetProductListBybCate("B004");
+            return GetProductListBybCate("","B004");
         }
 
 
@@ -76,47 +76,101 @@ namespace XQW.Web.Controllers
         /// </summary>
         /// <param name="bCategoryid"></param>
         /// <returns></returns>
-        public List<Product> GetOtherBuyProductList()
+        public List<ProductModel> GetOtherBuyProductList()
         {
-            return GetProductListBybCate("B004");
+            return GetProductListBybCate("", "B004");
         }
 
         public JsonResult GetProductListJsonBybCate(string bCategoryid)
         {
-            return Json(GetProductListBybCate(bCategoryid), JsonRequestBehavior.AllowGet);
+            return Json(GetProductListBybCate("",bCategoryid), JsonRequestBehavior.AllowGet);
         }
 
-        public List<Product> GetProductListBybCate(string bCategoryid)
+        public List<ProductModel> GetProductListBybCate(string aCategoryid, string bCategoryid)
         {
-            var key = $"productlist.bcategory.{bCategoryid}";
-            var cacheResult = (List<Product>)CacheHelper.GetCache(key);
+            if(string.IsNullOrWhiteSpace(aCategoryid) && string.IsNullOrWhiteSpace(bCategoryid))
+            {
+                //log 参数错误
+                return new List<ProductModel>();
+            }
+
+            var param = new SqlParameter();
+            var key = $"productlist.bcategory.";
+            var sql = $@"SELECT    p.ProductID,
+                                   p.ProductName,
+                                   p.ProductTitle,
+                                   p.ProductSubTtile,
+                                   p.LikeCount,
+                                   p.CommentCount,
+                                   p.SeenCount,
+                                   p.Status,
+                                   ac.ACategoryID,
+                                   bc.BCategoryID,
+                                   p.UpdateTime,
+                                   ac.ACategoryName,
+                                   bc.BCategoryName
+                            FROM   Product p WITH(nolock)
+                                   INNER JOIN BCategory bc WITH(nolock)
+                                           ON bc.BCategoryID = p.BCategoryID
+                                   INNER JOIN ACategory ac WITH(nolock)
+                                           ON ac.ACategoryID = bc.ACategoryID
+                            WHERE  Status = 1 ";
+            if (!string.IsNullOrWhiteSpace(bCategoryid))
+            {
+                key += bCategoryid;
+                param.ParameterName = "@BCategoryID";
+                param.Value = bCategoryid;
+                sql += " AND bc.BCategoryID = @BCategoryID ";
+            }
+            else
+            {
+                key += aCategoryid;
+                param.ParameterName = "@ACategoryID";
+                param.Value = aCategoryid;
+                sql += " AND ac.ACategoryID = @ACategoryID ";
+            }
+
+            var cacheResult = (List<ProductModel>)CacheHelper.GetCache(key);
             if (cacheResult == null)
             {
-                var sql = $@"select * from XQW_Data..Product  as p with(nolock) where p.BCategoryID = @BCategoryID";
-                var param = new SqlParameter
-                {
-                    ParameterName = "@BCategoryID",
-                    Value = bCategoryid
-                };
-                cacheResult = productDal.QueryCustom<Product>(sql, param) ?? new List<Product>();
+                cacheResult = productDal.QueryCustom<ProductModel>(sql, param) ?? new List<ProductModel>();
                 CacheHelper.SetCache(key, cacheResult);
             }
             return cacheResult;
         }
 
-        public Product GetProductDetailById(string productid)
+        public ProductModel GetProductDetailById(string productid)
         {
             var key = $"productdetail.{productid}";
-            var cacheResult = (Product)CacheHelper.GetCache(key);
+            var cacheResult = (ProductModel)CacheHelper.GetCache(key);
             if (cacheResult == null)
             {
-                var sql = $@"select * from XQW_Data..Product  as p with(nolock) where p.ProductID = @ProductID";
+                var sql = $@"SELECT    p.ProductID,
+                                       p.ProductName,
+                                       p.ProductTitle,
+                                       p.ProductSubTtile,
+                                       p.LikeCount,
+                                       p.CommentCount,
+                                       p.SeenCount,
+                                       p.Status,
+                                       ac.ACategoryID,
+                                       bc.BCategoryID,
+                                       p.UpdateTime,
+                                       ac.ACategoryName,
+                                       bc.BCategoryName
+                                FROM   Product p WITH(nolock)
+                                       INNER JOIN BCategory bc WITH(nolock)
+                                               ON bc.BCategoryID = p.BCategoryID
+                                       INNER JOIN ACategory ac WITH(nolock)
+                                               ON ac.ACategoryID = bc.ACategoryID
+                                WHERE  p.ProductID = @ProductID
+                                       AND Status = 1 ";
                 var param = new SqlParameter
                 {
                     ParameterName = "@ProductID",
                     Value = productid
                 };
-                cacheResult = productDal.QueryCustom<Product>(sql, param)?.FirstOrDefault() ?? new Product();
+                cacheResult = productDal.QueryCustom<ProductModel>(sql, param)?.FirstOrDefault() ?? new ProductModel();
                 CacheHelper.SetCache(key, cacheResult);
             }
             return cacheResult;

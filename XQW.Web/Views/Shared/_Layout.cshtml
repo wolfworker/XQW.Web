@@ -1,66 +1,200 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - 小青蛙商学院</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="keywords" content="自学,教程,视频教程">
+    <meta name="description" content="自学侠（www.zixuexia.com），国内自学视频教程平台。提供各种入门教程，范围包括：电商|社交|推广，平面|影视|三维|网站，音乐|美术|摄影，运动|健身|舞蹈，外语|办公|职业，化妆|形象|饮食，生活|维修|宠物|手工|母婴等">
+    <title>自学侠-自学视频教程平台</title>
+    <link rel="shortcut icon" href="http://www.zixuexia.com/wp-content/themes/BlackMirror/assets/images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon-precomposed" href="http://www.zixuexia.com/wp-content/themes/BlackMirror/assets/images/logo_mobile.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://www.zixuexia.com/wp-content/themes/BlackMirror/assets/images/logo_mobile.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://www.zixuexia.com/wp-content/themes/BlackMirror/assets/images/logo_mobile.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://www.zixuexia.com/wp-content/themes/BlackMirror/assets/images/logo_mobile.png">
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="http://www.zixuexia.com/wp-content/themes/BlackMirror/assets/images/logo_mobile.png">
+    <link rel="dns-prefetch" href="//apps.bdimg.com">
+    <link rel="dns-prefetch" href="//cdn.bootcss.com">
+    <link rel="dns-prefetch" href="//s.w.org">
+    <link rel="alternate" type="application/rss+xml" title="自学侠 » 电商分类目录Feed" href="http://www.zixuexia.com/catalogs/1%e7%94%b5%e5%95%86%e7%a4%be%e4%ba%a4%e6%8e%a8%e5%b9%bf/%e7%94%b5%e5%95%86/feed">
+    <link rel="stylesheet" id="style-css" href="~/Content/css/style.css" type="text/css" media="all">
+    <link rel="stylesheet" id="owlcss-css" href="~/Content/css/owl.carousel.min.css?ver=1.3.2" type="text/css" media="all">
+    <link rel="stylesheet" id="PrismCss-css" href="~/Content/css/prism.css?ver=1.5.0" type="text/css" media="all">
+    <link rel="stylesheet" id="FancyboxCss-css" href="~/Content/css/jquery.fancybox.min.css" type="text/css" media="all">
+    <style type="text/css">
+        .friend-link li a:hover, .custom-carousel, .custom-carousel .owl-prev, .custom-carousel .owl-next, .site-record:hover, .post .post-title a:hover, #footer .footer-friends li a span:hover, #footer .footer-feature .footer-menu li a:hover, .widget-hotpost a:hover, .article-body a, .comments .comments-list .comment .comment-body .comment-user a, .comments .comments-list .comment .children .comment-user a, #comment-nav-below .nav-inside .current, .widget-hotpost-brief i, .archive-header .archive-header-title {
+            color: #38B7EA;
+        }
 
+        .article-like .favorite, .carousel-info-meta .carousel-info-category, .tagcloud a:hover, .calendar_wrap table td a, .article-meta .article-meta-tags a, .article-support .article-support-button a, .comments #respond .form-submit input {
+            background-color: #38B7EA;
+        }
 
-    <link rel="stylesheet" id="PrismCss-css" href="http://www.zixuexia.com/wp-content/themes/BlackMirror/assets/css/prism.css?ver=1.5.0" type="text/css" media="all">
-    <link rel="stylesheet" href="~/Content/jquery.fancybox.min.css" type="text/css">
-    <link rel="stylesheet" href="~/Content/layout.css" type="text/css">
-    <link rel="stylesheet" href="~/Content/thirdstyle.css" type="text/css">
+        .article-body h2, .article-body h3 {
+            border-left: 5px solid #38B7EA;
+        }
+
+        .article-like .done {
+            border: 1px solid #38B7EA;
+        }
+
+        .page-category-img:after {
+            background: #666;
+            opacity: 1;
+        }
+
+        .admin-login a:hover {
+            background-color: #38B7EA;
+        }
+
+        .article-like .favorite {
+            box-shadow: 0 1px 10px #38B7EA;
+        }
+    </style>
+    <script>
+        var carouselSwitcher = "1";
+        var carouselOpacity = "10";
+        var carouselAnimation = "slide";
+        var carouselMouseSwitcher = "1";
+        var siteUrl = "http://www.zixuexia.com";
+        var imgUrl = "http://www.zixuexia.com/wp-content/themes/BlackMirror/assets/images";
+        var fancyboxSwitcher = "1";
+        var isHomePage = "1";//todo 标志
+        var pagType = "number";
+        var layoutType = "four";
+        var themeUrl = "http://www.zixuexia.com/wp-content/themes/BlackMirror";
+    </script>
+    <!--	<base target="_blank">-->
 </head>
 <body>
-    <section class="section">
-        <header class="top header">
-            <nav class="container">
-                <div class="logo hidden-sm">
-                    <a href="http://www.zixuexia.com" class="d-block">
-                        <img src="http://www.zixuexia.com/wp-content/uploads/2019/01/3011.png" alt="">
-                    </a>
-                </div>
-                <div class="mobile-logo show-sm">
-                    <a href="http://www.zixuexia.com" class="d-inline-block">
-                        <img src="http://www.zixuexia.com/wp-content/uploads/2019/01/3012.png" alt="">
-                    </a>
-                </div>
-                <ul class="header-menu">
-                </ul>
-                <div class="search-button cursor-pointer">
-                    <i class="czs-search-l"></i>
-                    <span class="d-inline-block transition opacity-0"><i class="czs-close-l"></i></span>
-                </div>
-                <div class="menu-button">
-                    <div class="nav-bar">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </div>
-            </nav>
-            <div class="menu-wrap show-xs">
-                <div class="mobile-menu">
-                    <ul class="mobile-menu-nav">
-                    </ul>
+    @*------------头部---------------*@
+    <header class="header">
+        <nav class="container">
+            <div class="logo hidden-sm">
+                <a href="http://www.zixuexia.com" class="d-block">
+                    <img src="http://www.zixuexia.com/wp-content/uploads/2019/01/3011.png" alt="">
+                </a>
+            </div>
+            <div class="mobile-logo show-sm">
+                <a href="http://www.zixuexia.com" class="d-inline-block">
+                    <img src="http://www.zixuexia.com/wp-content/uploads/2019/01/3012.png" alt="">
+                </a>
+            </div>
+            <ul id="menu-%e5%88%86%e7%b1%bb%e8%8f%9c%e5%8d%95" class="header-menu">
+                @*<li id="menu-item-982" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-982"><a href="http://www.zixuexia.com/catalogs/1%e7%94%b5%e5%95%86%e7%a4%be%e4%ba%a4%e6%8e%a8%e5%b9%bf/%e7%94%b5%e5%95%86">电商</a></li>
+                <li id="menu-item-983" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-983"><a href="http://www.zixuexia.com/catalogs/1%e7%94%b5%e5%95%86%e7%a4%be%e4%ba%a4%e6%8e%a8%e5%b9%bf/%e7%a4%be%e4%ba%a4">社交</a></li>*@
+            </ul>
+            <div class="search-button cursor-pointer">
+                <i class="czs-search-l"></i>
+                <span class="d-inline-block transition opacity-0"><i class="czs-close-l"></i></span>
+            </div>
+            <div class="menu-button">
+                <div class="nav-bar">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
             </div>
-        </header>
-
-        <div class="center">
-            @RenderBody()
+        </nav>
+        <div class="menu-wrap show-xs">
+            <div class="mobile-menu">
+                <ul id="menu-%e5%88%86%e7%b1%bb%e8%8f%9c%e5%8d%95-1" class="mobile-menu-nav">
+                    @*<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-982"><a href="http://www.zixuexia.com/catalogs/1%e7%94%b5%e5%95%86%e7%a4%be%e4%ba%a4%e6%8e%a8%e5%b9%bf/%e7%94%b5%e5%95%86">电商</a></li>
+                    <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-983"><a href="http://www.zixuexia.com/catalogs/1%e7%94%b5%e5%95%86%e7%a4%be%e4%ba%a4%e6%8e%a8%e5%b9%bf/%e7%a4%be%e4%ba%a4">社交</a></li>*@
+                </ul>
+            </div>
         </div>
-        <div class="bottom">
-            <p>&copy; @DateTime.Now.Year 版权所有- 小青蛙商学院</p>
-        </div>
-    </section>
+    </header>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    @*------------搜索框---------------*@
+    <div class="search-wrap transition">
+        <div class="container">
+            <div class="row">
+                <form role="search" method="get" action="http://www.zixuexia.com/" class="header-search">
+                    <input data-url="TUJJQVM=" type="search" name="s" title="Search" placeholder="搜索..." value="">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    @RenderBody()
+
+    @*------------尾部---------------*@
+    <footer id="footer">
+        <div class="container" style="position: relative; margin-top: 22px;" data-position="d8fa2f5b7b5689de">
+            <div class="footer-theme hidden-xs">
+                <strong class="d-inline-block">自学侠<span class="hidden-xs">：</span></strong>
+                <span>自学视频教程平台</span>
+            </div>
+            <div class="footer-feature">
+                <strong class="pull-left d-inline-block">功能菜单<span class="hidden-xs">：</span></strong>
+                <ul class="footer-menu">
+                    <li class="page_item page-item-1134"><a href="http://www.zixuexia.com/150%e9%97%a8%e8%af%be%e7%a8%8b">150门+课程</a></li>
+                    <li class="page_item page-item-1136"><a href="http://www.zixuexia.com/24%e5%a4%a7%e7%b3%bb%e5%88%97">24大系列</a></li>
+                    <li class="page_item page-item-1132"><a href="http://www.zixuexia.com/%e5%85%b3%e4%ba%8e%e8%87%aa%e5%ad%a6%e4%be%a0">关于自学侠</a></li>
+                    <li class="page_item page-item-1138"><a href="http://www.zixuexia.com/%e5%95%86%e5%8a%a1%e5%90%88%e4%bd%9c">商务合作</a></li>
+                    <li class="page_item page-item-1055"><a href="http://www.zixuexia.com/%e8%81%94%e7%b3%bb%e6%88%91%e4%bb%ac">联系我们</a></li>
+                </ul>
+            </div>
+            <ul class="footer-follow">
+                <li class="follow-wechat">
+                    <a>
+                        <i class="czs-weixin"></i>
+                    </a>
+                    <div class="follow-wechat-popup">
+                        <img src="http://www.zixuexia.com/wp-content/uploads/2019/01/421-公众号.jpg " alt="wechat">
+                    </div>
+                </li>
+                <li class="follow-weibo">
+                    <a target="blank" href="">
+                        <i class="czs-weibo"></i>
+                    </a>
+                </li>
+                <li class="follow-qq">
+                    <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=3159568593" target="_blank">
+                        <i class="czs-qq"></i>
+                    </a>
+                </li>
+                <li class="follow-rss">
+                    <a href="http://www.zixuexia.com/feed/atom" target="_blank">
+                        <i class="czs-rss"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="container">
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <p>
+                    Copyright © 2013-2020				自学侠 - 全网最全自学视频教程平台 / 版本 V 2.0				<span style="margin-right: 12px;" class="hidden-xs">
+                        <a class="site-record" target="_blank" href="www.zixuexia.com" style="color: #818181;">
+                            京ICP备100754号-01
+                        </a>
+                    </span>
+                    <script>
+                    </script>
+                </p>
+            </div>
+        </div>
+    </footer>
+    <div class="scrollTop transition">
+        <i class="czs-arrow-up-l"></i>
+    </div>
+
+    <li class="change-language hidden">
+        <a id="StranLink" class="wencode">繁</a>
+    </li>
+    <script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js?ver=2.1.4"></script>
+    <script type="text/javascript" src="http://www.zixuexia.com/wp-content/themes/BlackMirror/assets/js/prism.js?ver=1.5.0"></script>
+    <script type="text/javascript" src="http://www.zixuexia.com/wp-content/themes/BlackMirror/assets/js/owl.carousel.min.js?ver=2.1.6"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js?ver=3.1.13"></script>
+    <script type="text/javascript" src="http://www.zixuexia.com/wp-content/themes/BlackMirror/assets/js/app.js?ver=1.0.0"></script>
+    <script type="text/javascript" src="https://apps.bdimg.com/libs/fancybox/2.1.4/jquery.fancybox.min.js?ver=2.1.4"></script>
+
+    <div class="overlay"></div>
+
+    <div class="backdrop transition"></div>
+
     <script>
 
         $(function () {
@@ -70,11 +204,10 @@
 
         function loadCategory() {
             $.ajax({
-                url: "../Category/GetBCategoryList",    //请求的url地址
+                url: "../Category/GetAllBCategoryList",    //请求的url地址
                 dataType: "json",   //返回格式为json
                 async: true, //请求是否异步，默认为异步，这也是ajax重要特性
-                data: { "acategoryid": "" },    //参数值
-                type: "GET",   //请求方式
+                type: "get",   //请求方式
                 success: function (result) {
                     //请求成功时处理
                     var htmlstr = '';
@@ -88,5 +221,4 @@
         }
     </script>
 </body>
-
 </html>

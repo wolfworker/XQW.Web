@@ -2,12 +2,6 @@
     ViewBag.Title = "商品详情页";
 }
 
-<style type="text/css">
-.article-like .favorite, .carousel-info-meta .carousel-info-category, .tagcloud a:hover, .calendar_wrap table td a, .article-meta .article-meta-tags a, .article-support .article-support-button a, .comments #respond .form-submit input {
-    background-color: #38B7EA;
-}
-
-</style>
 @{
     var productDetail = ViewBag.ProductDetail;
     var hotProductList = ViewBag.HotProductList;
@@ -22,20 +16,20 @@
                     @*教程详情*@
                     <article class="article " id="post-297">
                         <div class="article-title">
-                            <a href="http://www.zixuexia.com/archives/297">
+                            <a href="../Product/ProductDetail?productid=@productDetail.ProductID">
                                 @productDetail.ProductTitle
                             </a>
                         </div>
                         <div class="article-meta">
                             <span class="article-meta-time">
-                                @productDetail.CreatedTime
+                                @productDetail.UpdateTime
                             </span>
                             <i class="czs-heart"></i>
                             <span class="count">
                                 @productDetail.LikeCount
                             </span>&nbsp;
                             <i class="czs-comment"></i>
-                            <a href="http://www.zixuexia.com/archives/297#respond" class="article-meta-comment">@productDetail.CommentCount</a><i class="czs-eye"></i> @productDetail.SeenCount&nbsp;
+                            <a href="../Product/ProductDetail?productid=@productDetail.ProductID#respond" class="article-meta-comment">@productDetail.CommentCount</a><i class="czs-eye"></i> @productDetail.SeenCount&nbsp;
                             <!-- user edit -->
                             <div class="article-meta-tags">
                                 <a href="http://www.zixuexia.com/tags/%e5%bd%b1%e8%a7%86" rel="tag">维修类</a>
@@ -55,145 +49,68 @@
                             <a href="http://www.zixuexia.com">
                                 小青蛙商学院
                             </a> -
-                            <a href="http://www.zixuexia.com/archives/297">
+                            <a href="http://localhost:9016/Product/ProductDetail?productid=@productDetail.ProductID">
                                 数码后期高手之路从入门到精通教程
                             </a>
-                            (http://www.zixuexia.com/archives/297)
+                            (http://localhost:9016/Product/ProductDetail?productid=@productDetail.ProductID)
                         </p>
                     </article>
 
                     @*上一篇下一篇*@
                     <section id="post-link">
                         <div class="md-6 post-link-previous">
-                            上一篇: <a href="http://www.zixuexia.com/archives/291" rel="prev">@preNextProduct[0].ProductTitle</a>
+                            上一篇: <a href="../Product/ProductDetail?productid=@preNextProduct[0].ProductID" rel="prev">@preNextProduct[0].ProductTitle</a>
                         </div>
                         <div class="md-6 post-link-next">
-                            下一篇: <a href="http://www.zixuexia.com/archives/305" rel="next">@preNextProduct[1].ProductTitle</a>
+                            下一篇: <a href="../Product/ProductDetail?productid=@preNextProduct[1].ProductID" rel="next">@preNextProduct[1].ProductTitle</a>
                         </div>
                     </section>
 
                     @*前后3教程展示*@
                     <div class="related-post row-sm-up clear">
-                        <div class="col-md-4">
-                            <div class="post post-style-card transition">
-                                <a class="post-img img-response" href=" http://www.zixuexia.com/archives/231" style="background-image: url(http://www.zixuexia.com/wp-content/uploads/2019/01/211.jpg)">
-                                </a>
-                                <div class="post-top">
-                                    <div class="post-title mb-1">
-                                        <a href="http://www.zixuexia.com/archives/231">@otherBuyProductList[0].ProductTitle </a>
-                                    </div>
-                                    <div class="post-top-meta mb-3">
-                                        <a class="post-category" href="http://www.zixuexia.com/catalogs/2%e5%b9%b3%e9%9d%a2%e5%bd%b1%e8%a7%86%e4%b8%89%e7%bb%b4%e7%bd%91%e7%ab%99">
-                                            维修类
-                                        </a>
-                                        <span class="post-time">
-                                            @otherBuyProductList[0].CreatedTime
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="p-3">
-                                    <ul class="post-meta-bottom">
-                                        <li class="post-meta-author">
-                                            <a class="d-block" href="http://www.zixuexia.com/archives/author/zixuexia" target="_blank">
-                                                <img src="https://secure.gravatar.com/avatar/8ac98cc09bb07c0d37adfa19d44ede49?s=96" class="avatar avatar-96" height="96" width="96"><span class="d-inline-block">@shopInfo.ShopName</span>
+                        @foreach (var otherBuyProduct in otherBuyProductList)
+                        {
+                            <div class="col-md-4">
+                                <div class="post post-style-card transition">
+                                    <a class="post-img img-response" href="../Product/ProductDetail?productid=@otherBuyProduct.ProductID" style="background-image: url(http://www.zixuexia.com/wp-content/uploads/2019/01/211.jpg)">
+                                    </a>
+                                    <div class="post-top">
+                                        <div class="post-title mb-1">
+                                            <a href="../Product/ProductDetail?productid=@otherBuyProduct.ProductID">@otherBuyProduct.ProductTitle </a>
+                                        </div>
+                                        <div class="post-top-meta mb-3">
+                                            <a class="post-category" href="http://www.zixuexia.com/catalogs/2%e5%b9%b3%e9%9d%a2%e5%bd%b1%e8%a7%86%e4%b8%89%e7%bb%b4%e7%bd%91%e7%ab%99">
+                                                维修类
                                             </a>
-                                        </li>
-                                        <li class="post-meta-view pull-right">
-                                            <i class="czs-eye"></i> @otherBuyProductList[0].SeenCount
-                                        </li>
-                                        <li class="post-meta-comments pull-right">
-                                            <i class="czs-comment"></i> @otherBuyProductList[0].CommentCount
-                                        </li>
-                                        <li class="post-meta-like pull-right">
-                                            <i class="czs-heart"></i>
-                                            <span class="count">
-                                                @otherBuyProductList[0].LikeCount
+                                            <span class="post-time">
+                                                @otherBuyProduct.UpdateTime
                                             </span>
-                                        </li>
-                                    </ul>
+                                        </div>
+                                    </div>
+                                    <div class="p-3">
+                                        <ul class="post-meta-bottom">
+                                            <li class="post-meta-author">
+                                                <a class="d-block" href="http://www.zixuexia.com/archives/author/zixuexia" target="_blank">
+                                                    <img src="https://secure.gravatar.com/avatar/8ac98cc09bb07c0d37adfa19d44ede49?s=96" class="avatar avatar-96" height="96" width="96"><span class="d-inline-block">@shopInfo.ShopName</span>
+                                                </a>
+                                            </li>
+                                            <li class="post-meta-view pull-right">
+                                                <i class="czs-eye"></i> @otherBuyProduct.SeenCount
+                                            </li>
+                                            <li class="post-meta-comments pull-right">
+                                                <i class="czs-comment"></i> @otherBuyProduct.CommentCount
+                                            </li>
+                                            <li class="post-meta-like pull-right">
+                                                <i class="czs-heart"></i>
+                                                <span class="count">
+                                                    @otherBuyProduct.LikeCount
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="post post-style-card transition">
-                                <a class="post-img img-response" href=" http://www.zixuexia.com/archives/266" style="background-image: url(http://www.zixuexia.com/wp-content/uploads/2019/01/221.jpg)">
-                                </a>
-                                <div class="post-top">
-                                    <div class="post-title mb-1">
-                                        <a href="http://www.zixuexia.com/archives/266"> @otherBuyProductList[1].ProductTitle </a>
-                                    </div>
-                                    <div class="post-top-meta mb-3">
-                                        <a class="post-category" href="http://www.zixuexia.com/catalogs/2%e5%b9%b3%e9%9d%a2%e5%bd%b1%e8%a7%86%e4%b8%89%e7%bb%b4%e7%bd%91%e7%ab%99">
-                                            维修类
-                                        </a>
-                                        <span class="post-time">
-                                            @otherBuyProductList[1].CreatedTime
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="p-3">
-                                    <ul class="post-meta-bottom">
-                                        <li class="post-meta-author">
-                                            <a class="d-block" href="http://www.zixuexia.com/archives/author/zixuexia" target="_blank">
-                                                <img src="https://secure.gravatar.com/avatar/8ac98cc09bb07c0d37adfa19d44ede49?s=96" class="avatar avatar-96" height="96" width="96">            <span class="d-inline-block">@shopInfo.ShopName</span>
-                                            </a>
-                                        </li>
-                                        <li class="post-meta-view pull-right">
-                                            <i class="czs-eye"></i> @otherBuyProductList[0].SeenCount
-                                        </li>
-                                        <li class="post-meta-comments pull-right">
-                                            <i class="czs-comment"></i> @otherBuyProductList[0].CommentCount
-                                        </li>
-                                        <li class="post-meta-like pull-right">
-                                            <i class="czs-heart"></i>
-                                            <span class="count">
-                                                @otherBuyProductList[0].LikeCount
-                                            </span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="post post-style-card transition">
-                                <a class="post-img img-response" href=" http://www.zixuexia.com/archives/275" style="background-image: url(http://www.zixuexia.com/wp-content/uploads/2019/01/222.jpg)">
-                                </a>
-                                <div class="post-top">
-                                    <div class="post-title mb-1">
-                                        <a href="http://www.zixuexia.com/archives/275"> @otherBuyProductList[2].ProductTitle </a>
-                                    </div>
-                                    <div class="post-top-meta mb-3">
-                                        <a class="post-category" href="http://www.zixuexia.com/catalogs/2%e5%b9%b3%e9%9d%a2%e5%bd%b1%e8%a7%86%e4%b8%89%e7%bb%b4%e7%bd%91%e7%ab%99">
-                                            维修类
-                                        </a>
-                                        <span class="post-time">
-                                            @otherBuyProductList[2].CreatedTime
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="p-3">
-                                    <ul class="post-meta-bottom">
-                                        <li class="post-meta-author">
-                                            <a class="d-block" href="http://www.zixuexia.com/archives/author/zixuexia" target="_blank">
-                                                <img src="https://secure.gravatar.com/avatar/8ac98cc09bb07c0d37adfa19d44ede49?s=96" class="avatar avatar-96" height="96" width="96">            <span class="d-inline-block">@shopInfo.ShopName</span>
-                                            </a>
-                                        </li>
-                                        <li class="post-meta-view pull-right">
-                                            <i class="czs-eye"></i> @otherBuyProductList[0].SeenCount
-                                        </li>
-                                        <li class="post-meta-comments pull-right">
-                                            <i class="czs-comment"></i> @otherBuyProductList[0].CommentCount
-                                        </li>
-                                        <li class="post-meta-like pull-right">
-                                            <i class="czs-heart"></i>
-                                            <span class="count">
-                                                @otherBuyProductList[0].LikeCount
-                                            </span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                        }
                     </div>
 
                     @*评论区*@
@@ -239,101 +156,31 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                             @*热门文章*@
                             <div id="widget-hotpost-5" class="widget widget-hotpost">
                                 <div class="widget-title"><span>热门教程</span></div>
                                 <ul class="widget-hotpost-image">
-                                    <a href="http://www.zixuexia.com/archives/1057" class="mask-animate widget-hotpost-image-item">
-                                        <div class="recent-post-img">
-                                            <img width="750" height="560" src="http://www.zixuexia.com/wp-content/uploads/2019/01/343.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="">
-                                        </div>
-                                        <div class="widget-hotpost-meta">
-                                            <div class="widget-hotpost-image-title mb-1">关于 @shopInfo.ShopName</div>
-                                            <div style="font-size: 12px;">
-                                                <span class="d-inline-block">
-                                                    <i class="czs-bookmark-l"></i>
-                                                    关于我们
-                                                </span>
-                                                <span class="d-inline-block pull-right">
-                                                    2019.01.05
-                                                </span>
+                                    @foreach (var hotProduct in hotProductList)
+                                    {
+                                        <a href="" class="mask-animate widget-hotpost-image-item">
+                                            <div class="recent-post-img">
+                                                <img width="750" height="560" src="http://www.zixuexia.com/wp-content/uploads/2019/01/344.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="">
                                             </div>
-                                        </div>
-
-                                    </a>
-                                    <a href="http://www.zixuexia.com/archives/1126" class="mask-animate widget-hotpost-image-item">
-                                        <div class="recent-post-img">
-                                            <img width="750" height="560" src="http://www.zixuexia.com/wp-content/uploads/2019/01/344.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="">
-                                        </div>
-                                        <div class="widget-hotpost-meta">
-                                            <div class="widget-hotpost-image-title mb-1">@hotProductList[0].ProductTitle</div>
-                                            <div style="font-size: 12px;">
-                                                <span class="d-inline-block">
-                                                    <i class="czs-bookmark-l"></i>
-                                                    @hotProductList[0].ProductTitle
-                                                </span>
-                                                <span class="d-inline-block pull-right">
-                                                    @hotProductList[0].CreatedTime
-                                                </span>
+                                            <div class="widget-hotpost-meta">
+                                                <div class="widget-hotpost-image-title mb-1">@hotProduct.ProductTitle</div>
+                                                <div style="font-size: 12px;">
+                                                    <span class="d-inline-block">
+                                                        <i class="czs-bookmark-l"></i>
+                                                        @hotProduct.ProductTitle
+                                                    </span>
+                                                    <span class="d-inline-block pull-right">
+                                                        @hotProduct.UpdateTime
+                                                    </span>
+                                                </div>
                                             </div>
-                                        </div>
-
-                                    </a>
-                                    <a href="http://www.zixuexia.com/archives/1098" class="mask-animate widget-hotpost-image-item">
-                                        <div class="recent-post-img">
-                                            <img width="750" height="560" src="http://www.zixuexia.com/wp-content/uploads/2019/01/345.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="">
-                                        </div>
-                                        <div class="widget-hotpost-meta">
-                                            <div class="widget-hotpost-image-title mb-1">@hotProductList[1].ProductTitle</div>
-                                            <div style="font-size: 12px;">
-                                                <span class="d-inline-block">
-                                                    <i class="czs-bookmark-l"></i>
-                                                    @hotProductList[1].ProductTitle
-                                                </span>
-                                                <span class="d-inline-block pull-right">
-                                                    @hotProductList[1].CreatedTime
-                                                </span>
-                                            </div>
-                                        </div>
-
-                                    </a>
-                                    <a href="http://www.zixuexia.com/archives/84" class="mask-animate widget-hotpost-image-item">
-                                        <div class="recent-post-img">
-                                            <img width="750" height="560" src="http://www.zixuexia.com/wp-content/uploads/2019/01/111.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="">
-                                        </div>
-                                        <div class="widget-hotpost-meta">
-                                            <div class="widget-hotpost-image-title mb-1">@hotProductList[2].ProductTitle</div>
-                                            <div style="font-size: 12px;">
-                                                <span class="d-inline-block">
-                                                    <i class="czs-bookmark-l"></i>
-                                                    维修类
-                                                </span>
-                                                <span class="d-inline-block pull-right">
-                                                    @hotProductList[2].CreatedTime
-                                                </span>
-                                            </div>
-                                        </div>
-
-                                    </a>
-                                    <a href="http://www.zixuexia.com/archives/147" class="mask-animate widget-hotpost-image-item">
-                                        <div class="recent-post-img">
-                                            <img width="750" height="560" src="http://www.zixuexia.com/wp-content/uploads/2019/01/122.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="">
-                                        </div>
-                                        <div class="widget-hotpost-meta">
-                                            <div class="widget-hotpost-image-title mb-1">@hotProductList[3].ProductTitle</div>
-                                            <div style="font-size: 12px;">
-                                                <span class="d-inline-block">
-                                                    <i class="czs-bookmark-l"></i>
-                                                    维修类
-                                                </span>
-                                                <span class="d-inline-block pull-right">
-                                                    @hotProductList[2].CreatedTime
-                                                </span>
-                                            </div>
-                                        </div>
-
-                                    </a>
+                                        </a>
+                                    }
                                 </ul>
                             </div>
                         </div>

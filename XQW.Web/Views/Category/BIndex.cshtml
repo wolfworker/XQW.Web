@@ -3,7 +3,7 @@
     ViewBag.Title = @ViewBag.BCategoryName;
 }
 
-@foreach (var item in ViewBag.ProductList)
+@*@foreach (var item in ViewBag.ProductList)
 {
     <div class="col-md-3 col-sm-6">
         <div class="post post-style-card transition">
@@ -45,4 +45,91 @@
             </div>
         </div>
     </div>
-}
+}*@
+
+
+
+
+
+
+
+<div class="category-child py-3 hidden-md">
+    <div class="container">
+        <ul>
+            <li class="d-inline-block"><a class="d-block " href="http://www.zixuexia.com/catalogs/1%e7%94%b5%e5%95%86%e7%a4%be%e4%ba%a4%e6%8e%a8%e5%b9%bf">全部</a></li>
+            @{
+                var CategoryList = ViewBag.CategoryList;
+                foreach (var category in CategoryList)
+                {
+                    <li class="d-inline-block">
+                        <a class="d-block " href="http://www.zixuexia.com/catalogs/1%e7%94%b5%e5%95%86%e7%a4%be%e4%ba%a4%e6%8e%a8%e5%b9%bf/%e7%a4%be%e4%ba%a4">
+                            <i class=""></i>
+                            @category.BCategoryName
+                        </a>
+                    </li>
+                }
+            }
+        </ul>
+        <ul class="pt-6 mt-4 category-child-all hidden">
+        </ul>
+    </div>
+</div>
+
+
+<div class="page-category mt-6">
+    <main class="container">
+        <div class="row">
+            <div class="post-wrap">
+                @{
+                    var productList = ViewBag.ProductList;
+                    foreach (var productDetail in productList)
+                    {
+                                <div class="col-md-3 col-sm-6">
+                                    <div class="post post-style-card transition">
+                                        <a class="post-img img-response" href="../Product/ProductDetail?productid=@productDetail.ProductID" style="background-image: url(http://www.zixuexia.com/wp-content/uploads/2019/01/111.jpg)">
+                                        </a>
+                                        <div class="post-top">
+                                            <div class="post-title mb-1">
+                                                <a href="../Product/ProductDetail?productid=@productDetail.ProductID"> @productDetail.ProductName </a>
+                                            </div>
+                                            <div class="post-top-meta mb-3">
+                                                <span class="post-tag">
+                                                    <a href="http://www.zixuexia.com/tags/1%e7%94%b5%e5%95%86%e7%a4%be%e4%ba%a4%e6%8e%a8%e5%b9%bf">1电商|社交|推广</a>
+                                                </span>
+                                                <span class="post-time">
+                                                    @productDetail.UpdateTime
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="p-3">
+                                            <ul class="post-meta-bottom">
+                                                <li class="post-meta-author">
+                                                    <a class="d-block" href="http://www.zixuexia.com/archives/author/zixuexia" target="_blank">
+                                                        <img src="https://secure.gravatar.com/avatar/8ac98cc09bb07c0d37adfa19d44ede49?s=96" class="avatar avatar-96" height="96" width="96">            <span class="d-inline-block">zixuexia</span>
+                                                    </a>
+                                                </li>
+                                                <li class="post-meta-view pull-right">
+                                                    <i class="czs-eye"></i> @productDetail.SeenCount
+                                                </li>
+                                                <li class="post-meta-comments pull-right">
+                                                    <i class="czs-comment"></i> @productDetail.CommentCount
+                                                </li>
+                                                <li class="post-meta-like pull-right">
+                                                    <i class="czs-heart"></i>
+                                                    <span class="count">
+                                                        @productDetail.LikeCount
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                        }
+                    }
+            </div>
+            <div class="pagination px-3 pagination-number">
+            </div>
+        </div>
+    </main>
+</div>

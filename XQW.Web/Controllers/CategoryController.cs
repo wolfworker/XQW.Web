@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using XQW.DataAccess;
 using XQW.Model.DBEntity;
+using XQW.Model.Model;
 using XQW.Utility;
 
 namespace XQW.Web.Controllers
@@ -18,28 +19,43 @@ namespace XQW.Web.Controllers
             return View();
         }
 
-        public ActionResult BIndex(string bcategoryid)
+        public ActionResult BIndex(string acategoryid, string bcategoryid)
         {
-            var bCategoryInfo = GetBCategoryByID(bcategoryid);
-            ViewBag.BCategoryId = bcategoryid;
-            ViewBag.BCategoryName = bCategoryInfo.BCategoryName;
-            var productList = new ProductController().GetProductListBybCate(bcategoryid);
+            var productList = new ProductController().GetProductListBybCate(acategoryid, bcategoryid);
             ViewBag.ProductList = productList;
+            ViewBag.CategoryList = GetCategoryListByaCate(acategoryid);//todo 小分类 选中
             return View();
         }
 
-        public JsonResult GetBCategoryList(string acategoryid = "")
+        public JsonResult GetAllBCategoryList()
         {
-            return Json(GetBCategoryListByaCate(acategoryid), JsonRequestBehavior.AllowGet);
+            return Json(GetCategoryListByaCate(""), JsonRequestBehavior.AllowGet);
         }
 
-        public List<BCategory> GetBCategoryListByaCate(string acategoryid = "")
+        public List<CategoryModel> GetCategoryListByaCate(string acategoryid)
         {
-            var key = $"bcategorylist.acategory.{acategoryid}";
-            var cacheResult = (List<BCategory>)CacheHelper.GetCache(key);
+            var param = new SqlParameter();
+            var key = $"bcategorylist.acategory.";
+            var sql = $@"SELECT   bc.BCategoryID,
+                                  bc.BCategoryName,
+                                  ac.ACategoryID,
+                                  ac.ACategoryName
+                           FROM   BCategory bc WITH(nolock)
+                                  INNER JOIN ACategory ac WITH(nolock)
+                                          ON ac.ACategoryID = bc.ACategoryID
+                           WHERE  1 = 1 ";
+            if (!string.IsNullOrWhiteSpace(acategoryid))
+            {
+                key += acategoryid;
+                param.ParameterName = "@ACategoryID";
+                param.Value = acategoryid;
+                sql += " AND ac.ACategoryID = @ACategoryID ";
+            }
+
+            var cacheResult = (List<CategoryModel>)CacheHelper.GetCache(key);
             if (cacheResult == null)
             {
-                cacheResult = bCategoryDal.QueryAll<BCategory>() ?? new List<BCategory>();
+                cacheResult = bCategoryDal.QueryCustom<CategoryModel>(sql, string.IsNullOrWhiteSpace(param.ParameterName) ? null : param) ?? new List<CategoryModel>();
                 CacheHelper.SetCache(key, cacheResult);
             }
             return cacheResult;
