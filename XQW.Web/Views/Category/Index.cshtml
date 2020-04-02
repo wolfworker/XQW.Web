@@ -3,56 +3,6 @@
     ViewBag.Title = @ViewBag.BCategoryName;
 }
 
-@*@foreach (var item in ViewBag.ProductList)
-{
-    <div class="col-md-3 col-sm-6">
-        <div class="post post-style-card transition">
-            <a class="post-img img-response" href="../Product/ProductDetail?productid=@item.ProductID" style="background-image: url(http://www.zixuexia.com/wp-content/uploads/2019/01/221.jpg)">
-            </a>
-            <div class="post-top">
-                <div class="post-title mb-1">
-                    <a href="../Product/ProductDetail?productid=@item.ProductID"> @item.ProductTitle </a>
-                </div>
-                <div class="post-top-meta mb-3">
-                    <span class="post-tag">
-                        <a href="http://www.zixuexia.com/tags/2%e5%b9%b3%e9%9d%a2%e5%bd%b1%e8%a7%86%e4%b8%89%e7%bb%b4%e7%bd%91%e7%ab%99"> @ViewBag.BCategoryName</a>
-                    </span>
-                    <span class="post-time">
-                        @item.CreatedTime
-                    </span>
-                </div>
-            </div>
-            <div class="p-3">
-                <ul class="post-meta-bottom">
-                    <li class="post-meta-author">
-                        <a class="d-block" href="http://www.zixuexia.com/archives/author/zixuexia" target="_blank">
-                            <img src="https://secure.gravatar.com/avatar/8ac98cc09bb07c0d37adfa19d44ede49?s=96" class="avatar avatar-96" height="96" width="96">            <span class="d-inline-block">zixuexia</span>
-                        </a>
-                    </li>
-                    <li class="post-meta-view pull-right">
-                        <i class="czs-eye"></i> @item.LikeCount
-                    </li>
-                    <li class="post-meta-comments pull-right">
-                        <i class="czs-comment"></i> @item.CommentCount
-                    </li>
-                    <li class="post-meta-like pull-right">
-                        <i class="czs-heart"></i>
-                        <span class="count">
-                            @item.SeenCount
-                        </span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-}*@
-
-
-
-
-
-
-
 <div class="category-child py-3 hidden-md">
     <div class="container">
         <ul>
@@ -86,7 +36,7 @@
                     {
                                 <div class="col-md-3 col-sm-6">
                                     <div class="post post-style-card transition">
-                                        <a class="post-img img-response" href="../Product/ProductDetail?productid=@productDetail.ProductID" style="background-image: url(http://www.zixuexia.com/wp-content/uploads/2019/01/111.jpg)">
+                                        <a class="post-img img-response" href="../Product/ProductDetail?productid=@productDetail.ProductID" style="background-image: url(@productDetail.HeaderImageUrl)">
                                         </a>
                                         <div class="post-top">
                                             <div class="post-title mb-1">
@@ -94,18 +44,19 @@
                                             </div>
                                             <div class="post-top-meta mb-3">
                                                 <span class="post-tag">
-                                                    <a href="http://www.zixuexia.com/tags/1%e7%94%b5%e5%95%86%e7%a4%be%e4%ba%a4%e6%8e%a8%e5%b9%bf">1电商|社交|推广</a>
+                                                    <a href="http://localhost:9016/Category/Index?bcategoryid=@productDetail.BCategoryID">@productDetail.BCategoryName</a>
                                                 </span>
                                                 <span class="post-time">
-                                                    @productDetail.UpdateTime
+                                                    @productDetail.UpdateTime.ToString("yyyy-MM-dd")
                                                 </span>
                                             </div>
                                         </div>
                                         <div class="p-3">
                                             <ul class="post-meta-bottom">
                                                 <li class="post-meta-author">
-                                                    <a class="d-block" href="http://www.zixuexia.com/archives/author/zixuexia" target="_blank">
-                                                        <img src="https://secure.gravatar.com/avatar/8ac98cc09bb07c0d37adfa19d44ede49?s=96" class="avatar avatar-96" height="96" width="96">            <span class="d-inline-block">zixuexia</span>
+                                                    <a class="d-block" href="http://localhost:9016/" target="_blank">
+                                                        <img src="https://secure.gravatar.com/avatar/8ac98cc09bb07c0d37adfa19d44ede49?s=96" class="avatar avatar-96" height="96" width="96">            
+                                                        <span class="d-inline-block">小青蛙商学院</span>
                                                     </a>
                                                 </li>
                                                 <li class="post-meta-view pull-right">

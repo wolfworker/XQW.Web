@@ -15,7 +15,10 @@ namespace XQW.Model.Model
         public int LikeCount { get; set; }
         public int CommentCount { get; set; }
         public int SeenCount { get; set; }
-
+        /// <summary>
+        /// 详情页有几张图片（便于直接生成详情页图片链接）
+        /// </summary>
+        public int DetailPicCount { get; set; }
         /// <summary>
         /// 主图url
         /// </summary>
@@ -24,7 +27,7 @@ namespace XQW.Model.Model
         /// <summary>
         /// 详情图url（分号;分隔）
         /// </summary>
-        public string DetailImageUrl { get; set; }
+        public List<string> DetailImageUrlList { get; set; }
 
         public string ACategoryID { get; set; }
         public string BCategoryID { get; set; }

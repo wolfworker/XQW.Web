@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="keywords" content="自学,教程,视频教程">
-    <meta name="description" content="自学侠（www.zixuexia.com），国内自学视频教程平台。提供各种入门教程，范围包括：电商|社交|推广，平面|影视|三维|网站，音乐|美术|摄影，运动|健身|舞蹈，外语|办公|职业，化妆|形象|饮食，生活|维修|宠物|手工|母婴等">
-    <title>自学侠-自学视频教程平台</title>
+    <meta name="description" content="小青蛙商学院（www.zixuexia.com），国内自学视频教程平台。提供各种入门教程，范围包括：电商|社交|推广，平面|影视|三维|网站，音乐|美术|摄影，运动|健身|舞蹈，外语|办公|职业，化妆|形象|饮食，生活|维修|宠物|手工|母婴等">
+    <title>小青蛙商学院-自学视频教程平台</title>
     <link rel="shortcut icon" href="http://www.zixuexia.com/wp-content/themes/BlackMirror/assets/images/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon-precomposed" href="http://www.zixuexia.com/wp-content/themes/BlackMirror/assets/images/logo_mobile.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://www.zixuexia.com/wp-content/themes/BlackMirror/assets/images/logo_mobile.png">
@@ -15,7 +15,7 @@
     <link rel="dns-prefetch" href="//apps.bdimg.com">
     <link rel="dns-prefetch" href="//cdn.bootcss.com">
     <link rel="dns-prefetch" href="//s.w.org">
-    <link rel="alternate" type="application/rss+xml" title="自学侠 » 电商分类目录Feed" href="http://www.zixuexia.com/catalogs/1%e7%94%b5%e5%95%86%e7%a4%be%e4%ba%a4%e6%8e%a8%e5%b9%bf/%e7%94%b5%e5%95%86/feed">
+    <link rel="alternate" type="application/rss+xml" title="小青蛙商学院 » 电商分类目录Feed" href="http://www.zixuexia.com/catalogs/1%e7%94%b5%e5%95%86%e7%a4%be%e4%ba%a4%e6%8e%a8%e5%b9%bf/%e7%94%b5%e5%95%86/feed">
     <link rel="stylesheet" id="style-css" href="~/Content/css/style.css" type="text/css" media="all">
     <link rel="stylesheet" id="owlcss-css" href="~/Content/css/owl.carousel.min.css?ver=1.3.2" type="text/css" media="all">
     <link rel="stylesheet" id="PrismCss-css" href="~/Content/css/prism.css?ver=1.5.0" type="text/css" media="all">
@@ -122,7 +122,7 @@
     <footer id="footer">
         <div class="container" style="position: relative; margin-top: 22px;" data-position="d8fa2f5b7b5689de">
             <div class="footer-theme hidden-xs">
-                <strong class="d-inline-block">自学侠<span class="hidden-xs">：</span></strong>
+                <strong class="d-inline-block">小青蛙商学院<span class="hidden-xs">：</span></strong>
                 <span>自学视频教程平台</span>
             </div>
             <div class="footer-feature">
@@ -130,7 +130,7 @@
                 <ul class="footer-menu">
                     <li class="page_item page-item-1134"><a href="http://www.zixuexia.com/150%e9%97%a8%e8%af%be%e7%a8%8b">150门+课程</a></li>
                     <li class="page_item page-item-1136"><a href="http://www.zixuexia.com/24%e5%a4%a7%e7%b3%bb%e5%88%97">24大系列</a></li>
-                    <li class="page_item page-item-1132"><a href="http://www.zixuexia.com/%e5%85%b3%e4%ba%8e%e8%87%aa%e5%ad%a6%e4%be%a0">关于自学侠</a></li>
+                    <li class="page_item page-item-1132"><a href="http://www.zixuexia.com/%e5%85%b3%e4%ba%8e%e8%87%aa%e5%ad%a6%e4%be%a0">关于小青蛙商学院</a></li>
                     <li class="page_item page-item-1138"><a href="http://www.zixuexia.com/%e5%95%86%e5%8a%a1%e5%90%88%e4%bd%9c">商务合作</a></li>
                     <li class="page_item page-item-1055"><a href="http://www.zixuexia.com/%e8%81%94%e7%b3%bb%e6%88%91%e4%bb%ac">联系我们</a></li>
                 </ul>
@@ -166,7 +166,7 @@
         <div class="copyright">
             <div class="container">
                 <p>
-                    Copyright © 2013-2020				自学侠 - 全网最全自学视频教程平台 / 版本 V 2.0				<span style="margin-right: 12px;" class="hidden-xs">
+                    Copyright © 2013-2020				小青蛙商学院 - 全网最全自学视频教程平台 / 版本 V 2.0				<span style="margin-right: 12px;" class="hidden-xs">
                         <a class="site-record" target="_blank" href="www.zixuexia.com" style="color: #818181;">
                             京ICP备100754号-01
                         </a>
@@ -204,15 +204,14 @@
 
         function loadCategory() {
             $.ajax({
-                url: "../Category/GetAllBCategoryList",    //请求的url地址
-                dataType: "json",   //返回格式为json
-                async: true, //请求是否异步，默认为异步，这也是ajax重要特性
-                type: "get",   //请求方式
+                url: "../Category/GetAllACategoryList",
+                dataType: "json",
+                async: true,
+                type: "get",
                 success: function (result) {
-                    //请求成功时处理
                     var htmlstr = '';
                     $.each(result, function (i, item) {
-                        htmlstr += '<li><a href="/Category/BIndex?bcategoryid=' + item.BCategoryID + '" >' + item.BCategoryName + '</a></li>';
+                        htmlstr += '<li><a href="/Category/Index?acategoryid=' + item.ACategoryID + '" >' + item.ACategoryName + '</a></li>';
                     });
                     $(".header-menu").append(htmlstr);
                     $(".mobile-menu-nav").append(htmlstr);

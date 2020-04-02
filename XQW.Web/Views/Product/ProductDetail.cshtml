@@ -32,27 +32,28 @@
                             <a href="../Product/ProductDetail?productid=@productDetail.ProductID#respond" class="article-meta-comment">@productDetail.CommentCount</a><i class="czs-eye"></i> @productDetail.SeenCount&nbsp;
                             <!-- user edit -->
                             <div class="article-meta-tags">
-                                <a href="http://www.zixuexia.com/tags/%e5%bd%b1%e8%a7%86" rel="tag">维修类</a>
+                                <a href="http://www.zixuexia.com/tags/%e5%bd%b1%e8%a7%86" rel="tag">@productDetail.BCategoryName</a>
                             </div>
                         </div>
                         <!-- <hr class="mb-6" style="border: 0;height: 1px;background: #ddd;">-->
                         <div class="article-body">
                             <p>
-                                <a href="http://www.zixuexia.com/wp-content/uploads/2019/01/225.jpg" class="fancybox" rel="fancybox-group" title=""><img class="alignnone size-full wp-image-303 aligncenter" src="http://www.zixuexia.com/wp-content/uploads/2019/01/225.jpg" alt=@productDetail.ProductSubTtile width="750" height="560"></a>
-                                <a href="http://www.zixuexia.com/wp-content/uploads/2019/01/2181.jpg" class="fancybox" rel="fancybox-group" title=""><img class="alignnone size-full wp-image-46 aligncenter" src="http://www.zixuexia.com/wp-content/uploads/2019/01/2181.jpg" alt=@productDetail.ProductSubTtile width="750" height="150"></a>
+                                @foreach (var detailImageUrl in @productDetail.DetailImageUrlList)
+                                {
+                                    <a href="@detailImageUrl" class="fancybox" rel="fancybox-group" title=""><img class="alignnone size-full wp-image-303 aligncenter" src="@detailImageUrl" alt=@productDetail.ProductSubTtile width="750" height="560"></a>
+                                }
                             </p>
                             <p><a href="http://www.zixuexia.com/wp-content/uploads/2019/01/数码后期高手之路从入门到精通教程-150x150.png" class="fancybox" rel="fancybox-group" title=""><img class="aligncenter wp-image-302 size-thumbnail" src="http://www.zixuexia.com/wp-content/uploads/2019/01/数码后期高手之路从入门到精通教程-150x150.png" alt=@productDetail.ProductSubTtile width="150" height="150" srcset="http://www.zixuexia.com/wp-content/uploads/2019/01/数码后期高手之路从入门到精通教程-150x150.png 150w, http://www.zixuexia.com/wp-content/uploads/2019/01/数码后期高手之路从入门到精通教程.png 600w" sizes="(max-width: 150px) 100vw, 150px"></a></p>
                         </div>
                         <!-- copyright -->
                         <p class="article-copyright">
                             转载原创文章请注明，转载自:
-                            <a href="http://www.zixuexia.com">
+                            <a href="http://localhost:9016/">
                                 小青蛙商学院
                             </a> -
-                            <a href="http://localhost:9016/Product/ProductDetail?productid=@productDetail.ProductID">
+                            <a href="../Product/ProductDetail?productid=@productDetail.ProductID">
                                 数码后期高手之路从入门到精通教程
                             </a>
-                            (http://localhost:9016/Product/ProductDetail?productid=@productDetail.ProductID)
                         </p>
                     </article>
 
@@ -72,7 +73,7 @@
                         {
                             <div class="col-md-4">
                                 <div class="post post-style-card transition">
-                                    <a class="post-img img-response" href="../Product/ProductDetail?productid=@otherBuyProduct.ProductID" style="background-image: url(http://www.zixuexia.com/wp-content/uploads/2019/01/211.jpg)">
+                                    <a class="post-img img-response" href="../Product/ProductDetail?productid=@otherBuyProduct.ProductID" style="background-image: url(@otherBuyProduct.HeaderImageUrl)">
                                     </a>
                                     <div class="post-top">
                                         <div class="post-title mb-1">
@@ -80,7 +81,7 @@
                                         </div>
                                         <div class="post-top-meta mb-3">
                                             <a class="post-category" href="http://www.zixuexia.com/catalogs/2%e5%b9%b3%e9%9d%a2%e5%bd%b1%e8%a7%86%e4%b8%89%e7%bb%b4%e7%bd%91%e7%ab%99">
-                                                维修类
+                                                @otherBuyProduct.BCategoryName
                                             </a>
                                             <span class="post-time">
                                                 @otherBuyProduct.UpdateTime
@@ -165,7 +166,7 @@
                                     {
                                         <a href="" class="mask-animate widget-hotpost-image-item">
                                             <div class="recent-post-img">
-                                                <img width="750" height="560" src="http://www.zixuexia.com/wp-content/uploads/2019/01/344.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="">
+                                                <img width="750" height="560" src="@hotProduct.HeaderImageUrl" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="">
                                             </div>
                                             <div class="widget-hotpost-meta">
                                                 <div class="widget-hotpost-image-title mb-1">@hotProduct.ProductTitle</div>

@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataBaseContext.cs" />
+    <Compile Include="DBEntity\ACategory.cs" />
     <Compile Include="DBEntity\Product.cs" />
     <Compile Include="DBEntity\BCategory.cs" />
     <Compile Include="DBEntity\CommonEntity.cs" />

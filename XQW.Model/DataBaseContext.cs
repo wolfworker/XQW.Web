@@ -19,15 +19,10 @@ namespace XQW.Model
 
         }
         #region 数据库 表实体
-        /// <summary>
-        /// 用户表
-        /// </summary>
-        public DbSet<BCategory> BCategory { get; set; }
 
-        ///// <summary>
-        ///// 日志表
-        ///// </summary>
-        //public DbSet<SYS_DebugLog> DebugLogs { get; set; }
+        public DbSet<ACategory> ACategory { get; set; }
+        public DbSet<BCategory> BCategory { get; set; }
+        public DbSet<Product> Product { get; set; }
 
         ///// <summary>
         ///// 日志表

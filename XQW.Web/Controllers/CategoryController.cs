@@ -14,12 +14,8 @@ namespace XQW.Web.Controllers
     public class CategoryController : Controller
     {
         public BCategoryDal bCategoryDal { get; set; } = new BCategoryDal();
-        public ActionResult AIndex()
-        {
-            return View();
-        }
 
-        public ActionResult BIndex(string acategoryid, string bcategoryid)
+        public ActionResult Index(string acategoryid, string bcategoryid)
         {
             var productList = new ProductController().GetProductListBybCate(acategoryid, bcategoryid);
             ViewBag.ProductList = productList;
@@ -32,10 +28,22 @@ namespace XQW.Web.Controllers
             return Json(GetCategoryListByaCate(""), JsonRequestBehavior.AllowGet);
         }
 
+        public JsonResult GetAllACategoryList()
+        {
+            return Json(GetAllACategoryInfoList(), JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult ClearAllCache()
+        {
+            //清除所有缓存
+            CacheHelper.RemoveAllCache();
+            return Json("清除缓存成功", JsonRequestBehavior.AllowGet);
+        }
+
         public List<CategoryModel> GetCategoryListByaCate(string acategoryid)
         {
             var param = new SqlParameter();
-            var key = $"bcategorylist.acategory.";
+            var key = AppConst.Cache_CategoryListByACate;
             var sql = $@"SELECT   bc.BCategoryID,
                                   bc.BCategoryName,
                                   ac.ACategoryID,
@@ -56,6 +64,26 @@ namespace XQW.Web.Controllers
             if (cacheResult == null)
             {
                 cacheResult = bCategoryDal.QueryCustom<CategoryModel>(sql, string.IsNullOrWhiteSpace(param.ParameterName) ? null : param) ?? new List<CategoryModel>();
+                CacheHelper.SetCache(key, cacheResult);
+            }
+            return cacheResult;
+        }
+
+
+        public List<ACategory> GetAllACategoryInfoList()
+        {
+            //var cacheResult = bCategoryDal.QueryAll<CategoryModel>();
+            //var param = new SqlParameter();
+            var key = AppConst.Cache_ACategoryListAll;
+            //var sql = $@"SELECT   ac.ACategoryID,
+            //                      ac.ACategoryName
+            //               FROM   ACategory ac WITH(nolock) ";
+
+            var cacheResult = (List<ACategory>)CacheHelper.GetCache(key);
+            if (cacheResult == null)
+            {
+                //cacheResult = bCategoryDal.QueryCustom<CategoryModel>(sql, string.IsNullOrWhiteSpace(param.ParameterName) ? null : param) ?? new List<CategoryModel>();
+                cacheResult = bCategoryDal.QueryAll<ACategory>();
                 CacheHelper.SetCache(key, cacheResult);
             }
             return cacheResult;

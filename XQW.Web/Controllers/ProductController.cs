@@ -95,7 +95,7 @@ namespace XQW.Web.Controllers
             }
 
             var param = new SqlParameter();
-            var key = $"productlist.bcategory.";
+            var key = "";
             var sql = $@"SELECT    p.ProductID,
                                    p.ProductName,
                                    p.ProductTitle,
@@ -103,6 +103,7 @@ namespace XQW.Web.Controllers
                                    p.LikeCount,
                                    p.CommentCount,
                                    p.SeenCount,
+                                   p.DetailPicCount,
                                    p.Status,
                                    ac.ACategoryID,
                                    bc.BCategoryID,
@@ -117,14 +118,14 @@ namespace XQW.Web.Controllers
                             WHERE  Status = 1 ";
             if (!string.IsNullOrWhiteSpace(bCategoryid))
             {
-                key += bCategoryid;
+                key = AppConst.Cache_ProductInfoListByBCate + bCategoryid;
                 param.ParameterName = "@BCategoryID";
                 param.Value = bCategoryid;
                 sql += " AND bc.BCategoryID = @BCategoryID ";
             }
             else
             {
-                key += aCategoryid;
+                key = AppConst.Cache_ProductInfoListByACate + aCategoryid;
                 param.ParameterName = "@ACategoryID";
                 param.Value = aCategoryid;
                 sql += " AND ac.ACategoryID = @ACategoryID ";
@@ -133,7 +134,19 @@ namespace XQW.Web.Controllers
             var cacheResult = (List<ProductModel>)CacheHelper.GetCache(key);
             if (cacheResult == null)
             {
-                cacheResult = productDal.QueryCustom<ProductModel>(sql, param) ?? new List<ProductModel>();
+                cacheResult = productDal.QueryCustom<ProductModel>(sql, param);
+                if (cacheResult?.Any() ?? false)
+                {
+                    cacheResult.ForEach(p =>
+                    {
+                        p.HeaderImageUrl = AppConst.GetProductHeaderImgUrl(p.ProductID);
+                        p.DetailImageUrlList = AppConst.GetProductDetailImgUrl(p.ProductID, p.DetailPicCount);
+                    });
+                }
+                else
+                {
+                    cacheResult = new List<ProductModel>();
+                }
                 CacheHelper.SetCache(key, cacheResult);
             }
             return cacheResult;
@@ -141,7 +154,7 @@ namespace XQW.Web.Controllers
 
         public ProductModel GetProductDetailById(string productid)
         {
-            var key = $"productdetail.{productid}";
+            var key = AppConst.Cache_ProductInfoByID + productid;
             var cacheResult = (ProductModel)CacheHelper.GetCache(key);
             if (cacheResult == null)
             {
@@ -152,6 +165,7 @@ namespace XQW.Web.Controllers
                                        p.LikeCount,
                                        p.CommentCount,
                                        p.SeenCount,
+                                       p.DetailPicCount,
                                        p.Status,
                                        ac.ACategoryID,
                                        bc.BCategoryID,
@@ -170,7 +184,17 @@ namespace XQW.Web.Controllers
                     ParameterName = "@ProductID",
                     Value = productid
                 };
-                cacheResult = productDal.QueryCustom<ProductModel>(sql, param)?.FirstOrDefault() ?? new ProductModel();
+                cacheResult = productDal.QueryCustom<ProductModel>(sql, param)?.FirstOrDefault();
+                if (cacheResult != null)
+                {
+                    //头图和详情图 url
+                    cacheResult.HeaderImageUrl = AppConst.GetProductHeaderImgUrl(productid);
+                    cacheResult.DetailImageUrlList = AppConst.GetProductDetailImgUrl(productid, cacheResult.DetailPicCount);
+                }
+                else
+                {
+                    cacheResult = new ProductModel();
+                }
                 CacheHelper.SetCache(key, cacheResult);
             }
             return cacheResult;
