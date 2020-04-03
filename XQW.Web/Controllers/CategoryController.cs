@@ -19,7 +19,11 @@ namespace XQW.Web.Controllers
         {
             var productList = new ProductController().GetProductListBybCate(acategoryid, bcategoryid);
             ViewBag.ProductList = productList;
-            ViewBag.CategoryList = GetCategoryListByaCate(acategoryid);//todo 小分类 选中
+            var categoryList = GetCategoryListByaCate(acategoryid);//todo 小分类 选中
+            ViewBag.CategoryList = categoryList;//todo 小分类 选中
+            ViewBag.ACategoryID = acategoryid;
+            ViewBag.BCategoryID = bcategoryid;
+            ViewBag.IsAllActive = !categoryList.Any(p => p.BCategoryID.ToLower().Equals(bcategoryid?.ToLower()));
             return View();
         }
 
@@ -72,17 +76,10 @@ namespace XQW.Web.Controllers
 
         public List<ACategory> GetAllACategoryInfoList()
         {
-            //var cacheResult = bCategoryDal.QueryAll<CategoryModel>();
-            //var param = new SqlParameter();
             var key = AppConst.Cache_ACategoryListAll;
-            //var sql = $@"SELECT   ac.ACategoryID,
-            //                      ac.ACategoryName
-            //               FROM   ACategory ac WITH(nolock) ";
-
             var cacheResult = (List<ACategory>)CacheHelper.GetCache(key);
             if (cacheResult == null)
             {
-                //cacheResult = bCategoryDal.QueryCustom<CategoryModel>(sql, string.IsNullOrWhiteSpace(param.ParameterName) ? null : param) ?? new List<CategoryModel>();
                 cacheResult = bCategoryDal.QueryAll<ACategory>();
                 CacheHelper.SetCache(key, cacheResult);
             }

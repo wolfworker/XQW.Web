@@ -23,9 +23,9 @@ namespace XQW.Web.Controllers
         public ActionResult ProductDetail(string productid)
         {
             ViewBag.ProductDetail = GetProductDetailById(productid);
-            ViewBag.HotProductList = GetHotProductList(productid);
-            ViewBag.PreNextProduct = GetHotProductList(productid);
-            ViewBag.OtherBuyProductList = GetHotProductList(productid);
+            ViewBag.HotProductList = GetHotProductList(productid).Take(5).ToList();
+            ViewBag.PreNextProduct = GetHotProductList(productid).Take(2).ToList();
+            ViewBag.OtherBuyProductList = GetHotProductList(productid).Take(3).ToList();
             ViewBag.ShopInfo = GetShopInfo();
             return View();
         }

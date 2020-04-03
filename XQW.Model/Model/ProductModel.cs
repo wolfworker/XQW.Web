@@ -25,7 +25,7 @@ namespace XQW.Model.Model
         public string HeaderImageUrl { get; set; }
 
         /// <summary>
-        /// 详情图url（分号;分隔）
+        /// 详情图url list
         /// </summary>
         public List<string> DetailImageUrlList { get; set; }
 

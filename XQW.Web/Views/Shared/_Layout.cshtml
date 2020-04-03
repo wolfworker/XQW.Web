@@ -70,18 +70,16 @@
     <header class="header">
         <nav class="container">
             <div class="logo hidden-sm">
-                <a href="http://www.zixuexia.com" class="d-block">
-                    <img src="http://www.zixuexia.com/wp-content/uploads/2019/01/3011.png" alt="">
+                <a href="http://localhost:9016/" class="d-block">
+                    <img src="http://localhost:9017/others/xqw_logo.png" alt="">
                 </a>
             </div>
             <div class="mobile-logo show-sm">
-                <a href="http://www.zixuexia.com" class="d-inline-block">
-                    <img src="http://www.zixuexia.com/wp-content/uploads/2019/01/3012.png" alt="">
+                <a href="http://localhost:9016/" class="d-inline-block">
+                    <img src="http://localhost:9017/others/xqw_logo.png" alt="">
                 </a>
             </div>
-            <ul id="menu-%e5%88%86%e7%b1%bb%e8%8f%9c%e5%8d%95" class="header-menu">
-                @*<li id="menu-item-982" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-982"><a href="http://www.zixuexia.com/catalogs/1%e7%94%b5%e5%95%86%e7%a4%be%e4%ba%a4%e6%8e%a8%e5%b9%bf/%e7%94%b5%e5%95%86">电商</a></li>
-                <li id="menu-item-983" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-983"><a href="http://www.zixuexia.com/catalogs/1%e7%94%b5%e5%95%86%e7%a4%be%e4%ba%a4%e6%8e%a8%e5%b9%bf/%e7%a4%be%e4%ba%a4">社交</a></li>*@
+            <ul class="header-menu">
             </ul>
             <div class="search-button cursor-pointer">
                 <i class="czs-search-l"></i>
@@ -97,9 +95,7 @@
         </nav>
         <div class="menu-wrap show-xs">
             <div class="mobile-menu">
-                <ul id="menu-%e5%88%86%e7%b1%bb%e8%8f%9c%e5%8d%95-1" class="mobile-menu-nav">
-                    @*<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-982"><a href="http://www.zixuexia.com/catalogs/1%e7%94%b5%e5%95%86%e7%a4%be%e4%ba%a4%e6%8e%a8%e5%b9%bf/%e7%94%b5%e5%95%86">电商</a></li>
-                    <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-983"><a href="http://www.zixuexia.com/catalogs/1%e7%94%b5%e5%95%86%e7%a4%be%e4%ba%a4%e6%8e%a8%e5%b9%bf/%e7%a4%be%e4%ba%a4">社交</a></li>*@
+                <ul class="mobile-menu-nav">
                 </ul>
             </div>
         </div>
@@ -211,7 +207,8 @@
                 success: function (result) {
                     var htmlstr = '';
                     $.each(result, function (i, item) {
-                        htmlstr += '<li><a href="/Category/Index?acategoryid=' + item.ACategoryID + '" >' + item.ACategoryName + '</a></li>';
+                        var isactive = ('@ViewBag.ACategoryID' == item.ACategoryID) ? "color:white" : "";
+                        htmlstr += '<li><a style="'+isactive+'" href="/Category/Index?acategoryid=' + item.ACategoryID + '" >' + item.ACategoryName + '</a></li>';
                     });
                     $(".header-menu").append(htmlstr);
                     $(".mobile-menu-nav").append(htmlstr);

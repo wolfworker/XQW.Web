@@ -1,6 +1,9 @@
 ﻿@{
     ViewBag.Title = "商品详情页";
+
 }
+
+@using XQW.Model.Model;
 
 @{
     var productDetail = ViewBag.ProductDetail;
@@ -29,21 +32,34 @@
                                 @productDetail.LikeCount
                             </span>&nbsp;
                             <i class="czs-comment"></i>
-                            <a href="../Product/ProductDetail?productid=@productDetail.ProductID#respond" class="article-meta-comment">@productDetail.CommentCount</a><i class="czs-eye"></i> @productDetail.SeenCount&nbsp;
+                            <a href="../Product/ProductDetail?productid=@productDetail.ProductID#respond"
+                               class="article-meta-comment">@productDetail.CommentCount</a>
+                            <i class="czs-eye">
+                            </i> @productDetail.SeenCount&nbsp;
                             <!-- user edit -->
                             <div class="article-meta-tags">
-                                <a href="http://www.zixuexia.com/tags/%e5%bd%b1%e8%a7%86" rel="tag">@productDetail.BCategoryName</a>
+                                <a href="http://localhost:9016/Category/Index?acategoryid=@productDetail.ACategoryID&bcategoryid=@productDetail.BCategoryID"
+                                   rel="tag">@productDetail.BCategoryName</a>
                             </div>
                         </div>
                         <!-- <hr class="mb-6" style="border: 0;height: 1px;background: #ddd;">-->
                         <div class="article-body">
                             <p>
-                                @foreach (var detailImageUrl in @productDetail.DetailImageUrlList)
+                                @foreach (string detailImageUrl in productDetail.DetailImageUrlList)
                                 {
-                                    <a href="@detailImageUrl" class="fancybox" rel="fancybox-group" title=""><img class="alignnone size-full wp-image-303 aligncenter" src="@detailImageUrl" alt=@productDetail.ProductSubTtile width="750" height="560"></a>
+                                    <a href="@detailImageUrl" class="fancybox" rel="fancybox-group" title="">
+                                        <img class="alignnone size-full wp-image-303 aligncenter" src="@detailImageUrl"
+                                             alt=@productDetail.ProductSubTtile width="750" height="560">
+                                    </a>
                                 }
                             </p>
-                            <p><a href="http://www.zixuexia.com/wp-content/uploads/2019/01/数码后期高手之路从入门到精通教程-150x150.png" class="fancybox" rel="fancybox-group" title=""><img class="aligncenter wp-image-302 size-thumbnail" src="http://www.zixuexia.com/wp-content/uploads/2019/01/数码后期高手之路从入门到精通教程-150x150.png" alt=@productDetail.ProductSubTtile width="150" height="150" srcset="http://www.zixuexia.com/wp-content/uploads/2019/01/数码后期高手之路从入门到精通教程-150x150.png 150w, http://www.zixuexia.com/wp-content/uploads/2019/01/数码后期高手之路从入门到精通教程.png 600w" sizes="(max-width: 150px) 100vw, 150px"></a></p>
+                            <p>
+                                <a href="http://localhost:9017/others/xqw_vip.png" class="fancybox" rel="fancybox-group" title="">
+                                    <img class="aligncenter wp-image-302 size-thumbnail"
+                                         src="http://localhost:9017/others/xqw_vip.png"
+                                         alt=@productDetail.ProductSubTtile title="微信扫码-小青蛙商学院" width="150" height="150">
+                                </a>
+                            </p>
                         </div>
                         <!-- copyright -->
                         <p class="article-copyright">
@@ -52,7 +68,7 @@
                                 小青蛙商学院
                             </a> -
                             <a href="../Product/ProductDetail?productid=@productDetail.ProductID">
-                                数码后期高手之路从入门到精通教程
+                                @productDetail.ProductSubTtile
                             </a>
                         </p>
                     </article>
@@ -80,7 +96,7 @@
                                             <a href="../Product/ProductDetail?productid=@otherBuyProduct.ProductID">@otherBuyProduct.ProductTitle </a>
                                         </div>
                                         <div class="post-top-meta mb-3">
-                                            <a class="post-category" href="http://www.zixuexia.com/catalogs/2%e5%b9%b3%e9%9d%a2%e5%bd%b1%e8%a7%86%e4%b8%89%e7%bb%b4%e7%bd%91%e7%ab%99">
+                                            <a class="post-category" href="http://localhost:9016/Category/Index?acategoryid=@otherBuyProduct.ACategoryID&bcategoryid=@otherBuyProduct.BCategoryID">
                                                 @otherBuyProduct.BCategoryName
                                             </a>
                                             <span class="post-time">
@@ -91,8 +107,10 @@
                                     <div class="p-3">
                                         <ul class="post-meta-bottom">
                                             <li class="post-meta-author">
-                                                <a class="d-block" href="http://www.zixuexia.com/archives/author/zixuexia" target="_blank">
-                                                    <img src="https://secure.gravatar.com/avatar/8ac98cc09bb07c0d37adfa19d44ede49?s=96" class="avatar avatar-96" height="96" width="96"><span class="d-inline-block">@shopInfo.ShopName</span>
+                                                <a class="d-block" href="http://localhost:9016/" target="_blank">
+                                                    <img src="http://localhost:9017/others/xqw_circle_logo.png"
+                                                         class="avatar avatar-96" height="96" width="96">
+                                                    <span class="d-inline-block">@shopInfo.ShopName</span>
                                                 </a>
                                             </li>
                                             <li class="post-meta-view pull-right">
@@ -117,12 +135,28 @@
                     @*评论区*@
                     <div class="comments" name="comments">
                         <div id="respond" class="comment-respond">
-                            <h3 id="reply-title" class="comment-reply-title">留言 <small><a rel="nofollow" id="cancel-comment-reply-link" href="/archives/297#respond" style="display:none;">取消回复</a></small></h3>			<form action="http://www.zixuexia.com/wp-comments-post.php" method="post" id="commentform" class="no-gutters comment-form">
-                                <p class="comment-form-comment"><label for="comment">评论</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" aria-required="true" required="required"></textarea></p><div class="comment-form-author col-md-4 comment-input"><input id="author" name="author" placeholder="昵称" type="text" value="" size="30"></div>
-                                <div class="comment-form-email col-md-4 comment-input"><input id="email" name="email" placeholder="邮箱" type="text" value="" size="30"></div>
-                                <div class="comment-form-url col-md-4 comment-input"><input id="url" name="url" placeholder="网址" type="text" value="" size="30"></div>
+                            <h3 id="reply-title" class="comment-reply-title">
+                                留言 <small>
+                                    <a rel="nofollow" id="cancel-comment-reply-link" href="/archives/297#respond" style="display:none;">取消回复</a>
+                                </small>
+                            </h3>
+                            <form action="http://www.zixuexia.com/wp-comments-post.php" method="post" id="commentform" class="no-gutters comment-form">
+                                <p class="comment-form-comment">
+                                    <label for="comment">评论</label>
+                                    <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" aria-required="true" required="required"></textarea>
+                                </p>
+                                <div class="comment-form-author col-md-4 comment-input">
+                                    <input id="author" name="author" placeholder="昵称" type="text" value="" size="30">
+                                </div>
+                                <div class="comment-form-email col-md-4 comment-input">
+                                    <input id="email" name="email" placeholder="邮箱" type="text" value="" size="30">
+                                </div>
+                                <div class="comment-form-url col-md-4 comment-input">
+                                    <input id="url" name="url" placeholder="网址" type="text" value="" size="30">
+                                </div>
                                 <p class="form-submit">
-                                    <input name="submit" type="submit" id="submit" class="submit" value="确定"> <input type="hidden" name="comment_post_ID" value="297" id="comment_post_ID">
+                                    <input name="submit" type="submit" id="submit" class="submit" value="确定">
+                                    <input type="hidden" name="comment_post_ID" value="297" id="comment_post_ID">
                                     <input type="hidden" name="comment_parent" id="comment_parent" value="0">
                                 </p>
                             </form>
@@ -148,7 +182,9 @@
                                 <div class="widget-title"><span></span></div>
                                 <div class="widget-wechat-body">
                                     <div class="widget-wechat-img">
-                                        <img src="http://www.zixuexia.com/wp-content/uploads/2019/01/421-公众号.jpg" alt="wechat">
+                                        <a href="http://localhost:9017/others/xqw_vip.png">
+                                            <img src="http://localhost:9017/others/xqw_vip.png" alt="wechat" title="微信扫码-小青蛙商学院">
+                                        </a>
                                     </div>
                                     <div class="widget-wechat-content">
                                         <h4 class="widget-wechat-title">@shopInfo.ShopName</h4>
@@ -164,16 +200,16 @@
                                 <ul class="widget-hotpost-image">
                                     @foreach (var hotProduct in hotProductList)
                                     {
-                                        <a href="" class="mask-animate widget-hotpost-image-item">
+                                        <a href="../Product/ProductDetail?productid=@hotProduct.ProductID" class="mask-animate widget-hotpost-image-item">
                                             <div class="recent-post-img">
                                                 <img width="750" height="560" src="@hotProduct.HeaderImageUrl" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="">
                                             </div>
                                             <div class="widget-hotpost-meta">
-                                                <div class="widget-hotpost-image-title mb-1">@hotProduct.ProductTitle</div>
+                                                <div class="widget-hotpost-image-title mb-1">@hotProduct.ProductName</div>
                                                 <div style="font-size: 12px;">
                                                     <span class="d-inline-block">
                                                         <i class="czs-bookmark-l"></i>
-                                                        @hotProduct.ProductTitle
+                                                        @hotProduct.ProductName
                                                     </span>
                                                     <span class="d-inline-block pull-right">
                                                         @hotProduct.UpdateTime
