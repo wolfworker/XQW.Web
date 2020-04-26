@@ -1,4 +1,4 @@
 /packages
 /.vs
-/XQW.Web/bin
 obj
+bin
