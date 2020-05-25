@@ -6,7 +6,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>D:\publish_test\xqw_publish</_PublishTargetUrl>
+    <_PublishTargetUrl>C:\Users\zhangzs\Desktop\1111</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Antlr3.Runtime.dll">
@@ -202,34 +202,34 @@
       <publishTime>01/23/2014 13:57:34</publishTime>
     </File>
     <File Include="bin/XQW.DataAccess.dll">
-      <publishTime>05/25/2020 18:51:57</publishTime>
+      <publishTime>05/25/2020 23:57:18</publishTime>
     </File>
     <File Include="bin/XQW.DataAccess.dll.config">
-      <publishTime>03/25/2020 18:58:54</publishTime>
+      <publishTime>04/26/2020 23:02:58</publishTime>
     </File>
     <File Include="bin/XQW.DataAccess.pdb">
-      <publishTime>05/25/2020 18:51:57</publishTime>
+      <publishTime>05/25/2020 23:57:18</publishTime>
     </File>
     <File Include="bin/XQW.Model.dll">
-      <publishTime>05/25/2020 18:51:57</publishTime>
+      <publishTime>05/25/2020 23:57:17</publishTime>
     </File>
     <File Include="bin/XQW.Model.dll.config">
-      <publishTime>03/25/2020 18:58:04</publishTime>
+      <publishTime>04/26/2020 22:38:53</publishTime>
     </File>
     <File Include="bin/XQW.Model.pdb">
-      <publishTime>05/25/2020 18:51:57</publishTime>
+      <publishTime>05/25/2020 23:57:17</publishTime>
     </File>
     <File Include="bin/XQW.Utility.dll">
-      <publishTime>05/25/2020 18:51:57</publishTime>
+      <publishTime>05/25/2020 23:57:17</publishTime>
     </File>
     <File Include="bin/XQW.Utility.pdb">
-      <publishTime>05/25/2020 18:51:57</publishTime>
+      <publishTime>05/25/2020 23:57:17</publishTime>
     </File>
     <File Include="bin/XQW.Web.dll">
-      <publishTime>05/25/2020 18:56:46</publishTime>
+      <publishTime>05/25/2020 23:57:21</publishTime>
     </File>
     <File Include="bin/XQW.Web.pdb">
-      <publishTime>05/25/2020 18:56:46</publishTime>
+      <publishTime>05/25/2020 23:57:21</publishTime>
     </File>
     <File Include="bin/zh-Hans/System.Web.Helpers.resources.dll">
       <publishTime>11/29/2018 13:29:50</publishTime>
@@ -253,154 +253,160 @@
       <publishTime>11/29/2018 13:29:50</publishTime>
     </File>
     <File Include="Content/assets/fonts/strawberryicon.ttf">
-      <publishTime>03/26/2020 20:28:36</publishTime>
+      <publishTime>04/26/2020 22:38:53</publishTime>
     </File>
     <File Include="Content/css/bootstrap-theme.css">
-      <publishTime>03/24/2020 16:58:02</publishTime>
+      <publishTime>04/26/2020 22:38:53</publishTime>
     </File>
     <File Include="Content/css/bootstrap-theme.css.map">
-      <publishTime>03/24/2020 16:58:02</publishTime>
+      <publishTime>04/26/2020 22:38:53</publishTime>
     </File>
     <File Include="Content/css/bootstrap-theme.min.css">
-      <publishTime>03/24/2020 16:58:02</publishTime>
+      <publishTime>04/26/2020 22:38:53</publishTime>
     </File>
     <File Include="Content/css/bootstrap-theme.min.css.map">
-      <publishTime>03/24/2020 16:58:02</publishTime>
+      <publishTime>04/26/2020 22:38:53</publishTime>
     </File>
     <File Include="Content/css/bootstrap.css">
-      <publishTime>03/24/2020 16:58:02</publishTime>
+      <publishTime>04/26/2020 22:38:53</publishTime>
     </File>
     <File Include="Content/css/bootstrap.css.map">
-      <publishTime>03/24/2020 16:58:02</publishTime>
+      <publishTime>04/26/2020 22:38:53</publishTime>
     </File>
     <File Include="Content/css/bootstrap.min.css">
-      <publishTime>03/24/2020 16:58:02</publishTime>
+      <publishTime>04/26/2020 22:38:53</publishTime>
     </File>
     <File Include="Content/css/bootstrap.min.css.map">
-      <publishTime>03/24/2020 16:58:02</publishTime>
+      <publishTime>04/26/2020 22:38:53</publishTime>
     </File>
     <File Include="Content/css/jquery.fancybox.min.css">
-      <publishTime>04/01/2020 18:15:40</publishTime>
+      <publishTime>04/26/2020 22:38:53</publishTime>
     </File>
     <File Include="Content/css/owl.carousel.min.css">
-      <publishTime>04/01/2020 17:08:08</publishTime>
+      <publishTime>04/26/2020 22:38:53</publishTime>
     </File>
     <File Include="Content/css/prism.css">
-      <publishTime>04/01/2020 17:08:30</publishTime>
+      <publishTime>04/26/2020 22:38:53</publishTime>
     </File>
     <File Include="Content/css/Site.css">
-      <publishTime>03/25/2020 18:33:27</publishTime>
+      <publishTime>04/26/2020 22:38:53</publishTime>
     </File>
     <File Include="Content/css/style.css">
-      <publishTime>04/01/2020 19:05:56</publishTime>
+      <publishTime>05/25/2020 23:46:46</publishTime>
     </File>
     <File Include="Content/js/app.js">
-      <publishTime>04/01/2020 19:08:28</publishTime>
+      <publishTime>04/26/2020 22:38:53</publishTime>
     </File>
     <File Include="Content/js/jquery.fancybox.min.js">
-      <publishTime>04/01/2020 19:08:37</publishTime>
+      <publishTime>04/26/2020 22:38:53</publishTime>
     </File>
     <File Include="Content/js/jquery.min.js">
-      <publishTime>04/01/2020 19:07:27</publishTime>
+      <publishTime>04/26/2020 22:38:53</publishTime>
     </File>
     <File Include="Content/js/jquery.mousewheel.min.js">
-      <publishTime>04/01/2020 19:08:18</publishTime>
+      <publishTime>04/26/2020 22:38:53</publishTime>
     </File>
     <File Include="Content/js/owl.carousel.min.js">
-      <publishTime>04/01/2020 19:08:09</publishTime>
+      <publishTime>04/26/2020 22:38:53</publishTime>
     </File>
     <File Include="Content/js/prism.js">
-      <publishTime>04/01/2020 19:07:36</publishTime>
+      <publishTime>04/26/2020 22:38:53</publishTime>
     </File>
     <File Include="favicon.ico">
-      <publishTime>03/24/2020 16:58:00</publishTime>
+      <publishTime>04/26/2020 22:38:53</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.eot">
-      <publishTime>03/24/2020 16:58:02</publishTime>
+      <publishTime>04/26/2020 22:38:53</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.svg">
-      <publishTime>03/24/2020 16:58:02</publishTime>
+      <publishTime>04/26/2020 22:38:53</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.ttf">
-      <publishTime>03/24/2020 16:58:02</publishTime>
+      <publishTime>04/26/2020 22:38:53</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.woff">
-      <publishTime>03/24/2020 16:58:02</publishTime>
+      <publishTime>04/26/2020 22:38:53</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.woff2">
-      <publishTime>03/24/2020 16:58:02</publishTime>
+      <publishTime>04/26/2020 22:38:53</publishTime>
     </File>
     <File Include="Global.asax">
-      <publishTime>03/24/2020 16:58:00</publishTime>
+      <publishTime>04/26/2020 22:38:53</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
-      <publishTime>03/24/2020 16:58:02</publishTime>
+      <publishTime>04/26/2020 22:38:53</publishTime>
     </File>
     <File Include="Scripts/bootstrap.min.js">
-      <publishTime>03/24/2020 16:58:02</publishTime>
+      <publishTime>04/26/2020 22:38:53</publishTime>
     </File>
     <File Include="Scripts/jquery-3.4.1.js">
-      <publishTime>03/24/2020 16:58:02</publishTime>
+      <publishTime>04/26/2020 22:38:53</publishTime>
     </File>
     <File Include="Scripts/jquery-3.4.1.min.js">
-      <publishTime>03/24/2020 16:58:02</publishTime>
+      <publishTime>04/26/2020 22:38:53</publishTime>
     </File>
     <File Include="Scripts/jquery-3.4.1.min.map">
-      <publishTime>03/24/2020 16:58:02</publishTime>
+      <publishTime>04/26/2020 22:38:53</publishTime>
     </File>
     <File Include="Scripts/jquery-3.4.1.slim.js">
-      <publishTime>03/24/2020 16:58:02</publishTime>
+      <publishTime>04/26/2020 22:38:53</publishTime>
     </File>
     <File Include="Scripts/jquery-3.4.1.slim.min.js">
-      <publishTime>03/24/2020 16:58:02</publishTime>
+      <publishTime>04/26/2020 22:38:53</publishTime>
     </File>
     <File Include="Scripts/jquery-3.4.1.slim.min.map">
-      <publishTime>03/24/2020 16:58:02</publishTime>
+      <publishTime>04/26/2020 22:38:53</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.js">
-      <publishTime>03/24/2020 16:58:05</publishTime>
+      <publishTime>04/26/2020 22:38:53</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.min.js">
-      <publishTime>03/24/2020 16:58:05</publishTime>
+      <publishTime>04/26/2020 22:38:53</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.unobtrusive.js">
-      <publishTime>03/24/2020 16:58:05</publishTime>
+      <publishTime>04/26/2020 22:38:53</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.unobtrusive.min.js">
-      <publishTime>03/24/2020 16:58:05</publishTime>
+      <publishTime>04/26/2020 22:38:53</publishTime>
     </File>
     <File Include="Scripts/modernizr-2.8.3.js">
-      <publishTime>03/24/2020 16:58:04</publishTime>
+      <publishTime>04/26/2020 22:38:53</publishTime>
     </File>
     <File Include="Views/Category/Index.cshtml">
-      <publishTime>05/12/2020 21:22:52</publishTime>
+      <publishTime>05/25/2020 21:28:19</publishTime>
+    </File>
+    <File Include="Views/Home/AboutUs.cshtml">
+      <publishTime>05/25/2020 23:29:46</publishTime>
     </File>
     <File Include="Views/Home/AllProduct.cshtml">
       <publishTime>04/02/2020 17:38:56</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>05/12/2020 21:33:07</publishTime>
+      <publishTime>05/25/2020 23:45:24</publishTime>
+    </File>
+    <File Include="Views/Home/VIP.cshtml">
+      <publishTime>05/25/2020 23:29:49</publishTime>
     </File>
     <File Include="Views/Product/ProductDetail.cshtml">
-      <publishTime>04/03/2020 18:38:53</publishTime>
+      <publishTime>05/25/2020 23:54:45</publishTime>
     </File>
     <File Include="Views/Search/Index.cshtml">
-      <publishTime>04/02/2020 17:28:44</publishTime>
+      <publishTime>04/26/2020 22:38:53</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
-      <publishTime>03/24/2020 16:58:00</publishTime>
+      <publishTime>04/26/2020 22:38:53</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>04/03/2020 18:03:17</publishTime>
+      <publishTime>05/25/2020 22:06:17</publishTime>
     </File>
     <File Include="Views/Web.config">
-      <publishTime>04/01/2020 18:40:17</publishTime>
+      <publishTime>04/26/2020 22:38:53</publishTime>
     </File>
     <File Include="Views/_ViewStart.cshtml">
-      <publishTime>03/24/2020 16:58:00</publishTime>
+      <publishTime>04/26/2020 22:38:53</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/25/2020 18:56:47</publishTime>
+      <publishTime>05/26/2020 00:01:25</publishTime>
     </File>
   </ItemGroup>
 </Project>

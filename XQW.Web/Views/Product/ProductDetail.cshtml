@@ -25,7 +25,7 @@
                             <span class="article-meta-time">
                                 @productDetail.UpdateTime
                             </span>
-                            <a class="article-meta-tags" href="http://localhost:9001/Category/Index?acategoryid=@productDetail.ACategoryID&bcategoryid=@productDetail.BCategoryID"
+                            <a class="article-meta-tags" href="../Category/Index?acategoryid=@productDetail.ACategoryID&bcategoryid=@productDetail.BCategoryID"
                                rel="tag">@productDetail.BCategoryName</a>
                         </div>
                         <div class="article-body">
@@ -71,7 +71,7 @@
                                             <a href="../Product/ProductDetail?productid=@otherBuyProduct.ProductID">@otherBuyProduct.ProductTitle </a>
                                         </div>
                                         <div class="post-top-meta mb-3">
-                                            <a class="post-category" href="http://localhost:9001/Category/Index?acategoryid=@otherBuyProduct.ACategoryID&bcategoryid=@otherBuyProduct.BCategoryID">
+                                            <a class="post-category" href="../Category/Index?acategoryid=@otherBuyProduct.ACategoryID&bcategoryid=@otherBuyProduct.BCategoryID">
                                                 @otherBuyProduct.BCategoryName
                                             </a>
                                             <span class="post-time">
@@ -82,7 +82,7 @@
                                     @*<div class="p-3">
                                         <ul class="post-meta-bottom">
                                             <li class="post-meta-author">
-                                                <a class="d-block" href="http://localhost:9001/" target="_blank">
+                                                <a class="d-block" href="../" target="_blank">
                                                     <img src="http://localhost:9017/others/xqw_circle_logo.png"
                                                          class="avatar avatar-96" height="96" width="96">
                                                     <span class="d-inline-block">@shopInfo.ShopName</span>
