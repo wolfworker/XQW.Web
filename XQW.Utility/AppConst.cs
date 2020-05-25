@@ -56,6 +56,8 @@ namespace XQW.Utility
         public static string Cache_ProductInfoListByACate = "cache_productlistbyacate_";
         public static string Cache_CategoryListByACate = "cache_categorylistbyacate_";
         public static string Cache_ACategoryListAll = "cache_acategoryall";
+        public static string Cache_HotProductListAll = "cache_hotproductall";
+        public static string Cache_HotProductList = "cache_hotproduct_";
 
         #endregion
     }

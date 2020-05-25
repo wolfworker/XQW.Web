@@ -20,5 +20,6 @@ namespace XQW.Model.DBEntity
         public int SeenCount { get; set; }
         public string BCategoryID { get; set; }
         public bool Status { get; set; }
+        public int IsHot { get; set; }
     }
 }

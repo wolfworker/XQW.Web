@@ -53,11 +53,54 @@ namespace XQW.Web.Controllers
         /// <summary>
         /// 根据productid获取热门关联商品
         /// </summary>
-        /// <param name="bCategoryid"></param>
+        /// <param name="productId">暂时没有根据productId获取热门商品，预留后续扩展</param>
         /// <returns></returns>
-        public List<ProductModel> GetHotProductList(string productId)
+        public List<ProductModel> GetHotProductList(string productId = "")
         {
-            return GetProductListBybCate("", "B004");
+            var param = new SqlParameter();
+            var key = "";
+            var sql = $@"SELECT    p.ProductID,
+                                   p.ProductName,
+                                   p.ProductTitle,
+                                   p.ProductSubTtile,
+                                   p.LikeCount,
+                                   p.CommentCount,
+                                   p.SeenCount,
+                                   p.DetailPicCount,
+                                   p.Status,
+                                   ac.ACategoryID,
+                                   bc.BCategoryID,
+                                   p.UpdateTime,
+                                   ac.ACategoryName,
+                                   bc.BCategoryName
+                            FROM   Product p WITH(nolock)
+                                   INNER JOIN BCategory bc WITH(nolock)
+                                           ON bc.BCategoryID = p.BCategoryID
+                                   INNER JOIN ACategory ac WITH(nolock)
+                                           ON ac.ACategoryID = bc.ACategoryID
+                            WHERE  p.IsHot = 1 ";
+
+            key = AppConst.Cache_HotProductListAll;
+
+            var cacheResult = (List<ProductModel>)CacheHelper.GetCache(key);
+            if (cacheResult == null)
+            {
+                cacheResult = productDal.QueryCustom<ProductModel>(sql);
+                if (cacheResult?.Any() ?? false)
+                {
+                    cacheResult.ForEach(p =>
+                    {
+                        p.HeaderImageUrl = AppConst.GetProductHeaderImgUrl(p.ProductID);
+                        p.DetailImageUrlList = AppConst.GetProductDetailImgUrl(p.ProductID, p.DetailPicCount);
+                    });
+                }
+                else
+                {
+                    cacheResult = new List<ProductModel>();
+                }
+                CacheHelper.SetCache(key, cacheResult);
+            }
+            return cacheResult;
         }
 
         /// <summary>

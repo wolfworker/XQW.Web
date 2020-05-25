@@ -14,24 +14,24 @@ namespace XQW.Web.Controllers
         public ActionResult Index()
         {
             //TODO 分页
-            ViewBag.HotProductList = new ProductController().GetHotProductList("");
-            ViewBag.BannerList = new ProductController().GetHotProductList("");
+            ViewBag.HotProductList = new ProductController().GetHotProductList();
+            ViewBag.BannerList = new ProductController().GetHotProductList();
             return View();
         }
 
         public ActionResult AllProduct()
         {
             //TODO 分页
-            ViewBag.HotProductList = new ProductController().GetHotProductList("");
-            ViewBag.BannerList = new ProductController().GetHotProductList("");
+            ViewBag.HotProductList = new ProductController().GetHotProductList();
+            ViewBag.BannerList = new ProductController().GetHotProductList();
             return View();
         }
 
         public ActionResult ContactUs()
         {
             //TODO 分页
-            ViewBag.HotProductList = new ProductController().GetHotProductList("");
-            ViewBag.BannerList = new ProductController().GetHotProductList("");
+            ViewBag.HotProductList = new ProductController().GetHotProductList();
+            ViewBag.BannerList = new ProductController().GetHotProductList();
             return View();
         }
     }
