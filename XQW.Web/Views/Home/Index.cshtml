@@ -2,135 +2,55 @@
     ViewBag.Title = "Home Page";
 }
 
-@*<style>
-
-    .slide {
-        position: relative;
-        margin: auto;
-        width: 1000px;
-        height: 280px;
-        text-align: center;
-        font-family: Arial;
-        color: #FFF;
-        overflow: hidden;
-    }
-
-        .slide ul {
-            margin: 10px 0;
-            padding: 0;
-            width: 9999px;
-            transition: all 0.5s;
-        }
-
-        /*//自动播放*/
-        .slide .slide-auto {
-            animation: marginLeft 10.5s infinite;
-        }
-
-        .slide li {
-            float: left;
-            width: 1000px;
-            height: 280px;
-            list-style: none;
-            line-height: 280px;
-            font-size: 36px;
-        }
-
-
-    @@keyframes marginLeft {
-        0% {
-            margin-left: 0;
-        }
-
-        28.5% {
-            margin-left: 0;
-        }
-
-        33.3% {
-            margin-left: -1000px;
-        }
-
-        62% {
-            margin-left: -1000px;
-        }
-
-        66.7% {
-            margin-left: -2000px;
-        }
-
-        95.2% {
-            margin-left: -2000px;
-        }
-
-        100% {
-            margin-left: 0;
-        }
-    }
-</style>
-
-<div class="slide">
-    <ul class="slide-auto">
-        <li><a href="http://www.baidu.com"> <img src="http://www.zixuexia.com/wp-content/uploads/2019/01/325-2.jpg" height="250" width="900" /></a></li>
-        <li><a href="http://www.baidu.com"> <img src="http://www.zixuexia.com/wp-content/uploads/2019/01/325-2.jpg" height="250" width="900" /></a></li>
-        <li><a href="http://www.baidu.com"> <img src="http://www.zixuexia.com/wp-content/uploads/2019/01/325-2.jpg" height="250" width="900" /></a></li>
-    </ul>
-</div>*@
-
 <div class="recommend" style="padding-top:20px">
     <div class="container">
         <div class="row">
             <div class="col-md-6">
                 <div class="post post-style-feature">
-                    <a class="post-img img-response" href="../Home/AllProduct" style="background-image: url(http://www.zixuexia.com/wp-content/uploads/2019/01/325-2.jpg)">
+                    <a class="post-img img-response" href="http://localhost:9001/Home/AboutUs" style="background-image: url(http://www.zixuexia.com/wp-content/uploads/2019/01/325-2.jpg)">
                         <ul class="post-meta p-2 post-meta-bottom transition">
                             <li class="post-time">
                                 <i class="czs-time-l"></i>
-                                2019.01.04
+                                2020.05.25 最新更新
                             </li>
-                            <li class="post-meta-view pull-right">
+                            @*<li class="post-meta-view pull-right">
                                 <i class="czs-eye-l"></i> 1008
-                            </li>
-                            <li class="post-meta-comments pull-right">
-                                <i class="czs-comment-l"></i> 0
                             </li>
                             <li class="post-meta-like pull-right">
                                 <i class="czs-heart-l"></i>
                                 <span class="count">
-                                    0
+                                    230
                                 </span>
-                            </li>
+                            </li>*@
                         </ul>
                     </a>
                     <div class="post-title mt-2">
-                        <a href="http://www.zixuexia.com/archives/1001"> 系列课程目录 </a>
+                        <a href="http://localhost:9001/Home/AboutUs"> 全部课程目录 </a>
                     </div>
 
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="post post-style-feature">
-                    <a class="post-img img-response" href=" http://www.zixuexia.com/archives/1045" style="background-image: url(http://www.zixuexia.com/wp-content/uploads/2019/01/326-1.jpg)">
+                    <a class="post-img img-response" href="http://localhost:9001/Home/VIP" style="background-image: url(http://www.zixuexia.com/wp-content/uploads/2019/01/326-1.jpg)">
                         <ul class="post-meta p-2 post-meta-bottom transition">
                             <li class="post-time">
                                 <i class="czs-time-l"></i>
-                                2019.01.04
+                                2020.05.25 最新更新
                             </li>
-                            <li class="post-meta-view pull-right">
-                                <i class="czs-eye-l"></i> 1932
-                            </li>
-                            <li class="post-meta-comments pull-right">
-                                <i class="czs-comment-l"></i> 0
+                            @*<li class="post-meta-view pull-right">
+                                <i class="czs-eye-l"></i> 988
                             </li>
                             <li class="post-meta-like pull-right">
                                 <i class="czs-heart-l"></i>
                                 <span class="count">
-                                    9
+                                    211
                                 </span>
-                            </li>
+                            </li>*@
                         </ul>
                     </a>
                     <div class="post-title mt-2">
-                        <a href="http://www.zixuexia.com/archives/1045"> 加入会员全部免费 </a>
+                        <a href="http://localhost:9001/Home/VIP"> 加入会员，全部免费 </a>
                     </div>
 
                 </div>
@@ -143,30 +63,9 @@
     <div class="container ps-r">
         <ul class="category-nav pr-6">
             <li>
-                <a class="active" href="" data-type="all"> 全部 </a>
-            </li>
-            <li>
-                <a>
-                    关于我们
-                </a>
-            </li>
-            <li>
-                <a>
-                    联系我们
-                </a>
+                <a class="active" href="" data-type="all"> 热门商品 </a>
             </li>
         </ul>
-        @*<div class="layout-type-wrap ps-a hidden-xs">
-                <a class="btn-layout-type p-4">
-                    <i class="czs-layout-grid"></i>
-                </a>
-                <div class="layout-type ps-a px-1">
-                    <ul>
-                        <li data-type="three" class="p-2 ">3</li>
-                        <li data-type="four" class="p-2 active">4</li>
-                    </ul>
-                </div>
-            </div>*@
     </div>
 </div>
 
@@ -194,10 +93,10 @@
                                     </span>
                                 </div>
                             </div>
-                            <div class="p-3">
+                            @*<div class="p-3">
                                 <ul class="post-meta-bottom">
                                     <li class="post-meta-author">
-                                        <a class="d-block" href="http://localhost:9016/" target="_blank">
+                                        <a class="d-block" href="http://localhost:9001/" target="_blank">
                                             <img src="http://localhost:9017/others/xqw_circle_logo.png" class="avatar avatar-96" height="96" width="96">
                                             <span class="d-inline-block">小青蛙商学院</span>
                                         </a>
@@ -215,7 +114,7 @@
                                         </span>
                                     </li>
                                 </ul>
-                            </div>
+                            </div>*@
                         </div>
                     </div>
 

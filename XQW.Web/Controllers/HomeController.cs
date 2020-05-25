@@ -15,23 +15,17 @@ namespace XQW.Web.Controllers
         {
             //TODO 分页
             ViewBag.HotProductList = new ProductController().GetHotProductList();
-            ViewBag.BannerList = new ProductController().GetHotProductList();
+            //ViewBag.BannerList = new ProductController().GetHotProductList();
             return View();
         }
 
-        public ActionResult AllProduct()
+        public ActionResult AboutUs()
         {
-            //TODO 分页
-            ViewBag.HotProductList = new ProductController().GetHotProductList();
-            ViewBag.BannerList = new ProductController().GetHotProductList();
             return View();
         }
 
-        public ActionResult ContactUs()
+        public ActionResult VIP()
         {
-            //TODO 分页
-            ViewBag.HotProductList = new ProductController().GetHotProductList();
-            ViewBag.BannerList = new ProductController().GetHotProductList();
             return View();
         }
     }

@@ -10,7 +10,7 @@
                 var isAllActiveclass = ViewBag.IsAllActive ? "active" : "";
                 <li class="d-inline-block">
                     <a class="d-block @isAllActiveclass"
-                       href="http://localhost:9016/Category/Index?acategoryid=@ViewBag.ACategoryID">全部</a>
+                       href="http://localhost:9001/Category/Index?acategoryid=@ViewBag.ACategoryID">全部</a>
                 </li>
 
                 var CategoryList = ViewBag.CategoryList;
@@ -19,7 +19,7 @@
                     var activeclass = ViewBag.BcategoryID == category.BCategoryID ? "active" : "";
                     <li class="d-inline-block">
                         <a class="d-block @activeclass"
-                           href="http://localhost:9016/Category/Index?acategoryid=@ViewBag.ACategoryID&bcategoryid=@category.BCategoryID">
+                           href="http://localhost:9001/Category/Index?acategoryid=@ViewBag.ACategoryID&bcategoryid=@category.BCategoryID">
                             <i class=""></i>
                             @category.BCategoryName
                         </a>
@@ -67,7 +67,7 @@
                                 <div class="p-3">
                                     <ul class="post-meta-bottom">
                                         <li class="post-meta-author">
-                                            <a class="d-block" href="http://localhost:9016/" target="_blank">
+                                            <a class="d-block" href="http://localhost:9001/" target="_blank">
                                                 <img src="http://localhost:9017/others/xqw_circle_logo.png" class="avatar avatar-96" height="96" width="96">
                                                 <span class="d-inline-block">小青蛙商学院</span>
                                             </a>
