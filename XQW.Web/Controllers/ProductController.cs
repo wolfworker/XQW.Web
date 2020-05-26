@@ -11,7 +11,7 @@ using XQW.Utility;
 
 namespace XQW.Web.Controllers
 {
-    public class ProductController : Controller
+    public class ProductController : BaseController
     {
         public ProductDal productDal { get; set; } = new ProductDal();
 

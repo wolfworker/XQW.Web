@@ -9,7 +9,7 @@
             @{
                 var isAllActiveclass = ViewBag.IsAllActive ? "active" : "";
                 <li class="d-inline-block">
-                    <a class="d-block @isAllActiveclass"
+                    <a class="d-block @isAllActiveclass cate_all" data-acateid="@ViewBag.ACategoryID"
                        href="../Category/Index?acategoryid=@ViewBag.ACategoryID">全部</a>
                 </li>
 
@@ -18,7 +18,7 @@
                 {
                     var activeclass = ViewBag.BcategoryID == category.BCategoryID ? "active" : "";
                     <li class="d-inline-block">
-                        <a class="d-block @activeclass"
+                        <a class="d-block @activeclass cate_bcateall" data-bcatename="@category.BCategoryName"
                            href="../Category/Index?acategoryid=@ViewBag.ACategoryID&bcategoryid=@category.BCategoryID">
                             <i class=""></i>
                             @category.BCategoryName
@@ -43,19 +43,19 @@
                     {
                         <div class="col-md-3 col-sm-6">
                             <div class="post post-style-card transition">
-                                <a class="post-img img-response"
+                                <a class="post-img img-response cate_product" data-pid="@productDetail.ProductID"
                                    href="../Product/ProductDetail?productid=@productDetail.ProductID"
                                    style="background-image: url(@productDetail.HeaderImageUrl)">
                                 </a>
                                 <div class="post-top">
                                     <div class="post-title mb-1">
-                                        <a href="../Product/ProductDetail?productid=@productDetail.ProductID">
+                                        <a class="cate_product" data-pid="@productDetail.ProductID" href="../Product/ProductDetail?productid=@productDetail.ProductID">
                                             @productDetail.ProductName
                                         </a>
                                     </div>
                                     <div class="post-top-meta mb-3">
                                         <span class="post-tag">
-                                            <a href="../Category/Index?bcategoryid=@productDetail.BCategoryID">
+                                            <a class="cate_bcate" data-catename="@productDetail.BCategoryName" href="../Category/Index?bcategoryid=@productDetail.BCategoryID">
                                                 @productDetail.BCategoryName
                                             </a>
                                         </span>
@@ -64,36 +64,34 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="p-3">
-                                    <ul class="post-meta-bottom">
-                                        <li class="post-meta-author">
-                                            <a class="d-block" href="../" target="_blank">
-                                                <img src="http://localhost:9017/others/xqw_circle_logo.png" class="avatar avatar-96" height="96" width="96">
-                                                <span class="d-inline-block">小青蛙商学院</span>
-                                            </a>
-                                        </li>
-                                        <li class="post-meta-view pull-right">
-                                            <i class="czs-eye"></i> @productDetail.SeenCount
-                                        </li>
-                                        <li class="post-meta-comments pull-right">
-                                            <i class="czs-comment"></i> @productDetail.CommentCount
-                                        </li>
-                                        <li class="post-meta-like pull-right">
-                                            <i class="czs-heart"></i>
-                                            <span class="count">
-                                                @productDetail.LikeCount
-                                            </span>
-                                        </li>
-                                    </ul>
-                                </div>
                             </div>
                         </div>
 
                     }
                 }
             </div>
-            <div class="pagination px-3 pagination-number">
-            </div>
         </div>
     </main>
 </div>
+
+<script>
+    $(document).ready(function () {
+
+        $(".cate_all").click(function () {
+            debugger;
+            saveClickLog(1301, this.dataset.acateid);
+        });
+
+        $(".cate_bcateall").click(function () {
+            saveClickLog(1302, this.dataset.bcatename);
+        });
+
+        $(".cate_product").click(function () {
+            saveClickLog(1303, this.dataset.pid);
+        });
+
+        $(".cate_bcate").click(function () {
+            saveClickLog(1304, this.dataset.catename);
+        });
+    });
+</script>

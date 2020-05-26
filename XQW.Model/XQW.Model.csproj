@@ -57,7 +57,9 @@
     <Compile Include="DBEntity\BCategory.cs" />
     <Compile Include="DBEntity\CommonEntity.cs" />
     <Compile Include="DBEntity\SYS_DebugLog.cs" />
+    <Compile Include="DBEntity\SYS_RequestLog.cs" />
     <Compile Include="Model\CategoryModel.cs" />
+    <Compile Include="Model\EnumModel.cs" />
     <Compile Include="Model\ProductModel.cs" />
     <Compile Include="Model\ShopInfoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,9 +1,6 @@
 ﻿@{
     ViewBag.Title = "商品详情页";
-
 }
-
-@using XQW.Model.Model;
 
 @{
     var productDetail = ViewBag.ProductDetail;
@@ -25,7 +22,7 @@
                             <span class="article-meta-time">
                                 @productDetail.UpdateTime
                             </span>
-                            <a class="article-meta-tags" href="../Category/Index?acategoryid=@productDetail.ACategoryID&bcategoryid=@productDetail.BCategoryID"
+                            <a class="article-meta-tags product_cate" data-catename="@productDetail.BCategoryName" href="../Category/Index?acategoryid=@productDetail.ACategoryID&bcategoryid=@productDetail.BCategoryID"
                                rel="tag">@productDetail.BCategoryName</a>
                         </div>
                         <div class="article-body">
@@ -39,9 +36,9 @@
                                 }
                             </p>
                             <p>
-                                <a href="http://localhost:9017/others/xqw_vip.png" class="fancybox" rel="fancybox-group" title="">
+                                <a href="@AppConst.OtherImagePath/xqw_vip.png" class="fancybox product_wx" rel="fancybox-group" title="">
                                     <img class="aligncenter wp-image-302 size-thumbnail"
-                                         src="http://localhost:9017/others/xqw_vip.png"
+                                         src="@AppConst.OtherImagePath/xqw_vip.png"
                                          alt=@productDetail.ProductSubTtile title="微信扫码-小青蛙商学院" width="150" height="150">
                                 </a>
                             </p>
@@ -51,10 +48,10 @@
                     @*上一篇下一篇*@
                     <section id="post-link">
                         <div class="md-6 post-link-previous">
-                            上一篇: <a href="../Product/ProductDetail?productid=@preNextProduct[0].ProductID" rel="prev">@preNextProduct[0].ProductTitle</a>
+                            上一个: <a class="product_previous" data-pid="@preNextProduct[0].ProductID" href="../Product/ProductDetail?productid=@preNextProduct[0].ProductID" rel="prev">@preNextProduct[0].ProductTitle</a>
                         </div>
                         <div class="md-6 post-link-next">
-                            下一篇: <a href="../Product/ProductDetail?productid=@preNextProduct[1].ProductID" rel="next">@preNextProduct[1].ProductTitle</a>
+                            下一个: <a class="product_next" data-pid="@preNextProduct[1].ProductID" href="../Product/ProductDetail?productid=@preNextProduct[1].ProductID" rel="next">@preNextProduct[1].ProductTitle</a>
                         </div>
                     </section>
 
@@ -64,14 +61,14 @@
                         {
                             <div class="col-md-4">
                                 <div class="post post-style-card transition">
-                                    <a class="post-img img-response" href="../Product/ProductDetail?productid=@otherBuyProduct.ProductID" style="background-image: url(@otherBuyProduct.HeaderImageUrl)">
+                                    <a class="post-img img-response product_recom" data-pid="@otherBuyProduct.ProductID" href="../Product/ProductDetail?productid=@otherBuyProduct.ProductID" style="background-image: url(@otherBuyProduct.HeaderImageUrl)">
                                     </a>
                                     <div class="post-top">
                                         <div class="post-title mb-1">
-                                            <a href="../Product/ProductDetail?productid=@otherBuyProduct.ProductID">@otherBuyProduct.ProductTitle </a>
+                                            <a class="product_recom" data-pid="@otherBuyProduct.ProductID" href="../Product/ProductDetail?productid=@otherBuyProduct.ProductID">@otherBuyProduct.ProductTitle </a>
                                         </div>
                                         <div class="post-top-meta mb-3">
-                                            <a class="post-category" href="../Category/Index?acategoryid=@otherBuyProduct.ACategoryID&bcategoryid=@otherBuyProduct.BCategoryID">
+                                            <a class="post-category product_recom_cate" data-catename="@otherBuyProduct.BCategoryName" href="../Category/Index?acategoryid=@otherBuyProduct.ACategoryID&bcategoryid=@otherBuyProduct.BCategoryID">
                                                 @otherBuyProduct.BCategoryName
                                             </a>
                                             <span class="post-time">
@@ -79,29 +76,6 @@
                                             </span>
                                         </div>
                                     </div>
-                                    @*<div class="p-3">
-                                        <ul class="post-meta-bottom">
-                                            <li class="post-meta-author">
-                                                <a class="d-block" href="../" target="_blank">
-                                                    <img src="http://localhost:9017/others/xqw_circle_logo.png"
-                                                         class="avatar avatar-96" height="96" width="96">
-                                                    <span class="d-inline-block">@shopInfo.ShopName</span>
-                                                </a>
-                                            </li>
-                                            <li class="post-meta-view pull-right">
-                                                <i class="czs-eye"></i> @otherBuyProduct.SeenCount
-                                            </li>
-                                            <li class="post-meta-comments pull-right">
-                                                <i class="czs-comment"></i> @otherBuyProduct.CommentCount
-                                            </li>
-                                            <li class="post-meta-like pull-right">
-                                                <i class="czs-heart"></i>
-                                                <span class="count">
-                                                    @otherBuyProduct.LikeCount
-                                                </span>
-                                            </li>
-                                        </ul>
-                                    </div>*@
                                 </div>
                             </div>
                         }
@@ -124,7 +98,7 @@
                                 <div class="comment-form-email col-md-4 comment-input">
                                     <input id="email" name="email" placeholder="联系方式" type="text" value="" size="30">
                                 </div>&nbsp;&nbsp;&nbsp;
-                                    <input type="button" class="submit" value="提交">
+                                <input type="button" class="submit" value="提交">
                             </form>
                         </div>
                     </div>
@@ -143,8 +117,8 @@
                                 <div class="widget-title"><span></span></div>
                                 <div class="widget-wechat-body">
                                     <div class="widget-wechat-img">
-                                        <a href="http://localhost:9017/others/xqw_vip.png">
-                                            <img src="http://localhost:9017/others/xqw_vip.png" alt="wechat" title="微信扫码-小青蛙商学院">
+                                        <a class="product_wx" href="@AppConst.OtherImagePath/xqw_vip.png">
+                                            <img src="@AppConst.OtherImagePath/xqw_vip.png" alt="wechat" title="微信扫码-小青蛙商学院">
                                         </a>
                                     </div>
                                     <div class="widget-wechat-content">
@@ -161,22 +135,10 @@
                                 <ul class="widget-hotpost-image">
                                     @foreach (var hotProduct in hotProductList)
                                     {
-                                        <a href="../Product/ProductDetail?productid=@hotProduct.ProductID" class="mask-animate widget-hotpost-image-item">
+                                        <a href="../Product/ProductDetail?productid=@hotProduct.ProductID" class="mask-animate widget-hotpost-image-item product_hot" data-pid="@hotProduct.ProductID">
                                             <div class="recent-post-img">
                                                 <img width="750" height="560" src="@hotProduct.HeaderImageUrl" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="">
                                             </div>
-                                            @*<div class="widget-hotpost-meta">
-                                                <div class="widget-hotpost-image-title mb-1">@hotProduct.ProductName</div>
-                                                <div style="font-size: 12px;">
-                                                    <span class="d-inline-block">
-                                                        <i class="czs-bookmark-l"></i>
-                                                        @hotProduct.ProductName
-                                                    </span>
-                                                    <span class="d-inline-block pull-right">
-                                                        @hotProduct.ProductName
-                                                    </span>
-                                                </div>
-                                            </div>*@
                                         </a>
                                     }
                                 </ul>
@@ -188,3 +150,36 @@
         </div>
     </main>
 }
+<script>
+    $(document).ready(function () {
+
+        $(".product_cate").click(function () {
+            debugger;
+            saveClickLog(1201, this.dataset.catename);
+        });
+
+        $(".product_previous").click(function () {
+            saveClickLog(1202, this.dataset.pid);
+        });
+
+        $(".product_next").click(function () {
+            saveClickLog(1203, this.dataset.pid);
+        });
+
+        $(".product_recom").click(function () {
+            saveClickLog(1204, this.dataset.pid);
+        });
+
+        $(".product_wx").click(function () {
+            saveClickLog(1205);
+        });
+
+        $(".product_hot").click(function () {
+            saveClickLog(1206, this.dataset.pid);
+        });
+
+        $(".product_recom_cate").click(function () {
+            saveClickLog(1207, this.dataset.catename);
+        });
+    });
+</script>

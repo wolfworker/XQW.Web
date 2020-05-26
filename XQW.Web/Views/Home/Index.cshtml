@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "小青蛙商学院";
 }
 
 <div class="recommend" style="padding-top:20px">
@@ -7,24 +7,15 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="post post-style-feature">
-                    <a class="post-img img-response" href="../Home/AboutUs" style="background-image: url(http://www.zixuexia.com/wp-content/uploads/2019/01/325-2.jpg)">
+                    <a class="post-img img-response home_about" href="../Home/AboutUs" style="background-image: url(http://www.zixuexia.com/wp-content/uploads/2019/01/325-2.jpg)">
                         <ul class="post-meta p-2 post-meta-bottom transition">
                             <li class="post-time">
                                 <i class="czs-time-l"></i>
                                 2020.05.25 最新更新
                             </li>
-                            @*<li class="post-meta-view pull-right">
-                                <i class="czs-eye-l"></i> 1008
-                            </li>
-                            <li class="post-meta-like pull-right">
-                                <i class="czs-heart-l"></i>
-                                <span class="count">
-                                    230
-                                </span>
-                            </li>*@
                         </ul>
                     </a>
-                    <div class="post-title mt-2">
+                    <div class="post-title mt-2 home_about">
                         <a href="../Home/AboutUs"> 全部课程目录 </a>
                     </div>
 
@@ -32,24 +23,15 @@
             </div>
             <div class="col-md-6">
                 <div class="post post-style-feature">
-                    <a class="post-img img-response" href="../Home/VIP" style="background-image: url(http://www.zixuexia.com/wp-content/uploads/2019/01/326-1.jpg)">
+                    <a class="post-img img-response home_vip" href="../Home/VIP" style="background-image: url(http://www.zixuexia.com/wp-content/uploads/2019/01/326-1.jpg)">
                         <ul class="post-meta p-2 post-meta-bottom transition">
                             <li class="post-time">
                                 <i class="czs-time-l"></i>
                                 2020.05.25 最新更新
                             </li>
-                            @*<li class="post-meta-view pull-right">
-                                <i class="czs-eye-l"></i> 988
-                            </li>
-                            <li class="post-meta-like pull-right">
-                                <i class="czs-heart-l"></i>
-                                <span class="count">
-                                    211
-                                </span>
-                            </li>*@
                         </ul>
                     </a>
-                    <div class="post-title mt-2">
+                    <div class="post-title mt-2 home_vip">
                         <a href="../Home/VIP"> 加入会员，全部免费 </a>
                     </div>
 
@@ -63,7 +45,7 @@
     <div class="container ps-r">
         <ul class="category-nav pr-6">
             <li>
-                <a class="active" href="" data-type="all"> 热门商品 </a>
+                <a class="active" data-type="all"> 热门商品 </a>
             </li>
         </ul>
     </div>
@@ -78,14 +60,14 @@
                 {
                     <div class="col-md-6 col-sm-6 col-lg-4 col-xl-3">
                         <div class="post post-style-card transition">
-                            <a class="post-img img-response" href="../Product/ProductDetail?productid=@productDetail.ProductID" style="background-image: url(@productDetail.HeaderImageUrl)">
+                            <a class="post-img img-response home_hotproduct" data-pid="@productDetail.ProductID" href="../Product/ProductDetail?productid=@productDetail.ProductID" style="background-image: url(@productDetail.HeaderImageUrl)">
                             </a>
                             <div class="post-top">
                                 <div class="post-title mb-1">
-                                    <a href="../Product/ProductDetail?productid=@productDetail.ProductID"> @productDetail.ProductTitle </a>
+                                    <a class="home_hotproduct" data-pid="@productDetail.ProductID" href="../Product/ProductDetail?productid=@productDetail.ProductID"> @productDetail.ProductTitle </a>
                                 </div>
                                 <div class="post-top-meta mb-3">
-                                    <a class="post-category" href="../Category/Index?bcategoryid=@productDetail.BCategoryID">
+                                    <a class="post-category home_cate" data-catename="@productDetail.BCategoryName" href="../Category/Index?bcategoryid=@productDetail.BCategoryID">
                                         @productDetail.BCategoryName
                                     </a>
                                     <span class="post-time">
@@ -93,39 +75,30 @@
                                     </span>
                                 </div>
                             </div>
-                            @*<div class="p-3">
-                                <ul class="post-meta-bottom">
-                                    <li class="post-meta-author">
-                                        <a class="d-block" href="../" target="_blank">
-                                            <img src="http://localhost:9017/others/xqw_circle_logo.png" class="avatar avatar-96" height="96" width="96">
-                                            <span class="d-inline-block">小青蛙商学院</span>
-                                        </a>
-                                    </li>
-                                    <li class="post-meta-view pull-right">
-                                        <i class="czs-eye"></i> @productDetail.LikeCount
-                                    </li>
-                                    <li class="post-meta-comments pull-right">
-                                        <i class="czs-comment"></i> @productDetail.CommentCount
-                                    </li>
-                                    <li class="post-meta-like pull-right">
-                                        <i class="czs-heart"></i>
-                                        <span class="count">
-                                            @productDetail.SeenCount
-                                        </span>
-                                    </li>
-                                </ul>
-                            </div>*@
                         </div>
                     </div>
-
                 }
             }
         </div>
-        @*<div class="pagination px-3 pagination-number">
-                <a href="http://www.zixuexia.com/" class="current pagination-num">1</a><a href="http://www.zixuexia.com/page/2" class="pagination-num">2</a><a href="http://www.zixuexia.com/page/3" class="pagination-num">3</a><a href="http://www.zixuexia.com/page/4" class="pagination-num">4</a><a href="http://www.zixuexia.com/page/5" class="pagination-num">5</a><a href="http://www.zixuexia.com/page/6" class="pagination-num">6</a><a href="http://www.zixuexia.com/page/2" class="pagination-num"><i class="czs-angle-right-l"></i></a>
-            </div>*@
     </div>
-    @*<div class="friend-link p-3 mt-6" style="padding-bottom:33px">
-            <strong class="pull-left mr-3">友情链接<span class="hidden-xs">：</span></strong>
-        </div>*@
 </main>
+<script>
+    $(document).ready(function () {
+        $(".home_about").click(function () {
+            debugger;
+            saveClickLog(1101);
+         });
+
+         $(".home_vip").click(function () {
+            saveClickLog(1102);
+         });
+
+        $(".home_hotproduct").click(function () {
+            saveClickLog(1103, this.dataset.pid);
+        });
+
+        $(".home_cate").click(function () {
+            saveClickLog(1104, this.dataset.catename);
+        });
+    });
+</script>

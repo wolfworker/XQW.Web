@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using XQW.Model;
 using XQW.Model.DBEntity;
+using XQW.Model.Model;
+using static XQW.Model.Model.EnumModel;
 
 namespace XQW.DataAccess
 {
@@ -113,22 +115,58 @@ namespace XQW.DataAccess
             }
         }
 
-        public void WriteLog(string logContent, byte level = 1)
+        public void WriteLog(string logContent, LogLevel levelEnum = LogLevel.Normal)
         {
             try
             {
                 var debugLog = new SYS_DebugLog
                 {
-                    ID = Guid.NewGuid().ToString(),
-                    LogLevel = level,
+                    ID = Guid.NewGuid().ToString().Replace("-", ""),
+                    LogLevel = (byte)levelEnum,
                     LogContent = logContent
                 };
                 Add(debugLog);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 //log error
             }
+        }
+
+        /// <summary>
+        /// 写入系统请求日志（用户操作记录）
+        /// </summary>
+        /// <param name="logContent"></param>
+        /// <param name="level">日志等级   1：错误  2：警告  3：正常</param>
+        public void SaveClickTypeLog(int clickType, string userIp, string userCityName, string bussiesValue , string remark )
+        {
+            Task.Run(() =>
+            {
+                try
+                {
+                    var requestLog = new SYS_RequestLog
+                    {
+                        ID = Guid.NewGuid().ToString().Replace("-",""),
+                        UserID = 0,
+                        LogType = clickType.ToString(),
+                        LogTypeName = GetEnumDesc((ClickType)clickType),
+                        BussiessValue = bussiesValue,
+                        CreatedUser = "sysadmin",
+                        UpdateUser = "sysadmin",
+                        CreatedTime = DateTime.Now,
+                        UpdateTime = DateTime.Now,
+                        Remark = remark,
+                        UserIp = userIp,
+                        UserCityName = userCityName,
+                    };
+                    Add(requestLog);
+                }
+                catch (Exception ex)
+                {
+                    //log error
+                    WriteLog($"WriteRequestLog失败：message：{ex.Message}，stack：{ex.StackTrace}", LogLevel.Error);
+                }
+            });
         }
     }
 }

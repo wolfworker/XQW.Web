@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="keywords" content="自学,教程,视频教程">
-    <meta name="description" content="小青蛙商学院（www.zixuexia.com），国内自学视频教程平台。提供各种入门教程，范围包括：电商|社交|推广，平面|影视|三维|网站，音乐|美术|摄影，运动|健身|舞蹈，外语|办公|职业，化妆|形象|饮食，生活|维修|宠物|手工|母婴等">
+    <meta name="description" content="小青蛙商学院，国内自学视频教程平台。提供各种入门教程，范围包括：电商|社交|推广，平面|影视|三维|网站，音乐|美术|摄影，运动|健身|舞蹈，外语|办公|职业，化妆|形象|饮食，生活|维修|宠物|手工|母婴等">
     <title>小青蛙商学院-自学视频教程平台</title>
     <link rel="shortcut icon" href="http://www.zixuexia.com/wp-content/themes/BlackMirror/assets/images/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon-precomposed" href="http://www.zixuexia.com/wp-content/themes/BlackMirror/assets/images/logo_mobile.png">
@@ -20,6 +20,7 @@
     <link rel="stylesheet" id="owlcss-css" href="~/Content/css/owl.carousel.min.css?ver=1.3.2" type="text/css" media="all">
     <link rel="stylesheet" id="PrismCss-css" href="~/Content/css/prism.css?ver=1.5.0" type="text/css" media="all">
     <link rel="stylesheet" id="FancyboxCss-css" href="~/Content/css/jquery.fancybox.min.css" type="text/css" media="all">
+
     <style type="text/css">
         .friend-link li a:hover, .custom-carousel, .custom-carousel .owl-prev, .custom-carousel .owl-next, .site-record:hover, .post .post-title a:hover, #footer .footer-friends li a span:hover, #footer .footer-feature .footer-menu li a:hover, .widget-hotpost a:hover, .article-body a, .comments .comments-list .comment .comment-body .comment-user a, .comments .comments-list .comment .children .comment-user a, #comment-nav-below .nav-inside .current, .widget-hotpost-brief i, .archive-header .archive-header-title {
             color: #38B7EA;
@@ -63,25 +64,31 @@
         var layoutType = "four";
         var themeUrl = "http://www.zixuexia.com/wp-content/themes/BlackMirror";
     </script>
-    <!--	<base target="_blank">-->
 </head>
 <body>
+    <script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js?ver=2.1.4"></script>
+    <script type="text/javascript" src="http://www.zixuexia.com/wp-content/themes/BlackMirror/assets/js/prism.js?ver=1.5.0"></script>
+    <script type="text/javascript" src="http://www.zixuexia.com/wp-content/themes/BlackMirror/assets/js/owl.carousel.min.js?ver=2.1.6"></script>
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js?ver=3.1.13"></script>
+    <script type="text/javascript" src="http://www.zixuexia.com/wp-content/themes/BlackMirror/assets/js/app.js?ver=1.0.0"></script>
+    <script type="text/javascript" src="https://apps.bdimg.com/libs/fancybox/2.1.4/jquery.fancybox.min.js?ver=2.1.4"></script>
+    <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
     @*------------头部---------------*@
     <header class="header">
         <nav class="container">
             <div class="logo hidden-sm">
-                <a href="../" class="d-block">
-                    <img src="http://localhost:9017/others/xqw_logo.png" alt="">
+                <a href="../" class="common_logo">
+                    <img src="@AppConst.OtherImagePath/xqw_logo.png">
                 </a>
             </div>
             <div class="mobile-logo show-sm">
-                <a href="../" class="d-inline-block">
-                    <img src="http://localhost:9017/others/xqw_logo.png" alt="">
+                <a href="../" class="common_logo">
+                    <img src="@AppConst.OtherImagePath/xqw_logo.png">
                 </a>
             </div>
             <ul class="header-menu">
             </ul>
-            <div class="search-button cursor-pointer">
+            <div class="search-button cursor-pointer common_search">
                 <i class="czs-search-l"></i>
                 <span class="d-inline-block transition opacity-0"><i class="czs-close-l"></i></span>
             </div>
@@ -118,9 +125,8 @@
     <footer id="footer">
         <div class="container" style="position: relative; margin-top: 22px;" data-position="d8fa2f5b7b5689de">
             <div class="footer-theme hidden-xs">
-                <strong class="d-inline-block">小青蛙商学院<span class="hidden-xs">：</span></strong>
                 <span>自学视频教程平台</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="../Home/AboutUs" target="_blank">关于小青蛙商学院</a>
+                <a href="../Home/AboutUs" class="common_about" style="color:white" target="_blank">关于小青蛙商学院</a>
             </div>
             <ul class="footer-follow">
                 <li class="follow-wechat">
@@ -128,7 +134,7 @@
                         <i class="czs-weixin"></i>
                     </a>
                     <div class="follow-wechat-popup">
-                        <img src="http://localhost:9017/others/xqw_vip.png " alt="wechat">
+                        <img src="@AppConst.OtherImagePath/xqw_vip.png " alt="wechat">
                     </div>
                 </li>
                 <li class="follow-qq">
@@ -143,7 +149,7 @@
         <div class="copyright">
             <div class="container">
                 <p>
-                    Copyright © 2013-2020				小青蛙商学院 - 全网最全自学视频教程平台 / 版本 V 2.0				<span style="margin-right: 12px;" class="hidden-xs">
+                    Copyright © 2013-2020&nbsp;&nbsp;- 全网最全自学视频教程平台 / 版本 V 1.0&nbsp;&nbsp;<span style="margin-right: 12px;" class="hidden-xs">
                         <a class="site-record" target="_blank" href="www.zixuexia.com" style="color: #818181;">
                             京ICP备100754号-01
                         </a>
@@ -161,22 +167,17 @@
     <li class="change-language hidden">
         <a id="StranLink" class="wencode">繁</a>
     </li>
-    <script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js?ver=2.1.4"></script>
-    <script type="text/javascript" src="http://www.zixuexia.com/wp-content/themes/BlackMirror/assets/js/prism.js?ver=1.5.0"></script>
-    <script type="text/javascript" src="http://www.zixuexia.com/wp-content/themes/BlackMirror/assets/js/owl.carousel.min.js?ver=2.1.6"></script>
-    <script type="text/javascript" src="https://cdn.bootcss.com/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js?ver=3.1.13"></script>
-    <script type="text/javascript" src="http://www.zixuexia.com/wp-content/themes/BlackMirror/assets/js/app.js?ver=1.0.0"></script>
-    <script type="text/javascript" src="https://apps.bdimg.com/libs/fancybox/2.1.4/jquery.fancybox.min.js?ver=2.1.4"></script>
 
     <div class="overlay"></div>
 
     <div class="backdrop transition"></div>
 
     <script>
-
+        var userLocalInfo = {};
+        
         $(function () {
             //加载二级分类列表
-            loadCategory()
+            loadCategory();
         });
 
         function loadCategory() {
@@ -186,14 +187,53 @@
                 async: true,
                 type: "get",
                 success: function (result) {
-                    var htmlstr = '';
+                    var htmlstr = '<li><a href="/Home/Index" class="common_home">首页</a></li>';
                     $.each(result, function (i, item) {
                         var isactive = ('@ViewBag.ACategoryID' == item.ACategoryID) ? "color:white" : "";
-                        htmlstr += '<li><a style="'+isactive+'" href="/Category/Index?acategoryid=' + item.ACategoryID + '" >' + item.ACategoryName + '</a></li>';
+                        htmlstr += '<li><a class="common_Acate" style="'+isactive+'" href="/Category/Index?acategoryid=' + item.ACategoryID + '" >' + item.ACategoryName + '</a></li>';
                     });
                     $(".header-menu").append(htmlstr);
                     $(".mobile-menu-nav").append(htmlstr);
+                    registerClickEvent();
                 }
+            });
+        }
+        function saveClickLog(type, bussvalue, remark) {
+            var param = {};
+            param.clickType = type;
+            param.bussiesValue = bussvalue;
+            param.remark = remark;
+
+            param.userIp = returnCitySN["cip"];
+            param.userCityName = returnCitySN["cname"];
+            $.ajax({
+                url: "../Home/SaveClickTypeLog",
+                dataType: "json",
+                async: true,
+                data: param,
+                type: "post"
+            });
+        }
+
+        function registerClickEvent() {
+            $(".common_logo").click(function () {
+                saveClickLog(1001);
+            });
+
+            $(".common_home").click(function () {
+                saveClickLog(1002);
+            });
+
+            $(".common_Acate").click(function () {
+                saveClickLog(1003, this.innerText);
+            });
+
+            $(".common_search").click(function () {
+                saveClickLog(1004);
+            });
+
+             $(".common_about").click(function () {
+                saveClickLog(1005);
             });
         }
     </script>

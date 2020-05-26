@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace XQW.Web.Controllers
 {
-    public class SearchController : Controller
+    public class SearchController : BaseController
     {
         // GET: Search
         public ActionResult Index()

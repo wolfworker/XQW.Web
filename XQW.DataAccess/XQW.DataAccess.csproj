@@ -51,10 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DebugLogDal.cs" />
     <Compile Include="ProductDal.cs" />
     <Compile Include="BCategoryDal.cs" />
     <Compile Include="CommonDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequestLogDal.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XQW.Model\XQW.Model.csproj">

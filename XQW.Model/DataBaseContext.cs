@@ -44,10 +44,11 @@ namespace XQW.Model
         ///// </summary>
         //public DbSet<POT_UserPointLog> UserPointLogs { get; set; }
 
-        ///// <summary>
-        ///// 日志表
-        ///// </summary>
-        //public DbSet<SYS_RequestLog> RequestLogs { get; set; }
+        /// <summary>
+        /// 日志表
+        /// </summary>
+        public DbSet<SYS_RequestLog> RequestLog { get; set; }
+        public DbSet<SYS_DebugLog> DebugLog { get; set; }
 
         #endregion
     }

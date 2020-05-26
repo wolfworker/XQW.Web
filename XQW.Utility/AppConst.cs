@@ -10,16 +10,31 @@ namespace XQW.Utility
     public class AppConst
     {
         #region 商品图片相关
-        public static string ProductImgePath
+
+        public static string ProductImagePath
         {
             get
             {
-                var picPath = ConfigurationManager.AppSettings["ProductImagePath"]?.ToString();
-                if (string.IsNullOrEmpty(picPath))
+                var productImagePath = ConfigurationManager.AppSettings["ProductImagePath"]?.ToString();
+                if (string.IsNullOrEmpty(productImagePath))
                 {
                     throw new Exception("ProductImagePath 未配置，请前往appconfig配置");
                 }
-                return picPath;
+                return productImagePath;
+            }
+            set {; }
+        }
+
+        public static string OtherImagePath
+        {
+            get
+            {
+                var otherImagePath = ConfigurationManager.AppSettings["OtherImagePath"]?.ToString();
+                if (string.IsNullOrEmpty(otherImagePath))
+                {
+                    throw new Exception("OtherImagePath 未配置，请前往appconfig配置");
+                }
+                return otherImagePath;
             }
             set {; }
         }
@@ -31,7 +46,7 @@ namespace XQW.Utility
         /// <returns></returns>
         public static string GetProductHeaderImgUrl(string productid)
         {
-            return ProductImgePath + "/header/" + productid + ".jpg";
+            return ProductImagePath + "/header/" + productid + ".jpg";
         }
 
         /// <summary>
@@ -44,7 +59,7 @@ namespace XQW.Utility
             var detailimgList = new List<string>();
             for (int i = 1; i <= imgcount; i++)
             {
-                detailimgList.Add(ProductImgePath + "/detail/" + productid + "/" + i + ".jpg");
+                detailimgList.Add(ProductImagePath + "/detail/" + productid + "/" + i + ".jpg");
             }
             return detailimgList;
         }

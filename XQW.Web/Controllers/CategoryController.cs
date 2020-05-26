@@ -11,7 +11,7 @@ using XQW.Utility;
 
 namespace XQW.Web.Controllers
 {
-    public class CategoryController : Controller
+    public class CategoryController : BaseController
     {
         public BCategoryDal bCategoryDal { get; set; } = new BCategoryDal();
 
