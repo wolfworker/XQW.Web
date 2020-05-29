@@ -63,6 +63,21 @@ namespace XQW.Utility
             }
             return detailimgList;
         }
+
+
+        public static string LogTxtFilePath
+        {
+            get
+            {
+                var logTxtFilePath = ConfigurationManager.AppSettings["LogTxtFilePath"]?.ToString();
+                if (string.IsNullOrEmpty(logTxtFilePath))
+                {
+                    throw new Exception("LogTxtFilePath 未配置，请前往appconfig配置");
+                }
+                return logTxtFilePath;
+            }
+            set {; }
+        }
         #endregion
 
         #region 缓存key及过期时间等

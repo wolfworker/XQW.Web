@@ -2,3 +2,6 @@
 /.vs
 obj
 bin
+/XQW.Web/Properties/PublishProfiles/*.user
+/XQW.Web/Properties/PublishProfiles/*.pubxml
+/XQW.Web/*.user

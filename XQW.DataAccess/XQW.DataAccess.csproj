@@ -63,6 +63,10 @@
       <Project>{89DF8192-B9DA-4E95-B3E1-306118EB2145}</Project>
       <Name>XQW.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\XQW.Utility\XQW.Utility.csproj">
+      <Project>{FE6C3F66-9B9F-4484-97B0-0541AB0F7AFB}</Project>
+      <Name>XQW.Utility</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

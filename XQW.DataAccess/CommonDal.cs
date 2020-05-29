@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using XQW.Model;
 using XQW.Model.DBEntity;
 using XQW.Model.Model;
+using XQW.Utility;
 using static XQW.Model.Model.EnumModel;
 
 namespace XQW.DataAccess
@@ -129,7 +130,7 @@ namespace XQW.DataAccess
             }
             catch (Exception ex)
             {
-                //log error
+                LogUtils.logToTxt($"时间：{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}\r\n日志级别：{GetEnumDesc(levelEnum)}\r\n日志内容：{logContent}\r\n错误信息：{ex.Message}\r\n堆栈信息：{ex.StackTrace}\r\n");
             }
         }
 

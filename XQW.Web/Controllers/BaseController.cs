@@ -10,6 +10,7 @@ using XQW.Utility;
 
 namespace XQW.Web.Controllers
 {
+    [ExceptionFilter(ExceptionType = typeof(Exception))]
     public class BaseController : Controller
     {
         public static CommonDal commonDal = new CommonDal();

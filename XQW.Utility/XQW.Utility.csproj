@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="AppConst.cs" />
     <Compile Include="CacheHelper.cs" />
+    <Compile Include="LogUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
