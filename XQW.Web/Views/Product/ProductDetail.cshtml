@@ -16,11 +16,11 @@
                     @*教程详情*@
                     <article class="article " id="post-297">
                         <div class="article-title">
-                            @productDetail.ProductTitle
+                            @productDetail.ProductName
                         </div>
                         <div class="article-meta">
                             <span class="article-meta-time">
-                                @productDetail.UpdateTime
+                                @productDetail.UpdateTime.ToString("yyyy-MM-dd")
                             </span>
                             <a class="article-meta-tags product_cate" data-catename="@productDetail.BCategoryName" href="../Category/Index?acategoryid=@productDetail.ACategoryID&bcategoryid=@productDetail.BCategoryID"
                                rel="tag">@productDetail.BCategoryName</a>
@@ -48,10 +48,10 @@
                     @*上一篇下一篇*@
                     <section id="post-link">
                         <div class="md-6 post-link-previous">
-                            上一个: <a class="product_previous" data-pid="@preNextProduct[0].ProductID" href="../Product/ProductDetail?productid=@preNextProduct[0].ProductID" rel="prev">@preNextProduct[0].ProductTitle</a>
+                            上一个: <a class="product_previous" data-pid="@preNextProduct[0].ProductID" href="../Product/ProductDetail?productid=@preNextProduct[0].ProductID" rel="prev">@preNextProduct[0].ProductName</a>
                         </div>
                         <div class="md-6 post-link-next">
-                            下一个: <a class="product_next" data-pid="@preNextProduct[1].ProductID" href="../Product/ProductDetail?productid=@preNextProduct[1].ProductID" rel="next">@preNextProduct[1].ProductTitle</a>
+                            下一个: <a class="product_next" data-pid="@preNextProduct[1].ProductID" href="../Product/ProductDetail?productid=@preNextProduct[1].ProductID" rel="next">@preNextProduct[1].ProductName</a>
                         </div>
                     </section>
 
@@ -61,18 +61,18 @@
                         {
                             <div class="col-md-4">
                                 <div class="post post-style-card transition">
-                                    <a class="post-img img-response product_recom" data-pid="@otherBuyProduct.ProductID" href="../Product/ProductDetail?productid=@otherBuyProduct.ProductID" style="background-image: url(@otherBuyProduct.HeaderImageUrl)">
+                                    <a class="post-img img-response product_recom"  data-pid="@otherBuyProduct.ProductID" href="../Product/ProductDetail?productid=@otherBuyProduct.ProductID" style="background-image: url(@otherBuyProduct.HeaderImageUrl);padding-bottom: 90%;">
                                     </a>
                                     <div class="post-top">
                                         <div class="post-title mb-1">
-                                            <a class="product_recom" data-pid="@otherBuyProduct.ProductID" href="../Product/ProductDetail?productid=@otherBuyProduct.ProductID">@otherBuyProduct.ProductTitle </a>
+                                            <a class="product_recom" data-pid="@otherBuyProduct.ProductID" href="../Product/ProductDetail?productid=@otherBuyProduct.ProductID">@otherBuyProduct.ProductName </a>
                                         </div>
                                         <div class="post-top-meta mb-3">
                                             <a class="post-category product_recom_cate" data-catename="@otherBuyProduct.BCategoryName" href="../Category/Index?acategoryid=@otherBuyProduct.ACategoryID&bcategoryid=@otherBuyProduct.BCategoryID">
                                                 @otherBuyProduct.BCategoryName
                                             </a>
                                             <span class="post-time">
-                                                @otherBuyProduct.UpdateTime
+                                                @otherBuyProduct.UpdateTime.ToString("yyyy-MM-dd")
                                             </span>
                                         </div>
                                     </div>
@@ -106,15 +106,13 @@
             </div>
 
             @*右侧栏*@
-            <div class="col-md-3 ">
+            <div class="col-md-3 " style="max-width:25%">
                 <aside id="sidebar">
                     <div class="sidebar-wrap">
-                        <div class="affix" style="width: 265px;">
-                        </div>
                         <div class="sidebar-article">
                             @*公众号信息*@
-                            <div class="widget widget-wechat" style="background-repeat: no-repeat;background-size: cover;background-position: center top;">
-                                <div class="widget-title"><span></span></div>
+                            <div class="widget widget-wechat">
+                                <div class="widget-title"><span>官方微信：17601492856</span></div>
                                 <div class="widget-wechat-body">
                                     <div class="widget-wechat-img">
                                         <a class="product_wx" href="@AppConst.OtherImagePath/xqw_vip.png">
@@ -122,8 +120,6 @@
                                         </a>
                                     </div>
                                     <div class="widget-wechat-content">
-                                        <h4 class="widget-wechat-title">@shopInfo.ShopName</h4>
-                                        <p class="widget-wechat-account">微信：@shopInfo.WXNumber</p>
                                         <p class="widget-wechat-description">@shopInfo.Slogan</p>
                                     </div>
                                 </div>

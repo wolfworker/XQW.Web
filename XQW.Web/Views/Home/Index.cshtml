@@ -2,12 +2,12 @@
     ViewBag.Title = "小青蛙商学院";
 }
 
-<div class="recommend" style="padding-top:20px">
+<div class="recommend">
     <div class="container">
         <div class="row">
             <div class="col-md-6">
                 <div class="post post-style-feature">
-                    <a class="post-img img-response home_about" href="../Home/AboutUs" style="background-image: url()">
+                    <a class="post-img img-response home_about" href="../Home/AboutUs" style="background-image: url(http://139.224.119.196:9017/product//header/P005.jpg)">
                         <ul class="post-meta p-2 post-meta-bottom transition">
                             <li class="post-time">
                                 <i class="czs-time-l"></i>
@@ -64,14 +64,14 @@
                             </a>
                             <div class="post-top">
                                 <div class="post-title mb-1">
-                                    <a class="home_hotproduct" data-pid="@productDetail.ProductID" href="../Product/ProductDetail?productid=@productDetail.ProductID"> @productDetail.ProductTitle </a>
+                                    <a class="home_hotproduct" data-pid="@productDetail.ProductID" href="../Product/ProductDetail?productid=@productDetail.ProductID"> @productDetail.ProductName </a>
                                 </div>
                                 <div class="post-top-meta mb-3">
-                                    <a class="post-category home_cate" data-catename="@productDetail.BCategoryName" href="../Category/Index?bcategoryid=@productDetail.BCategoryID">
+                                    <a class="post-category home_cate" data-catename="@productDetail.BCategoryName" href="../Category/Index?acategoryid=@productDetail.ACategoryID&bcategoryid=@productDetail.BCategoryID">
                                         @productDetail.BCategoryName
                                     </a>
                                     <span class="post-time">
-                                        @productDetail.UpdateTime
+                                        @productDetail.UpdateTime.ToString("yyyy-MM-dd")
                                     </span>
                                 </div>
                             </div>
