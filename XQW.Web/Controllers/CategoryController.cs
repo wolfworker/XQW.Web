@@ -17,6 +17,10 @@ namespace XQW.Web.Controllers
 
         public ActionResult Index(string acategoryid, string bcategoryid)
         {
+            if (acategoryid == "A099" || bcategoryid == "B099")
+            {
+                return RedirectToAction("VIP", "Home");
+            }
             var productList = new ProductController().GetProductListBybCate(acategoryid, bcategoryid);
             ViewBag.ProductList = productList;
             var categoryList = GetCategoryListByaCate(acategoryid);//todo 小分类 选中
