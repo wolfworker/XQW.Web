@@ -7,11 +7,11 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="post post-style-feature">
-                    <a class="post-img img-response home_about" href="../Home/AboutUs" style="background-image: url(http://139.224.119.196:9017/product//header/P005.jpg)">
+                    <a class="post-img img-response home_about" href="../Home/AboutUs" style="background-image: url(@AppConst.OtherImagePath/mulu.png)">
                         <ul class="post-meta p-2 post-meta-bottom transition">
                             <li class="post-time">
                                 <i class="czs-time-l"></i>
-                                2020.05.25 最新更新
+                              @DateTime.Today.ToString("yyyy-MM-dd") 最新更新
                             </li>
                         </ul>
                     </a>
@@ -23,11 +23,11 @@
             </div>
             <div class="col-md-6">
                 <div class="post post-style-feature">
-                    <a class="post-img img-response home_vip" href="../Home/VIP" style="background-image: url()">
+                    <a class="post-img img-response home_vip" href="../Home/VIP" style="background-image: url(@AppConst.OtherImagePath/vip_banner.png)">
                         <ul class="post-meta p-2 post-meta-bottom transition">
                             <li class="post-time">
                                 <i class="czs-time-l"></i>
-                                2020.05.25 最新更新
+                                @DateTime.Today.ToString("yyyy-MM-dd") 最新更新
                             </li>
                         </ul>
                     </a>

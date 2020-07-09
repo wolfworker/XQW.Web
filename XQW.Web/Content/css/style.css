@@ -5613,7 +5613,7 @@ body {
 }
 
 .article-title {
-    font-size: 20px;
+    font-size: 25px;
     color: #000;
     font-weight: 500;
 }
@@ -6599,4 +6599,19 @@ body {
 
 .recommend {
     padding-top: 35px;
+}
+
+.vipfont {
+    font-weight: 800;
+    color: #f19205;
+}
+
+.nvipfont {
+    font-weight: 800;
+    color: darkgreen;
+}
+
+.huoqufont {
+    font-weight: 800;
+    color: darkred;
 }
