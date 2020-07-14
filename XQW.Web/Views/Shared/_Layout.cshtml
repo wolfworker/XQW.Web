@@ -51,19 +51,6 @@
             box-shadow: 0 1px 10px #38B7EA;
         }
     </style>
-    <script>
-        var carouselSwitcher = "1";
-        var carouselOpacity = "10";
-        var carouselAnimation = "slide";
-        var carouselMouseSwitcher = "1";
-        var siteUrl = "http://www.zixuexia.com";
-        var imgUrl = "http://www.zixuexia.com/wp-content/themes/BlackMirror/assets/images";
-        var fancyboxSwitcher = "1";
-        var isHomePage = "1";//todo 标志
-        var pagType = "number";
-        var layoutType = "four";
-        var themeUrl = "http://www.zixuexia.com/wp-content/themes/BlackMirror";
-    </script>
 </head>
 <body>
     <script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.11.3/jquery.min.js?ver=2.1.4"></script>
@@ -112,12 +99,9 @@
             </div>
             <ul class="footer-follow">
                 <li class="follow-wechat">
-                    <a>
+                    <a href="/Home/VIP">
                         <i class="czs-weixin"></i>
                     </a>
-                    <div class="follow-wechat-popup">
-                        <img src="@AppConst.OtherImagePath/xqw_vip.png " alt="wechat">
-                    </div>
                 </li>
                 <li class="follow-qq">
                     <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=1315915446" target="_blank">
@@ -131,9 +115,9 @@
         <div class="copyright">
             <div class="container">
                 <p>
-                    Copyright © 2013-2020&nbsp;&nbsp;- 全网最全自学视频教程平台 / 版本 V 1.0&nbsp;&nbsp;<span style="margin-right: 12px;" class="hidden-xs">
-                        <a class="site-record" target="_blank" href="" style="color: #818181;">
-                            京ICP备100754号-01
+                    Copyright © 2013-2020&nbsp;&nbsp;- 全网最全自学视频教程平台 &nbsp;&nbsp;<span style="margin-right: 12px;" class="hidden-xs">
+                        <a class="site-record" target="_blank" href="http://www.beian.miit.gov.cn/" style="color: #818181;">
+                            苏ICP备18034664号-01
                         </a>
                     </span>
                     <script>
@@ -153,7 +137,7 @@
 
     <script>
         var userLocalInfo = {};
-        
+
         $(function () {
             //加载二级分类列表
             loadCategory();

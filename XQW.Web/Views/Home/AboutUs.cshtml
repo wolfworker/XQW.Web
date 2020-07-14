@@ -2,97 +2,87 @@
     ViewBag.Title = "所有商品列表";
 }
 
-<main class="container pt-xs-6" id="pjax-content">
-    <div class="row">
-        <div id="main">
-            <article class="article">
-                <div class="article-title-center">
-                    全部教程-小青蛙商学院
-                </div>
-                <div class="article-body about_product">
-                    <h2><span>小青蛙商学院 - 全网最全自学教程集合平台</span></h2>
-                    <div>
-                        教程分为<span style="color: #ff0000;">
-                            <strong>7大类、24大系列、300+门课程</strong>
-                        </span>，可以通过<a href="Index">官网</a>了解课程详情。
-                    </div>
+<style>
+    .about_acate {
+        color: #960a96 !important;
+        font-size: larger;
+    }
 
-                    <h2><span style="font-family: 'arial black', sans-serif; color: #ff0000;">全部教程目录：</span></h2>
-                    <div><span style="font-family: 'arial black', sans-serif;"><strong><a href="http://www.zixuexia.com/catalogs/1%E7%94%B5%E5%95%86%E7%A4%BE%E4%BA%A4%E6%8E%A8%E5%B9%BF">一、电商|社交|推广</a></strong></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;"><a href="http://www.zixuexia.com/catalogs/1%E7%94%B5%E5%95%86%E7%A4%BE%E4%BA%A4%E6%8E%A8%E5%B9%BF/%E7%94%B5%E5%95%86">&nbsp; 1、电商系列</a></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;">&nbsp; &nbsp; &nbsp;<a href="http://www.zixuexia.com/archives/84">淘宝</a>、<a href="http://www.zixuexia.com/archives/221">京东</a>、<a href="http://www.zixuexia.com/archives/133">拼多多</a>、<a href="http://www.zixuexia.com/archives/37">亚马逊</a>、<a href="http://www.zixuexia.com/archives/55">eBay</a>、<a href="http://www.zixuexia.com/archives/64">速卖通</a>、<a href="http://www.zixuexia.com/archives/72">Wish</a>、<a href="http://www.zixuexia.com/archives/77">Lazada</a></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;"><a href="http://www.zixuexia.com/catalogs/1%E7%94%B5%E5%95%86%E7%A4%BE%E4%BA%A4%E6%8E%A8%E5%B9%BF/%E7%A4%BE%E4%BA%A4">&nbsp; 2、玩转社交系列</a></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;">&nbsp; &nbsp; &nbsp;<a href="http://www.zixuexia.com/archives/141">微信</a>、<a href="http://www.zixuexia.com/archives/147">抖音</a>、<a href="http://www.zixuexia.com/archives/155">网红主播</a>、<a href="http://www.zixuexia.com/archives/160">Facebook</a>、<a href="http://www.zixuexia.com/archives/168">Google</a>、<a href="http://www.zixuexia.com/archives/189">Twitter</a>、<a href="http://www.zixuexia.com/archives/179">Instagram</a>、<a href="http://www.zixuexia.com/archives/174">Youtube</a>、<a href="http://www.zixuexia.com/archives/184">Linkedin</a></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;"><a href="http://www.zixuexia.com/catalogs/1%E7%94%B5%E5%95%86%E7%A4%BE%E4%BA%A4%E6%8E%A8%E5%B9%BF/%E6%8E%A8%E5%B9%BF">&nbsp; 3、网络推广系列</a></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;">&nbsp; &nbsp; &nbsp; &nbsp;<a href="http://www.zixuexia.com/archives/195">新媒体营销</a>、<a href="http://www.zixuexia.com/archives/200">吸粉引流推广</a>、<a href="http://www.zixuexia.com/archives/207">网络营销大全</a>、<a href="http://www.zixuexia.com/archives/214">公众号运营</a></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;"><strong><a href="http://www.zixuexia.com/catalogs/2%E5%B9%B3%E9%9D%A2%E5%BD%B1%E8%A7%86%E4%B8%89%E7%BB%B4%E7%BD%91%E7%AB%99">二、平面|影视|三维|网站</a></strong></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;"><a href="http://www.zixuexia.com/catalogs/2%E5%B9%B3%E9%9D%A2%E5%BD%B1%E8%A7%86%E4%B8%89%E7%BB%B4%E7%BD%91%E7%AB%99/%E5%B9%B3%E9%9D%A2">&nbsp; 1、平面系列</a></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;">&nbsp; &nbsp; &nbsp;<a href="http://www.zixuexia.com/archives/231">PS（Photoshop）</a>、<a href="http://www.zixuexia.com/archives/239">AI（Illustrator）</a>、<a href="http://www.zixuexia.com/archives/247">ID（InDesign）</a>、<a href="http://www.zixuexia.com/archives/253">CDR（CorelDrow）</a></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;"><a href="http://www.zixuexia.com/catalogs/2%E5%B9%B3%E9%9D%A2%E5%BD%B1%E8%A7%86%E4%B8%89%E7%BB%B4%E7%BD%91%E7%AB%99/%E5%BD%B1%E8%A7%86">&nbsp; &nbsp;2、影视系列</a></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;">&nbsp; &nbsp;&nbsp;<a href="http://www.zixuexia.com/archives/266">AE（After Effect）</a>、<a href="http://www.zixuexia.com/archives/275">PR（Premiere）</a> 、<a href="http://www.zixuexia.com/archives/283">AU（Audition）</a>、 <a href="http://www.zixuexia.com/archives/291">DV（DaVinci达芬奇）</a>、<a href="http://www.zixuexia.com/archives/297">数码后期处理</a></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;"><a href="http://www.zixuexia.com/catalogs/2%E5%B9%B3%E9%9D%A2%E5%BD%B1%E8%A7%86%E4%B8%89%E7%BB%B4%E7%BD%91%E7%AB%99/%E4%B8%89%E7%BB%B4">&nbsp; 3、三维系列</a></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;">&nbsp; &nbsp; <a href="http://www.zixuexia.com/archives/305">AutoCAD</a>、 <a href="http://www.zixuexia.com/archives/313">3DMAX</a> 、<a href="http://www.zixuexia.com/archives/320">VRay</a></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;"><a href="http://www.zixuexia.com/catalogs/2%E5%B9%B3%E9%9D%A2%E5%BD%B1%E8%A7%86%E4%B8%89%E7%BB%B4%E7%BD%91%E7%AB%99/%E7%BD%91%E7%AB%99">&nbsp; 4、网站系列</a></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;">&nbsp; &nbsp; <a href="http://www.zixuexia.com/archives/326">Web</a>、<a href="http://www.zixuexia.com/archives/326">Html</a>、<a href="http://www.zixuexia.com/archives/334">C语言</a>、<a href="http://www.zixuexia.com/archives/354">PHP</a>、<a href="http://www.zixuexia.com/archives/341">JAVA</a>、<a href="http://www.zixuexia.com/archives/348">MySQL</a>、<a href="http://www.zixuexia.com/archives/870">Shopiy</a>、<a href="http://www.zixuexia.com/archives/876">WordPress</a>、<a href="http://www.zixuexia.com/archives/882">Magento</a>、<a href="http://www.zixuexia.com/archives/892">Opencart</a>、<a href="http://www.zixuexia.com/archives/888">Zencart</a>、<a href="http://www.zixuexia.com/archives/898">SEO优化</a>、<a href="http://www.zixuexia.com/archives/902">SNS优化</a>、<a href="http://www.zixuexia.com/archives/906">LG落地页</a>、<a href="http://www.zixuexia.com/archives/910">GA谷歌分析</a></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;"><strong><a href="http://www.zixuexia.com/catalogs/3%E9%9F%B3%E4%B9%90%E7%BE%8E%E6%9C%AF%E6%91%84%E5%BD%B1">三、音乐|美术|摄影</a></strong></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;"><a href="http://www.zixuexia.com/catalogs/3%E9%9F%B3%E4%B9%90%E7%BE%8E%E6%9C%AF%E6%91%84%E5%BD%B1/%E9%9F%B3%E4%B9%90">&nbsp; 1、音乐系列</a></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;">&nbsp; &nbsp;<a href="http://www.zixuexia.com/archives/361">唱歌</a>、<a href="http://www.zixuexia.com/archives/370">吉他</a>、<a href="http://www.zixuexia.com/archives/390">小提琴</a>、<a href="http://www.zixuexia.com/archives/379">尤克里里</a>、<a href="http://www.zixuexia.com/archives/424">贝司</a>、<a href="http://www.zixuexia.com/archives/405">B-BOX</a>、<a href="http://www.zixuexia.com/archives/418">口琴</a>、<a href="http://www.zixuexia.com/archives/409">古筝</a>、<a href="http://www.zixuexia.com/archives/397">萨克斯</a>、<a href="http://www.zixuexia.com/archives/430">架子鼓</a></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;"><a href="http://www.zixuexia.com/catalogs/3%E9%9F%B3%E4%B9%90%E7%BE%8E%E6%9C%AF%E6%91%84%E5%BD%B1/%E7%BE%8E%E6%9C%AF">&nbsp; 2、美术系列</a></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;">&nbsp; &nbsp;<a href="http://www.zixuexia.com/archives/434">素描</a>、<a href="http://www.zixuexia.com/archives/440">国画</a>、<a href="http://www.zixuexia.com/archives/445">油画</a>、<a href="http://www.zixuexia.com/archives/449">沙画</a>、<a href="http://www.zixuexia.com/archives/456">水彩画</a>、<a href="http://www.zixuexia.com/archives/460">漫画</a></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;"><a href="http://www.zixuexia.com/catalogs/3%E9%9F%B3%E4%B9%90%E7%BE%8E%E6%9C%AF%E6%91%84%E5%BD%B1/%E6%91%84%E5%BD%B1">&nbsp; 3、摄影系列</a></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;">&nbsp; <a href="http://www.zixuexia.com/archives/469">手机摄影</a>、<a href="http://www.zixuexia.com/archives/474">单反摄影</a>、<a href="http://www.zixuexia.com/archives/483">婚纱摄影</a></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;"><strong><a href="http://www.zixuexia.com/catalogs/4%E8%BF%90%E5%8A%A8%E5%81%A5%E8%BA%AB%E8%88%9E%E8%B9%88">四、运动|健身|舞蹈</a></strong></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;"><a href="http://www.zixuexia.com/catalogs/4%E8%BF%90%E5%8A%A8%E5%81%A5%E8%BA%AB%E8%88%9E%E8%B9%88/%E8%BF%90%E5%8A%A8">&nbsp; 1、运动系列</a></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;">&nbsp; &nbsp;<a href="http://www.zixuexia.com/archives/492">篮球</a>、<a href="http://www.zixuexia.com/archives/497">足球</a>、<a href="http://www.zixuexia.com/archives/558">羽毛球</a>、<a href="http://www.zixuexia.com/archives/503">台球</a>、<a href="http://www.zixuexia.com/archives/562">乒乓球</a>、<a href="http://www.zixuexia.com/archives/487">游泳</a>、<a href="http://www.zixuexia.com/archives/548">魔术</a>、<a href="http://www.zixuexia.com/archives/536">滑板</a>、<a href="http://www.zixuexia.com/archives/510">钓鱼</a>、<a href="http://www.zixuexia.com/archives/518">象棋</a>、<a href="http://www.zixuexia.com/archives/525">围棋</a>、<a href="http://www.zixuexia.com/archives/552">魔方</a>、<a href="http://www.zixuexia.com/archives/530">轮滑</a>、<a href="http://www.zixuexia.com/archives/566">漂移板</a>、<a href="http://www.zixuexia.com/archives/575">太极拳</a>、<a href="http://www.zixuexia.com/archives/541">散打</a>、<a href="http://www.zixuexia.com/archives/582">自卫防身术</a>、<a href="http://www.zixuexia.com/archives/571">双节棍</a></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;"><a href="http://www.zixuexia.com/catalogs/4%E8%BF%90%E5%8A%A8%E5%81%A5%E8%BA%AB%E8%88%9E%E8%B9%88/%E5%81%A5%E8%BA%AB">&nbsp; 2、健身系列</a></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;">&nbsp; &nbsp;<a href="http://www.zixuexia.com/archives/586">男士健身</a>、<a href="http://www.zixuexia.com/archives/593">女士瑜伽</a>、<a href="http://www.zixuexia.com/archives/597">郑多燕健身操</a></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;"><a href="http://www.zixuexia.com/catalogs/4%E8%BF%90%E5%8A%A8%E5%81%A5%E8%BA%AB%E8%88%9E%E8%B9%88/%E8%88%9E%E8%B9%88">&nbsp; 3、舞蹈系列</a></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;">&nbsp; &nbsp;<a href="http://www.zixuexia.com/archives/601">街舞</a>、<a href="http://www.zixuexia.com/archives/607">肚皮舞</a>、<a href="http://www.zixuexia.com/archives/613">爵士舞</a>、<a href="http://www.zixuexia.com/archives/619">拉丁舞</a>、<a href="http://www.zixuexia.com/archives/625">民族舞</a>、<a href="http://www.zixuexia.com/archives/631">交谊舞</a></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;"><strong><a href="http://www.zixuexia.com/catalogs/5%E5%A4%96%E8%AF%AD%E5%8A%9E%E5%85%AC%E8%81%8C%E4%B8%9A">五、外语|办公|职业</a></strong></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;"><a href="http://www.zixuexia.com/catalogs/5%E5%A4%96%E8%AF%AD%E5%8A%9E%E5%85%AC%E8%81%8C%E4%B8%9A/%E5%A4%96%E8%AF%AD">&nbsp; 1、外语系列</a></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;">&nbsp; &nbsp;<a href="http://www.zixuexia.com/archives/635">日语</a>、<a href="http://www.zixuexia.com/archives/652">粤语</a>、<a href="http://www.zixuexia.com/archives/643">韩语</a>、<a href="http://www.zixuexia.com/archives/659">法语</a>、<a href="http://www.zixuexia.com/archives/648">德语</a>、<a href="http://www.zixuexia.com/archives/664">俄语</a>、<a href="http://www.zixuexia.com/archives/670">泰语</a>、<a href="http://www.zixuexia.com/archives/677">阿拉伯语</a></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;"><a href="http://www.zixuexia.com/catalogs/5%E5%A4%96%E8%AF%AD%E5%8A%9E%E5%85%AC%E8%81%8C%E4%B8%9A/%E5%8A%9E%E5%85%AC">&nbsp; 2、办公系列</a></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;">&nbsp; &nbsp;<a href="http://www.zixuexia.com/archives/681">Word</a>、<a href="http://www.zixuexia.com/archives/686">PPT</a>、<a href="http://www.zixuexia.com/archives/690">EXCEL</a>、<a href="http://www.zixuexia.com/archives/694">WPS</a></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;"><a href="http://www.zixuexia.com/catalogs/5%E5%A4%96%E8%AF%AD%E5%8A%9E%E5%85%AC%E8%81%8C%E4%B8%9A/%E8%81%8C%E4%B8%9A">&nbsp; 3、职业系列</a></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;">&nbsp; &nbsp;<a href="http://www.zixuexia.com/archives/698">求职面试</a>、<a href="http://www.zixuexia.com/archives/703">创业指导</a>、<a href="http://www.zixuexia.com/archives/707">演讲与口才</a>、<a href="http://www.zixuexia.com/archives/712">心理学</a></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;"><strong><a href="http://www.zixuexia.com/catalogs/6%E5%8C%96%E5%A6%86%E5%BD%A2%E8%B1%A1%E9%A5%AE%E9%A3%9F">六、化妆|形象|饮食</a></strong></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;"><a href="http://www.zixuexia.com/catalogs/6%E5%8C%96%E5%A6%86%E5%BD%A2%E8%B1%A1%E9%A5%AE%E9%A3%9F/%E5%8C%96%E5%A6%86">&nbsp; 1、化妆系列</a></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;">&nbsp; &nbsp;<a href="http://www.zixuexia.com/archives/719">化妆</a>、<a href="http://www.zixuexia.com/archives/727">美容</a>、<a href="http://www.zixuexia.com/archives/727">按摩</a>、<a href="http://www.zixuexia.com/archives/734">美甲</a>、<a href="http://www.zixuexia.com/archives/738">盘发</a>、<a href="http://www.zixuexia.com/archives/747">纹身</a>、<a href="http://www.zixuexia.com/archives/743">健康养生</a></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;"><a href="http://www.zixuexia.com/catalogs/6%E5%8C%96%E5%A6%86%E5%BD%A2%E8%B1%A1%E9%A5%AE%E9%A3%9F/%E5%BD%A2%E8%B1%A1">&nbsp; 2、形象系列</a></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;">&nbsp; &nbsp;<a href="http://www.zixuexia.com/archives/752">男士形象</a>、<a href="http://www.zixuexia.com/archives/760">女士形象</a>、<a href="http://www.zixuexia.com/archives/764">服饰搭配</a></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;"><a href="http://www.zixuexia.com/catalogs/6%E5%8C%96%E5%A6%86%E5%BD%A2%E8%B1%A1%E9%A5%AE%E9%A3%9F/%E9%A5%AE%E9%A3%9F">&nbsp; 3、饮食系列</a></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;">&nbsp; &nbsp;<a href="http://www.zixuexia.com/archives/769">烹饪做菜</a>、<a href="http://www.zixuexia.com/archives/775">果汁调制</a>、<a href="http://www.zixuexia.com/archives/781">烘焙</a>、<a href="http://www.zixuexia.com/archives/786">烧烤</a></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;"><strong><a href="http://www.zixuexia.com/catalogs/7%E7%94%9F%E6%B4%BB%E7%BB%B4%E4%BF%AE%E5%AE%A0%E7%89%A9%E6%89%8B%E5%B7%A5%E6%AF%8D%E5%A9%B4">七、生活|维修|宠物|手工|母婴等教程</a></strong></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;"><a href="http://www.zixuexia.com/catalogs/7%E7%94%9F%E6%B4%BB%E7%BB%B4%E4%BF%AE%E5%AE%A0%E7%89%A9%E6%89%8B%E5%B7%A5%E6%AF%8D%E5%A9%B4/%E7%94%9F%E6%B4%BB">&nbsp; 1、生活系列</a></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;">&nbsp; &nbsp;<a href="http://www.zixuexia.com/archives/791">装修工艺</a>、<a href="http://www.zixuexia.com/archives/797">居家风水</a>、<a href="http://www.zixuexia.com/archives/805">面相运势</a></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;"><a href="http://www.zixuexia.com/catalogs/7%E7%94%9F%E6%B4%BB%E7%BB%B4%E4%BF%AE%E5%AE%A0%E7%89%A9%E6%89%8B%E5%B7%A5%E6%AF%8D%E5%A9%B4/%E7%BB%B4%E4%BF%AE">&nbsp; 2、维修系列</a></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;">&nbsp; &nbsp;<a href="http://www.zixuexia.com/archives/812">家电维修</a>、<a href="http://www.zixuexia.com/archives/819">汽车维修</a>、<a href="http://www.zixuexia.com/archives/823">钳工车工数控</a></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;"><a href="http://www.zixuexia.com/catalogs/7%E7%94%9F%E6%B4%BB%E7%BB%B4%E4%BF%AE%E5%AE%A0%E7%89%A9%E6%89%8B%E5%B7%A5%E6%AF%8D%E5%A9%B4/%E6%89%8B%E5%B7%A5">&nbsp; 3、手工系列</a></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;">&nbsp; &nbsp;<a href="http://www.zixuexia.com/archives/858">剪纸</a>、<a href="http://www.zixuexia.com/archives/827">插花</a>、<a href="http://www.zixuexia.com/archives/831">折纸</a>、<a href="http://www.zixuexia.com/archives/838">木雕</a>、<a href="http://www.zixuexia.com/archives/843">玉雕</a>、<a href="http://www.zixuexia.com/archives/849">陶艺</a>、<a href="http://www.zixuexia.com/archives/854">花卉</a>、<a href="http://www.zixuexia.com/archives/854">园艺</a></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;"><a href="http://www.zixuexia.com/catalogs/7%E7%94%9F%E6%B4%BB%E7%BB%B4%E4%BF%AE%E5%AE%A0%E7%89%A9%E6%89%8B%E5%B7%A5%E6%AF%8D%E5%A9%B4/%E6%AF%8D%E5%A9%B4">&nbsp; 4、母婴系列</a></span></div>
-                    <div><span style="color: #ff0000; font-family: 'arial black', sans-serif;">（持续更新中）</span></div>
-                    <div></div>
-                    <div><span style="font-family: 'arial black', sans-serif;">&nbsp;<a href="../Home/VIP" class="fancybox about_vip" rel="fancybox-group" title=""><img class="size-full wp-image-1099 aligncenter" src="" width="750" height="122"></a></span></div>
-                </div>
-                <div  class="article-body">
-                    <h2><span style="font-family: 'arial black', sans-serif;">加入会员</span></h2>
-                    <div><span style="font-family: 'arial black', sans-serif;">成为<strong><a class="about_vip" href="../Home/VIP">小青蛙商学院会员</a></strong>，站内所有课程全部永久免费，持续更新。<strong><a class="about_vip" href="../Home/VIP">（点击此处了解会员）</a></strong></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;">食物有保鲜期，知识没有保质期，会员可以不受时间限制随时学习各种课程</span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;"><a href="../Home/VIP" class="fancybox about_vip" rel="fancybox-group"><img src="" width="750" height="122"></a></span></div>
-                    <h2><span style="font-family: 'arial black', sans-serif;">联系我们</span></h2>
-                    <div><span style="font-family: 'arial black', sans-serif;">微信：17601492856</span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;">QQ：<a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=1315915446" target="_blank"> 1315915446</a></span></div>
-                    <div><span style="font-family: 'arial black', sans-serif;">邮箱：<a href="mailto:1315915446@qq.com">1315915446@qq.com</a></span></div>
-                    <div></div>
-                    <div style="margin-top: -160px;">
-                        <a class="about_vip" href="@AppConst.OtherImagePath/xqw_vip.png"><img src="@AppConst.OtherImagePath/xqw_vip.png" width="150" height="176"></a>
+    .about_bcate {
+        color: blue !important;
+        font-size: large;
+        font-weight: 700;
+    }
+
+    .productContent {
+        color: brown !important;
+    }
+</style>
+@{
+    var productAll = ViewBag.ProductAll;
+
+    <main class="container pt-xs-6" id="pjax-content">
+        <div class="row">
+            <div id="main">
+                <article class="article">
+                    <div class="article-title-center">
+                        全部教程-小青蛙商学院
                     </div>
-                </div>
-            </article>
+                    <div class="article-body about_product">
+                        <h2><span>小青蛙商学院 - 全网最全自学教程集合平台</span></h2>
+                        <div>
+                            教程分为<span style="color: #ff0000;">
+                                <strong>@productAll.ACateCount 大类、@productAll.BCateCount 大系列、@productAll.ProductCount 门课程</strong>
+                            </span>，可以通过<a class="about_bcate" href="Index">官网</a>了解课程详情。
+                        </div>
+
+                        <h2><span style="color: #ff0000;">全部教程目录：</span></h2>
+                        @{
+                            int aindex = 0;
+                            foreach (var ACategory in productAll.ACategoryList)
+                            {
+                                aindex++;
+                                <div><span><strong><a class="about_acate" href="../Category/Index?acategoryid=@ACategory.ACategoryId">@aindex、@ACategory.ACategoryName</a></strong></span></div>
+
+                                int bindex = 0;
+                                foreach (var BCategory in ACategory.BCategoryList)
+                                {
+                                    bindex++;
+                                    <div><span><a class="about_bcate" href="../Category/Index?acategoryid=@ACategory.ACategoryId&bcategoryid=@BCategory.BCategoryId">&nbsp; @bindex、@BCategory.BCategoryName</a></span></div>
+                                    <div>
+                                        <span>
+                                            &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                                            @foreach (var product in BCategory.ProductList)
+                                            {
+                                                <a class="productContent" title="@product.ProductName" href="../Product/ProductDetail?productid=@product.ProductID">@product.ProductTitle &nbsp; &nbsp;</a>
+                                            }
+                                        </span>
+                                    </div>
+                                    <br />
+                                }
+                            }
+                        }
+                        <div style="text-align:center;font-weight:800"><span style="color: #ff0000;">持续更新中......</span></div>
+                    </div>
+                    <div class="article-body">
+                        <h2><span style="font-family: 'arial black', sans-serif;">加入会员</span></h2>
+                        <div><span style="font-family: 'arial black', sans-serif;">成为<strong><a class="about_vip" href="../Home/VIP">小青蛙商学院会员</a></strong>，站内所有课程全部永久免费，持续更新。<strong><a class="about_vip" href="../Home/VIP">（点击此处了解会员）</a></strong></span></div>
+                        <div><span style="font-family: 'arial black', sans-serif;">食物有保鲜期，知识没有保质期，会员可以不受时间限制随时学习各种课程</span></div>
+                        <div><span style="font-family: 'arial black', sans-serif;"><a href="../Home/VIP" class="fancybox about_vip" rel="fancybox-group"><img src="" width="750" height="122"></a></span></div>
+                        <h2><span style="font-family: 'arial black', sans-serif;">联系我们</span></h2>
+                        <div><span style="font-family: 'arial black', sans-serif;">微信：17601492856</span></div>
+                        <div><span style="font-family: 'arial black', sans-serif;">QQ：<a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=1315915446" target="_blank"> 1315915446</a></span></div>
+                        <div><span style="font-family: 'arial black', sans-serif;">邮箱：<a href="mailto:1315915446@qq.com">1315915446@qq.com</a></span></div>
+                        <div></div>
+                        <div style="margin-top: -160px;">
+                            <a class="about_vip" href="@AppConst.OtherImagePath/xqw_vip.png"><img src="@AppConst.OtherImagePath/xqw_vip.png" width="150" height="176"></a>
+                        </div>
+                    </div>
+                </article>
+            </div>
         </div>
-    </div>
-</main>
-
+    </main>
+}
 <script>
     $(document).ready(function () {
         $(".about_vip").click(function () {
