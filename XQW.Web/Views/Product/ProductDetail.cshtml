@@ -36,7 +36,7 @@
                                 }
                             </p>
                             <p>
-                                <a href="@AppConst.OtherImagePath/xqw_vip.png" class="fancybox product_wx" rel="fancybox-group" title="">
+                                <a href="../Home/VIP" class="fancybox product_wx" rel="fancybox-group" title="">
                                     <img class="aligncenter wp-image-302 size-thumbnail"
                                          src="@AppConst.OtherImagePath/xqw_vip.png"
                                          alt=@productDetail.ProductSubTtile title="微信扫码-小青蛙商学院" width="150" height="150">
@@ -131,7 +131,7 @@
                                 <ul class="widget-hotpost-image">
                                     @foreach (var hotProduct in hotProductList)
                                     {
-                                        <a href="../Product/ProductDetail?productid=@hotProduct.ProductID" class="mask-animate widget-hotpost-image-item product_hot" data-pid="@hotProduct.ProductID">
+                                        <a href="../Product/ProductDetail?productid=@hotProduct.ProductID" title="@hotProduct.ProductName" class="mask-animate widget-hotpost-image-item product_hot" data-pid="@hotProduct.ProductID">
                                             <div class="recent-post-img">
                                                 <img width="750" height="560" src="@hotProduct.HeaderImageUrl" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="">
                                             </div>

@@ -41,14 +41,14 @@
                     foreach (var productDetail in productList)
                     {
                         <div class="col-md-3 col-sm-6">
-                            <div class="post post-style-card transition">
+                            <div class="post post-style-card transition" title="@productDetail.ProductName">
                                 <a class="post-img img-response cate_product" data-pid="@productDetail.ProductID"
                                    href="../Product/ProductDetail?productid=@productDetail.ProductID"
                                    style="background-image: url(@productDetail.HeaderImageUrl)">
                                 </a>
                                 <div class="post-top">
                                     <div class="post-title mb-1">
-                                        <a class="cate_product" data-pid="@productDetail.ProductID" href="../Product/ProductDetail?productid=@productDetail.ProductID">
+                                        <a class="cate_product"  data-pid="@productDetail.ProductID" href="../Product/ProductDetail?productid=@productDetail.ProductID">
                                             @productDetail.ProductName
                                         </a>
                                     </div>
