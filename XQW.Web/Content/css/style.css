@@ -5162,10 +5162,8 @@ body {
 }
 
     .widget-wechat .widget-wechat-body .widget-wechat-img img {
-        width: 200px;
-        height: 200px;
-        /*float: left;*/
-        margin-right: 5px;
+        width: 230px;
+        height: 230px;
         display: block
     }
 
@@ -6614,4 +6612,9 @@ body {
 .huoqufont {
     font-weight: 800;
     color: darkred;
+}
+
+.vipdesc {
+    color: brown;
+    font-weight: 800;
 }
