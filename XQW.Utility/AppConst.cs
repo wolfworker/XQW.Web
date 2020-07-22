@@ -89,6 +89,8 @@ namespace XQW.Utility
         public static string Cache_HotProductListAll = "cache_hotproductall";
         public static string Cache_HotProductList = "cache_hotproduct_";
         public static string Cache_AboutUs = "cache_aboutus_";
+        public static string Cache_PreNextProduct = "cache_prenextproduct_";
+        public static string Cache_OtherBuyProduct = "cache_otherbuyproduct_";
 
         #endregion
     }

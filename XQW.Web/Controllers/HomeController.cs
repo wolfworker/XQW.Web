@@ -18,7 +18,7 @@ namespace XQW.Web.Controllers
         public ProductDal productDal { get; set; } = new ProductDal();
         public ActionResult Index()
         {
-            ViewBag.HotProductList = new ProductController().GetHotProductList();
+            ViewBag.HotProductList = new ProductController().GetHotProductList().Take(10).ToList();
             return View();
         }
 
@@ -26,11 +26,14 @@ namespace XQW.Web.Controllers
         {
             //获取数据
             ViewBag.ProductAll = GetProductAllModel();
+
+            ViewBag.ShopInfo = GetShopInfo();
             return View();
         }
 
         public ActionResult VIP()
         {
+            ViewBag.ShopInfo = GetShopInfo();
             return View();
         }
 
@@ -38,7 +41,7 @@ namespace XQW.Web.Controllers
         {
             var result = new ProductAllModel();
             var param = new SqlParameter();
-            var key = "";
+            var key = AppConst.Cache_AboutUs;
             var sql = $@"SELECT p.ProductName,
                                p.ProductID,
                                p.ProductTitle,
@@ -52,8 +55,6 @@ namespace XQW.Web.Controllers
                                INNER JOIN ACategory ac
                                        ON ac.ACategoryID = bc.ACategoryID
                         WHERE  p.Status = 1 ";
-
-            key = AppConst.Cache_AboutUs;
 
             var cacheResult = (ProductAllModel)CacheHelper.GetCache(key);
             if (cacheResult == null)

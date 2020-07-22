@@ -13,7 +13,7 @@ namespace XQW.Model.Model
         public string MailAddress { get; set; }
         public string WXNumber { get; set; }
         public string WXImageUrl { get; set; }
-        public string Introduction { get; set; }
+        public string QQNumber { get; set; }
         public string Slogan { get; set; }
     }
 }

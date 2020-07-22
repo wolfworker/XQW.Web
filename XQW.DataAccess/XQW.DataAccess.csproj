@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommentDal.cs" />
     <Compile Include="DebugLogDal.cs" />
     <Compile Include="ProductDal.cs" />
     <Compile Include="BCategoryDal.cs" />

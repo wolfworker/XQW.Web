@@ -14,7 +14,7 @@
             <div class="col-md-9 no-gutter-xs">
                 <div id="main">
                     @*教程详情*@
-                    <article class="article " id="post-297">
+                    <article class="article">
                         <div class="article-title">
                             @productDetail.ProductName
                         </div>
@@ -38,8 +38,8 @@
                             <p>
                                 <a href="../Home/VIP" class="fancybox product_wx" rel="fancybox-group" title="">
                                     <img class="aligncenter wp-image-302 size-thumbnail"
-                                         src="@AppConst.OtherImagePath/xqw_vip.jpg"
-                                         alt=@productDetail.ProductSubTtile title="微信扫码-小青蛙商学院" width="150" height="150">
+                                         src="@shopInfo.WXImageUrl"
+                                         alt=@productDetail.ProductSubTtile title="微信扫码-@shopInfo.ShopName" width="150" height="150">
                                 </a>
                             </p>
                         </div>
@@ -87,19 +87,19 @@
                             <h3 id="reply-title" class="comment-reply-title">
                                 留言
                             </h3>
-                            <form action="http://www.zixuexia.com/wp-comments-post.php" method="post" id="commentform" class="no-gutters comment-form">
+                            <div class="no-gutters comment-form">
                                 <p class="comment-form-comment">
                                     @*<label for="comment">评论</label>*@
-                                    <textarea id="comment" name="comment" style="height:100px;width:700px;" cols="45" rows="8" maxlength="65525" aria-required="true" required="required"></textarea>
+                                    <textarea id="commentcontent" style="height:100px;width:700px;" cols="45" rows="8" maxlength="65525" aria-required="true" required="required"></textarea>
                                 </p>
                                 <div class="comment-form-author col-md-4 comment-input">
-                                    <input id="author" name="author" placeholder="昵称" type="text" value="" size="30">
+                                    <input id="nickname" placeholder="昵称" type="text" value="" size="30">
                                 </div>
                                 <div class="comment-form-email col-md-4 comment-input">
-                                    <input id="email" name="email" placeholder="联系方式" type="text" value="" size="30">
+                                    <input id="contactno" placeholder="联系方式（电话/邮箱/微信/QQ均可）" type="text" value="" size="30">
                                 </div>&nbsp;&nbsp;&nbsp;
-                                <input type="button" class="submit" value="提交">
-                            </form>
+                                <input type="button" class="submit" id="commitComment" value="提交">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -112,11 +112,11 @@
                         <div class="sidebar-article">
                             @*公众号信息*@
                             <div class="widget widget-wechat">
-                                <div class="widget-title"><span class="vipdesc">官方微信：17601492856</span></div>
+                                <div class="widget-title"><span class="vipdesc">官方微信：@shopInfo.WXNumber</span></div>
                                 <div class="widget-wechat-body">
                                     <div class="widget-wechat-img">
                                         <a class="product_wx" href="../Home/VIP">
-                                            <img src="@AppConst.OtherImagePath/xqw_vip.jpg" alt="wechat" title="微信扫码-小青蛙商学院">
+                                            <img src="@shopInfo.WXImageUrl" alt="wechat" title="微信扫码-@shopInfo.ShopName">
                                         </a>
                                     </div>
                                     <div class="widget-wechat-content" style="text-align:center">
@@ -176,6 +176,37 @@
 
         $(".product_recom_cate").click(function () {
             saveClickLog(1207, this.dataset.catename);
+        });
+    });
+
+    $("#commitComment").click(function () {
+        debugger;
+        var comment = $("#commentcontent").val();
+        var contactno = $("#contactno").val();
+        var nickname = $("#nickname").val();
+        var productid = '@productDetail.ProductID';
+        if (comment == "" || contactno == "" || nickname == "") {
+            alert("留言相关内容不可为空！");
+            return;
+        }
+        var param = {};
+        param.CommentContent = comment;
+        param.ContactNo = contactno;
+        param.NickName = nickname;
+        param.ProductID = productid;
+        $.ajax({
+            url: "../Product/CommitComment",
+            dataType: "json",
+            async: true,
+            data: param,
+            type: "post",
+            success: function (result) {
+                alert("提交成功！");
+
+                $("#commentcontent").val("")
+                $("#contactno").val("")
+                $("#nickname").val("")
+            }
         });
     });
 </script>

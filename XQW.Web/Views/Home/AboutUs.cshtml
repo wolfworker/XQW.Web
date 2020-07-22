@@ -20,16 +20,16 @@
 </style>
 @{
     var productAll = ViewBag.ProductAll;
-
+    var shopInfo = ViewBag.ShopInfo;
     <main class="container pt-xs-6" id="pjax-content">
         <div class="row">
             <div id="main">
                 <article class="article">
                     <div class="article-title-center">
-                        全部教程-小青蛙商学院
+                        全部教程-@shopInfo.ShopName
                     </div>
                     <div class="article-body about_product">
-                        <h2><span>小青蛙商学院 - 全网最全自学教程集合平台</span></h2>
+                        <h2><span>@shopInfo.ShopName - 全网最全自学教程集合平台</span></h2>
                         <div>
                             教程分为<span style="color: #ff0000;">
                                 <strong>@productAll.ACateCount 大类、@productAll.BCateCount 大系列、@productAll.ProductCount 门课程</strong>
@@ -66,16 +66,16 @@
                     </div>
                     <div class="article-body">
                         <h2><span style="font-family: 'arial black', sans-serif;">加入会员</span></h2>
-                        <div><span style="font-family: 'arial black', sans-serif;">成为<strong><a class="about_vip" href="../Home/VIP">小青蛙商学院会员</a></strong>，站内所有课程全部永久免费，持续更新。<strong><a class="about_vip" href="../Home/VIP">（点击此处了解会员）</a></strong></span></div>
+                        <div><span style="font-family: 'arial black', sans-serif;">成为<strong><a class="about_vip" href="../Home/VIP">@shopInfo.ShopName 会员</a></strong>，站内所有课程全部永久免费，持续更新。<strong><a class="about_vip" href="../Home/VIP">（点击此处了解会员）</a></strong></span></div>
                         <div><span style="font-family: 'arial black', sans-serif;">食物有保鲜期，知识没有保质期，会员可以不受时间限制随时学习各种课程</span></div>
                         <div><span style="font-family: 'arial black', sans-serif;"><a href="../Home/VIP" class="fancybox about_vip" rel="fancybox-group"><img src="" width="750" height="122"></a></span></div>
                         <h2><span style="font-family: 'arial black', sans-serif;">联系我们</span></h2>
-                        <div><span style="font-family: 'arial black', sans-serif;">微信：17601492856</span></div>
-                        <div><span style="font-family: 'arial black', sans-serif;">QQ：<a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=1315915446" target="_blank"> 1315915446</a></span></div>
-                        <div><span style="font-family: 'arial black', sans-serif;">邮箱：<a href="mailto:1315915446@qq.com">1315915446@qq.com</a></span></div>
+                        <div><span style="font-family: 'arial black', sans-serif;">微信：@shopInfo.WXNumber</span></div>
+                        <div><span style="font-family: 'arial black', sans-serif;">QQ：<a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=@shopInfo.QQNumber" target="_blank"> @shopInfo.QQNumber</a></span></div>
+                        <div><span style="font-family: 'arial black', sans-serif;">邮箱：<a href="mailto:@shopInfo.MailAddress">@shopInfo.MailAddress</a></span></div>
                         <div></div>
                         <div style="margin-top: -160px;">
-                            <a class="about_vip" href="@AppConst.OtherImagePath/xqw_vip.jpg"><img src="@AppConst.OtherImagePath/xqw_vip.jpg" width="150" height="176"></a>
+                            <a class="about_vip" href="@shopInfo.WXImageUrl"><img src="@shopInfo.WXImageUrl" width="150" height="176"></a>
                         </div>
                     </div>
                 </article>

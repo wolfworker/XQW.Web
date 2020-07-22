@@ -20,34 +20,34 @@ namespace XQW.Model
         }
         #region 数据库 表实体
 
+        /// <summary>
+        /// A类
+        /// </summary>
         public DbSet<ACategory> ACategory { get; set; }
-        public DbSet<BCategory> BCategory { get; set; }
-        public DbSet<Product> Product { get; set; }
-
-        ///// <summary>
-        ///// 日志表
-        ///// </summary>
-        //public DbSet<ACT_AuthentifyInfo> AuthentifyInfo { get; set; }
-
-        ///// <summary>
-        ///// 日志表
-        ///// </summary>
-        //public DbSet<ACT_InviteLog> InviteLogs { get; set; }
-
-        ///// <summary>
-        ///// 日志表
-        ///// </summary>
-        //public DbSet<ACT_VerifyLog> VerifyLogs { get; set; }
-
-        ///// <summary>
-        ///// 日志表
-        ///// </summary>
-        //public DbSet<POT_UserPointLog> UserPointLogs { get; set; }
 
         /// <summary>
-        /// 日志表
+        /// B类
+        /// </summary>
+        public DbSet<BCategory> BCategory { get; set; }
+
+        /// <summary>
+        /// 产品
+        /// </summary>
+        public DbSet<Product> Product { get; set; }
+
+        /// <summary>
+        /// 评论留言
+        /// </summary>
+        public DbSet<Comment> Comment { get; set; }
+
+        /// <summary>
+        /// 访问业务日志
         /// </summary>
         public DbSet<SYS_RequestLog> RequestLog { get; set; }
+
+        /// <summary>
+        /// 错误日志
+        /// </summary>
         public DbSet<SYS_DebugLog> DebugLog { get; set; }
 
         #endregion

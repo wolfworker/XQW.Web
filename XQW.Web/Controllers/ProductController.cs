@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -14,7 +15,8 @@ namespace XQW.Web.Controllers
     public class ProductController : BaseController
     {
         public ProductDal productDal { get; set; } = new ProductDal();
-
+        public CommentDal commentDal { get; set; } = new CommentDal();
+        
         /// <summary>
         /// 商品详情信息
         /// </summary>
@@ -24,30 +26,139 @@ namespace XQW.Web.Controllers
         {
             ViewBag.ProductDetail = GetProductDetailById(productid);
             ViewBag.HotProductList = GetHotProductList(productid).Take(5).ToList();
-            ViewBag.PreNextProduct = GetHotProductList(productid).Take(2).ToList();
-            ViewBag.OtherBuyProductList = GetHotProductList(productid).Take(3).ToList();
+            ViewBag.PreNextProduct = GetPreNextProductList(productid);
+            ViewBag.OtherBuyProductList = GetOtherBuyProductList(productid);
             ViewBag.ShopInfo = GetShopInfo();
             return View();
         }
 
         /// <summary>
-        /// 小青蛙详细信息（包括简介、联系方式、二维码、邮箱等等）
+        /// 根据productid获取上一个下一个商品
         /// </summary>
-        /// <param name="bCategoryid"></param>
+        /// <param name="productId"></param>
         /// <returns></returns>
-        public ShopInfoModel GetShopInfo()
+        public List<ProductModel> GetPreNextProductList(string productId)
         {
-            var shopmodel = new ShopInfoModel
+            var param = new SqlParameter();
+            var key = AppConst.Cache_PreNextProduct+ productId;
+            var sql = $@"SELECT*
+                            FROM  (SELECT TOP 1 p.ProductID,
+                                                p.ProductName,
+                                                p.ProductTitle,
+                                                p.ProductSubTtile,
+                                                p.LikeCount,
+                                                p.CommentCount,
+                                                p.SeenCount,
+                                                p.DetailPicCount,
+                                                p.Status,
+                                                ac.ACategoryID,
+                                                bc.BCategoryID,
+                                                p.UpdateTime,
+                                                ac.ACategoryName,
+                                                bc.BCategoryName
+                                   FROM   Product p WITH(nolock)
+                                          INNER JOIN BCategory bc WITH(nolock)
+                                                  ON bc.BCategoryID = p.BCategoryID
+                                          INNER JOIN ACategory ac WITH(nolock)
+                                                  ON ac.ACategoryID = bc.ACategoryID
+                                   WHERE  @ProductID > p.ProductID
+                                   ORDER  BY p.ProductID DESC) t
+                            UNION
+                            SELECT TOP 1 p.ProductID,
+                                         p.ProductName,
+                                         p.ProductTitle,
+                                         p.ProductSubTtile,
+                                         p.LikeCount,
+                                         p.CommentCount,
+                                         p.SeenCount,
+                                         p.DetailPicCount,
+                                         p.Status,
+                                         ac.ACategoryID,
+                                         bc.BCategoryID,
+                                         p.UpdateTime,
+                                         ac.ACategoryName,
+                                         bc.BCategoryName
+                            FROM   Product p WITH(nolock)
+                                   INNER JOIN BCategory bc WITH(nolock)
+                                           ON bc.BCategoryID = p.BCategoryID
+                                   INNER JOIN ACategory ac WITH(nolock)
+                                           ON ac.ACategoryID = bc.ACategoryID
+                            WHERE  @ProductID < p.ProductID ";
+
+            var cacheResult = (List<ProductModel>)CacheHelper.GetCache(key);
+            if (cacheResult == null)
             {
-                ShopName = "小青蛙商学院",
-                Phone = "17601492856",
-                MailAddress = "1315915446@qq.com",
-                WXNumber = "17601492856",
-                WXImageUrl = "www.sss.com/sss.jpg",
-                Slogan = "学知识，上小青蛙商学院！",
-                Introduction = $@"小青蛙商学院，竭力为您提供全方位的学习资源，靠谱的教学资料，优质的原创课程。学知识，上小青蛙商学院！",
-            };
-            return shopmodel;
+                param.ParameterName = "@ProductID";
+                param.Value = productId;
+
+                cacheResult = productDal.QueryCustom<ProductModel>(sql, param);
+                if (cacheResult == null || !cacheResult.Any())
+                {
+                    cacheResult = new List<ProductModel>();
+                }
+                CacheHelper.SetCache(key, cacheResult);
+            }
+            return cacheResult;
+        }
+
+
+        /// <summary>
+        /// 根据productid获取同类目其他商品
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <param name="topCount">默认取3个</param>
+        /// <returns></returns>
+        public List<ProductModel> GetOtherBuyProductList(string productId,int topCount=3)
+        {
+            var param = new SqlParameter();
+            var key = AppConst.Cache_OtherBuyProduct + productId + topCount;
+            var sql = $@"SELECT TOP {topCount} p.ProductID,
+             p.ProductName,
+             p.ProductTitle,
+             p.ProductSubTtile,
+             p.LikeCount,
+             p.CommentCount,
+             p.SeenCount,
+             p.DetailPicCount,
+             p.Status,
+             ac.ACategoryID,
+             bc.BCategoryID,
+             p.UpdateTime,
+             ac.ACategoryName,
+             bc.BCategoryName
+FROM   Product p WITH(nolock)
+       INNER JOIN BCategory bc WITH(nolock)
+               ON bc.BCategoryID = p.BCategoryID
+       INNER JOIN ACategory ac WITH(nolock)
+               ON ac.ACategoryID = bc.ACategoryID
+WHERE  bc.BCategoryID = (SELECT p.BCategoryID
+                         FROM   Product p WITH(nolock)
+                         WHERE  p.ProductID = @ProductID) 
+						 and p.ProductID != @ProductID";
+
+            
+
+            var cacheResult = (List<ProductModel>)CacheHelper.GetCache(key);
+            if (cacheResult == null)
+            {
+                param.ParameterName = "@ProductID";
+                param.Value = productId;
+
+                cacheResult = productDal.QueryCustom<ProductModel>(sql, param);
+                if (cacheResult?.Any() ?? false)
+                {
+                    cacheResult.ForEach(p =>
+                    {
+                        p.HeaderImageUrl = AppConst.GetProductHeaderImgUrl(p.ProductID);
+                    });
+                }
+                else
+                {
+                    cacheResult = new List<ProductModel>();
+                }
+                CacheHelper.SetCache(key, cacheResult);
+            }
+            return cacheResult;
         }
 
         /// <summary>
@@ -58,7 +169,7 @@ namespace XQW.Web.Controllers
         public List<ProductModel> GetHotProductList(string productId = "")
         {
             var param = new SqlParameter();
-            var key = "";
+            var key = AppConst.Cache_HotProductListAll;
             var sql = $@"SELECT    p.ProductID,
                                    p.ProductName,
                                    p.ProductTitle,
@@ -80,8 +191,6 @@ namespace XQW.Web.Controllers
                                            ON ac.ACategoryID = bc.ACategoryID
                             WHERE  p.IsHot = 1 ";
 
-            key = AppConst.Cache_HotProductListAll;
-
             var cacheResult = (List<ProductModel>)CacheHelper.GetCache(key);
             if (cacheResult == null)
             {
@@ -91,7 +200,6 @@ namespace XQW.Web.Controllers
                     cacheResult.ForEach(p =>
                     {
                         p.HeaderImageUrl = AppConst.GetProductHeaderImgUrl(p.ProductID);
-                        p.DetailImageUrlList = AppConst.GetProductDetailImgUrl(p.ProductID, p.DetailPicCount);
                     });
                 }
                 else
@@ -101,32 +209,6 @@ namespace XQW.Web.Controllers
                 CacheHelper.SetCache(key, cacheResult);
             }
             return cacheResult;
-        }
-
-        /// <summary>
-        /// 根据productid获取前后顺序商品
-        /// </summary>
-        /// <param name="bCategoryid"></param>
-        /// <returns></returns>
-        public List<ProductModel> GetPreNextProduct(string productId)
-        {
-            return GetProductListBybCate("","B004");
-        }
-
-
-        /// <summary>
-        /// 其他人正在买（去重3件）
-        /// </summary>
-        /// <param name="bCategoryid"></param>
-        /// <returns></returns>
-        public List<ProductModel> GetOtherBuyProductList()
-        {
-            return GetProductListBybCate("", "B004");
-        }
-
-        public JsonResult GetProductListJsonBybCate(string bCategoryid)
-        {
-            return Json(GetProductListBybCate("",bCategoryid), JsonRequestBehavior.AllowGet);
         }
 
         public List<ProductModel> GetProductListBybCate(string aCategoryid, string bCategoryid)
@@ -183,7 +265,6 @@ namespace XQW.Web.Controllers
                     cacheResult.ForEach(p =>
                     {
                         p.HeaderImageUrl = AppConst.GetProductHeaderImgUrl(p.ProductID);
-                        p.DetailImageUrlList = AppConst.GetProductDetailImgUrl(p.ProductID, p.DetailPicCount);
                     });
                 }
                 else
@@ -231,7 +312,6 @@ namespace XQW.Web.Controllers
                 if (cacheResult != null)
                 {
                     //头图和详情图 url
-                    cacheResult.HeaderImageUrl = AppConst.GetProductHeaderImgUrl(productid);
                     cacheResult.DetailImageUrlList = AppConst.GetProductDetailImgUrl(productid, cacheResult.DetailPicCount);
                 }
                 else
@@ -241,6 +321,25 @@ namespace XQW.Web.Controllers
                 CacheHelper.SetCache(key, cacheResult);
             }
             return cacheResult;
+        }
+
+        [HttpPost]
+        public JsonResult CommitComment(CommentRequest request)
+        {
+            try
+            {
+                var comment = new Comment();
+                comment.CommentContent = request.CommentContent;
+                comment.ContactNo = request.ContactNo;
+                comment.NickName = request.NickName;
+                comment.ProductID = request.ProductID;
+                commentDal.Add(comment);
+            }
+            catch(Exception ex)
+            {
+                WriteErrorLog($"留言失败：请求参数：{JsonConvert.SerializeObject(request)}，错误：{ex.Message}");
+            }
+            return Json("success");
         }
     }
 }
