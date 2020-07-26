@@ -880,7 +880,7 @@ td, th {
 }
 
 .mt-6 {
-    margin-top: 10px;
+    margin-top: 5%;
     margin-bottom: -20px
 }
 
@@ -4181,8 +4181,8 @@ a {
             }
 
 .header nav {
-    position: relative;
-    text-align: center
+    /*position: relative;*/
+    text-align: left;
 }
 
     .header nav .logo {
@@ -5026,7 +5026,8 @@ body {
     }
 
 #sidebar {
-    position: relative
+    margin-top: 30px;
+    position: relative;
 }
 
 @media screen and (max-width: 767px) {
@@ -5564,13 +5565,13 @@ body {
 .article {
     background: #fff;
     margin-bottom: 30px;
-    padding: 25px 30px;
+    padding: 50px 30px;
     overflow: hidden
 }
 
 @media screen and (max-width: 767px) {
     .article {
-        padding: 12px
+        padding: 15px 12px 12px 12px
     }
 }
 
@@ -6596,7 +6597,7 @@ body {
 /*# sourceMappingURL=style.css.map */
 
 .recommend {
-    padding-top: 35px;
+    padding-top: 4%;
 }
 
 .vipfont {
@@ -6617,4 +6618,10 @@ body {
 .vipdesc {
     color: brown;
     font-weight: 800;
+}
+
+.prodetailvipdesc {
+    font-size: x-large;
+    font-weight: 800;
+    text-align: center;
 }

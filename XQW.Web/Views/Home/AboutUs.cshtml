@@ -29,7 +29,7 @@
                         全部教程-@shopInfo.ShopName
                     </div>
                     <div class="article-body about_product">
-                        <h2><span>@shopInfo.ShopName - 全网最全自学教程集合平台</span></h2>
+                        <h2><span>@shopInfo.ShopName - 全网最全自学教程平台</span></h2>
                         <div>
                             教程分为<span style="color: #ff0000;">
                                 <strong>@productAll.ACateCount 大类、@productAll.BCateCount 大系列、@productAll.ProductCount 门课程</strong>
@@ -45,7 +45,7 @@
                                 <div><span><strong><a class="about_acate" href="../Category/Index?acategoryid=@ACategory.ACategoryId">@aindex、@ACategory.ACategoryName</a></strong></span></div>
 
                                 int bindex = 0;
-                                foreach (var BCategory in ACategory.BCategoryList)
+                                foreach (var BCategory in ACategory.BCategoryModelWithProList)
                                 {
                                     bindex++;
                                     <div><span><a class="about_bcate" href="../Category/Index?acategoryid=@ACategory.ACategoryId&bcategoryid=@BCategory.BCategoryId">&nbsp; @bindex、@BCategory.BCategoryName</a></span></div>
@@ -86,12 +86,10 @@
 <script>
     $(document).ready(function () {
         $(".about_vip").click(function () {
-            debugger;
             saveClickLog(1402);
         });
 
         $(".about_product").click(function () {
-            debugger;
             saveClickLog(1401);
         });
     });

@@ -107,5 +107,45 @@ namespace XQW.Web.Controllers
             }
             return cacheResult;
         }
+
+        public JsonResult GetACategoryMenuList()
+        {
+            return Json(GetProductAllModel(), JsonRequestBehavior.AllowGet);
+        }
+
+        public List<ACategoryModel> GetProductAllModel()
+        {
+            var result = new List<ACategoryModel>();
+            var key = AppConst.Cache_CategoryNoPro;
+            var sql = $@"SELECT ac.ACategoryID,
+                               ac.ACategoryName,
+                               bc.BCategoryID,
+                               bc.BCategoryName
+                        FROM   BCategory bc INNER JOIN ACategory ac
+                                       ON ac.ACategoryID = bc.ACategoryID ";
+
+            var cacheResult = (List<ACategoryModel>)CacheHelper.GetCache(key);
+            if (cacheResult == null)
+            {
+                var categoryResult = bCategoryDal.QueryCustom<CategoryModel>(sql);
+                if (categoryResult?.Any() ?? false)
+                {
+                    result = categoryResult.GroupBy(p => new { p.ACategoryID, p.ACategoryName }).Select(p => new ACategoryModel
+                    {
+                        ACategoryId = p.Key.ACategoryID,
+                        ACategoryName = p.Key.ACategoryName,
+                        BCategoryList = p.Select(t => new BCategoryModel { BCategoryId = t.BCategoryID,BCategoryName =t.BCategoryName}).ToList()
+                    })?.ToList();
+
+                    cacheResult = result;
+                }
+                else
+                {
+                    cacheResult = new List<ACategoryModel>();
+                }
+                CacheHelper.SetCache(key, cacheResult);
+            }
+            return cacheResult;
+        }
     }
 }

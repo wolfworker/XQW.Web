@@ -91,6 +91,7 @@ namespace XQW.Utility
         public static string Cache_AboutUs = "cache_aboutus_";
         public static string Cache_PreNextProduct = "cache_prenextproduct_";
         public static string Cache_OtherBuyProduct = "cache_otherbuyproduct_";
+        public static string Cache_CategoryNoPro = "cache_categorynopro";
 
         #endregion
     }

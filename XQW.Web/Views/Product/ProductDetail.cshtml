@@ -25,7 +25,7 @@
                             <a class="article-meta-tags product_cate" data-catename="@productDetail.BCategoryName" href="../Category/Index?acategoryid=@productDetail.ACategoryID&bcategoryid=@productDetail.BCategoryID"
                                rel="tag">@productDetail.BCategoryName</a>
                         </div>
-                        <div class="article-body">
+                        <div class="article-body" style="margin-bottom: -40px;">
                             <p>
                                 @foreach (string detailImageUrl in productDetail.DetailImageUrlList)
                                 {
@@ -36,10 +36,11 @@
                                 }
                             </p>
                             <p>
+                                <div class="prodetailvipdesc">咨询购买教程，<br />请扫码添加官方微信!</div>
                                 <a href="../Home/VIP" class="fancybox product_wx" rel="fancybox-group" title="">
                                     <img class="aligncenter wp-image-302 size-thumbnail"
                                          src="@shopInfo.WXImageUrl"
-                                         alt=@productDetail.ProductSubTtile title="微信扫码-@shopInfo.ShopName" width="150" height="150">
+                                         alt=@productDetail.ProductSubTtile title="微信扫码-@shopInfo.ShopName" width="350" height="350">
                                 </a>
                             </p>
                         </div>
@@ -150,7 +151,6 @@
     $(document).ready(function () {
 
         $(".product_cate").click(function () {
-            debugger;
             saveClickLog(1201, this.dataset.catename);
         });
 
@@ -180,7 +180,6 @@
     });
 
     $("#commitComment").click(function () {
-        debugger;
         var comment = $("#commentcontent").val();
         var contactno = $("#contactno").val();
         var nickname = $("#nickname").val();

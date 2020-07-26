@@ -6,16 +6,10 @@
     <meta name="keywords" content="自学,教程,视频教程">
     <meta name="description" content="小青蛙商学院，国内自学视频教程平台。提供各种入门教程，范围包括：电商|社交|推广，平面|影视|三维|网站，音乐|美术|摄影，运动|健身|舞蹈，外语|办公|职业，化妆|形象|饮食，生活|维修|宠物|手工|母婴等">
     <title>小青蛙商学院-自学视频教程平台</title>
-    @*<link rel="shortcut icon" href="http://www.zixuexia.com/wp-content/themes/BlackMirror/assets/images/favicon.ico" type="image/x-icon">*@
-    @*<link rel="apple-touch-icon-precomposed" href="http://www.zixuexia.com/wp-content/themes/BlackMirror/assets/images/logo_mobile.png">*@
-    @*<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://www.zixuexia.com/wp-content/themes/BlackMirror/assets/images/logo_mobile.png">*@
-    @*<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://www.zixuexia.com/wp-content/themes/BlackMirror/assets/images/logo_mobile.png">*@
-    @*<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://www.zixuexia.com/wp-content/themes/BlackMirror/assets/images/logo_mobile.png">*@
-    @*<link rel="apple-touch-icon-precomposed" sizes="180x180" href="http://www.zixuexia.com/wp-content/themes/BlackMirror/assets/images/logo_mobile.png">*@
     <link rel="dns-prefetch" href="//apps.bdimg.com">
     <link rel="dns-prefetch" href="//cdn.bootcss.com">
     <link rel="dns-prefetch" href="//s.w.org">
-    <link rel="alternate" type="application/rss+xml" title="小青蛙商学院 » 电商分类目录Feed" href="http://www.zixuexia.com/catalogs/1%e7%94%b5%e5%95%86%e7%a4%be%e4%ba%a4%e6%8e%a8%e5%b9%bf/%e7%94%b5%e5%95%86/feed">
+    <link rel="alternate" type="application/rss+xml" title="小青蛙商学院 » 电商分类目录Feed" href="">
     <link rel="stylesheet" id="style-css" href="~/Content/css/style.css" type="text/css" media="all">
     <link rel="stylesheet" id="owlcss-css" href="~/Content/css/owl.carousel.min.css?ver=1.3.2" type="text/css" media="all">
     <link rel="stylesheet" id="PrismCss-css" href="~/Content/css/prism.css?ver=1.5.0" type="text/css" media="all">
@@ -57,6 +51,11 @@
     <script type="text/javascript" src="https://cdn.bootcss.com/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js?ver=3.1.13"></script>
     <script type="text/javascript" src="https://apps.bdimg.com/libs/fancybox/2.1.4/jquery.fancybox.min.js?ver=2.1.4"></script>
     <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+
+
+    <link type="text/css" href="~/Content/css/bootstrap.css" rel="stylesheet" />
+    <script type="text/javascript" src="~/Scripts/bootstrap.js"></script>
+
     @*------------头部---------------*@
     <header class="header">
         <nav class="container">
@@ -70,23 +69,42 @@
                     <img src="@AppConst.OtherImagePath/xqw_logo.png">
                 </a>
             </div>
-            <ul class="header-menu">
-            </ul>
-            <div class="menu-button">
-                <div class="nav-bar">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
+            <div class="header-menu-xqw">
+                @*<nav class="nav navbar-inverse navbar-fixed-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <!--在移动端的时候导航条折叠起来，三横的样式出现，点击该样式可以显示或隐藏导航条上的内容-->
+                            <button class="navbar-toggle" data-toggle="collapse" data-target="#menu">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a href="#" class="navbar-brand">logo</a>
+                        </div>
+                        <div id="menu" class="collapse navbar-collapse">
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="#">one</a></li>
+                                <li><a href="#">two</a></li>
+                                <!--下拉菜单功能的实现-->
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                        three<span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">first</a></li>
+                                        <li><a href="#">second</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>*@
+
+
             </div>
         </nav>
-        <div class="menu-wrap show-xs">
-            <div class="mobile-menu">
-                <ul class="mobile-menu-nav">
-                </ul>
-            </div>
-        </div>
     </header>
+
 
     @RenderBody()
 
@@ -121,20 +139,12 @@
                         </a>
                     </span>
                     <script>
+
                     </script>
                 </p>
             </div>
         </div>
     </footer>
-
-    <li class="change-language hidden">
-        <a id="StranLink" class="wencode">繁</a>
-    </li>
-
-    <div class="overlay"></div>
-
-    <div class="backdrop transition"></div>
-
     <script>
         var userLocalInfo = {};
 
@@ -145,18 +155,37 @@
 
         function loadCategory() {
             $.ajax({
-                url: "../Category/GetAllACategoryList",
+                url: "../Category/GetACategoryMenuList",
                 dataType: "json",
                 async: true,
                 type: "get",
                 success: function (result) {
-                    var htmlstr = '<li><a href="/Home/Index" class="common_home">首页</a></li>';
-                    $.each(result, function (i, item) {
-                        var isactive = ('@ViewBag.ACategoryID' == item.ACategoryID) ? "color:white" : "";
-                        htmlstr += '<li><a class="common_Acate" style="'+isactive+'" href="/Category/Index?acategoryid=' + item.ACategoryID + '" >' + item.ACategoryName + '</a></li>';
+                    var htmlstr = '<nav class="nav navbar-inverse navbar-fixed-top">';
+                    htmlstr += '<div class="container">';
+
+                    htmlstr += '<div class="navbar-header">';
+                    htmlstr += '<button class="navbar-toggle" data-toggle="collapse" data-target="#menu">';
+                    htmlstr += '<span class="icon-bar"></span>';
+                    htmlstr += '<span class="icon-bar"></span>';
+                    htmlstr += '<span class="icon-bar"></span>';
+
+                    htmlstr += '</button></div>';
+                    //htmlstr += '</button><a href="/Home/Index" class="navbar-brand">首页</a></div>';
+                    htmlstr += '<div id="menu" class="collapse navbar-collapse">';
+                    htmlstr += '<ul class="nav navbar-nav">';
+
+                    $.each(result, function (i, aitem) {
+                        htmlstr += '<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">' + aitem.ACategoryName + '<span class="caret"></span></a>';
+                        htmlstr += '<ul class="dropdown-menu">';
+                        $.each(aitem.BCategoryList, function (j, bitem) {
+                            htmlstr += '<li><a href="/Category/Index?bcategoryid=' + bitem.BCategoryId + '">' + bitem.BCategoryName + '</a></li>';
+                        });
+                        htmlstr += '</ul></li>';
                     });
-                    $(".header-menu").append(htmlstr);
-                    $(".mobile-menu-nav").append(htmlstr);
+
+                    htmlstr += '</ul></div></div></nav>';
+
+                    $(".header-menu-xqw").append(htmlstr);
                     registerClickEvent();
                 }
             });

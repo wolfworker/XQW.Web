@@ -74,11 +74,11 @@ namespace XQW.Web.Controllers
                         acateData.ACategoryId = item.Key.ACategoryID;
                         acateData.ACategoryName = item.Key.ACategoryName;
 
-                        var bCateList = new List<BCategoryModel>();
+                        var bCateList = new List<BCategoryModelWithPro>();
                         var bcateGroup = item.ToList().GroupBy(p => new { p.BCategoryID, p.BCategoryName });
                         foreach (var bcate in bcateGroup)
                         {
-                            var bcateData = new BCategoryModel();
+                            var bcateData = new BCategoryModelWithPro();
                             bcateData.BCategoryId = bcate.Key.BCategoryID;
                             bcateData.BCategoryName = bcate.Key.BCategoryName;
 
@@ -97,7 +97,7 @@ namespace XQW.Web.Controllers
                             bCateList.Add(bcateData);
 
                         }
-                        acateData.BCategoryList = bCateList;
+                        acateData.BCategoryModelWithProList = bCateList;
                         aList.Add(acateData);
                     }
                     result.ACategoryList = aList;

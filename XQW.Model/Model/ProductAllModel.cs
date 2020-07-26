@@ -17,25 +17,6 @@ namespace XQW.Model.Model
         public List<ACategoryModel> ACategoryList { get; set; }
     }
 
-    public class ACategoryModel
-    {
-        public string ACategoryName { get; set; }
-
-        public string ACategoryId { get; set; }
-
-        public List<BCategoryModel> BCategoryList { get; set; }
-    }
-
-    public class BCategoryModel
-    {
-        public string BCategoryName { get; set; }
-
-        public string BCategoryId { get; set; }
-
-        public List<ProductModel> ProductList { get; set; }
-    }
-
-
     public class ProductAllOriginalModel
     {
         public string ProductName { get; set; }
